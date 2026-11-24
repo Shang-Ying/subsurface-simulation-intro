@@ -278,7 +278,7 @@ body.mob .appcard > svg { width: 100%; max-width: 520px; height: auto; align-sel
 body.mob #heat .ill p.lbl:nth-of-type(2) { top: 288px !important; }
 #toc { display: none; }
 body.tall #toc { display: block; position: absolute; left: 0; right: 0; bottom: 0; overflow: auto; padding: 14px 18px 64px;
-  background: #F6F0FB; font-family: 'Noto Sans TC', sans-serif; box-sizing: border-box; border-top: 1px solid #E4DAF3; }
+  background: #F6F0FB; font-family: 'Noto Sans TC', sans-serif; box-sizing: border-box; border-top: 0; }
 #toc .tg { margin: 0 0 12px; }
 #toc .tc { font: 800 13px 'Noto Sans TC', sans-serif; color: #7B6CD9; margin: 0 0 6px; letter-spacing: 1px; }
 #toc .tl2 { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -287,7 +287,8 @@ body.tall #toc { display: block; position: absolute; left: 0; right: 0; bottom: 
 #toc button.on { background: #7B6CD9; border-color: #7B6CD9; color: #FFFCFA; }
 #toc button.on b { color: #E4DAFA; }
 body.tall #nav { opacity: 1; position: absolute; left: 0; right: 0; bottom: auto; transform: none; justify-content: center;
-  padding: 10px 0; background: #EFE7FA; border-top: 1px solid #E4DAF3; border-bottom: 1px solid #E4DAF3; }
+  padding: 10px 0; background: #EFE7FA; border-top: 0; border-bottom: 1px solid #2E2748; }
+html:has(body.tall), body.tall { background: #EFE7FA; }
 body.tall #nav button { background: #7B6CD9; color: #FFFCFA; }
 body.tall #nav span { background: #FFFCFA; color: #4A3F86; }
 body.tall #toc { padding-bottom: 18px; }
@@ -530,7 +531,7 @@ var mode='', VW=760;
 function fitL(){var w=innerWidth,h=innerHeight,k=Math.min(w/1920,h/1080);
   var tall = h/w > 0.68 && h-1080*(w/1920) > 140;
   document.body.classList.toggle('tall',tall);
-  if(tall){k=w/1920;st.style.transform='scale('+k+')';var nv=document.getElementById('nav');nv.style.top=Math.ceil(1080*k)+'px';document.getElementById('toc').style.top=(Math.ceil(1080*k)+nv.offsetHeight)+'px';}
+  if(tall){k=w/1920;st.style.transform='scale('+k+')';var nv=document.getElementById('nav');var sh=Math.floor(1080*k);nv.style.top=sh+'px';document.getElementById('toc').style.top=(sh+nv.offsetHeight)+'px';}
   else{document.getElementById('nav').style.top='';st.style.transform='translate('+((w-1920*k)/2)+'px,'+((h-1080*k)/2)+'px) scale('+k+')';}
   wrap.style.height='';}
 function buildToc(){
