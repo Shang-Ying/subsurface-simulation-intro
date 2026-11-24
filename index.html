@@ -252,7 +252,9 @@ body.mob .card ul { text-align: left; }
 body.mob .card .crow-r, body.mob .card .khead, body.mob .card .pinnrow, body.mob .card .mrow { justify-content: center; }
 body.mob .cg .crow-r { justify-content: center; }
 body.mob .ill-arrow { align-self: center; font-size: 40px; color: #A99BE6; line-height: 1; margin: -6px 0; }
-body.mob *[style*="animation"], body.mob .card, body.mob .kind, body.mob .ill { animation: none !important; }
+@keyframes mrise { from { opacity: 0; translate: 0 22px; } to { opacity: 1; translate: 0 0; } }
+body.mob .ill:not(.ma), body.mob .swapill { animation: none !important; }
+body.mob .ma { animation: mrise 520ms ease-out both !important; animation-delay: calc(var(--mi, 0) * 80ms) !important; }
 body.mob { font-family: 'Nunito', 'Noto Sans TC', Arial, sans-serif; }
 body.mob .caption, body.mob section p, body.mob section li, body.mob section h3 { word-break: keep-all; overflow-wrap: anywhere; }
 body.mob .ill p, body.mob .eqrow p, body.mob .et { word-break: normal; }
@@ -634,12 +636,20 @@ function prepSection(sec){
     });
   }
 }
+function tagAnim(sec){
+  if(sec.dataset.manim)return; sec.dataset.manim='1';
+  var sel='.chip,.ctag,.eyebrow,h1,h2,.trow,.who-box,.namecard,.skcard,.tli,.card,.kind,.ill,.ill-arrow,.note,.msec,.mtile,.close-h,.achips,.cg,.caption';
+  var all=[].slice.call(sec.querySelectorAll(sel)).filter(function(e){
+    if(e.offsetParent===null&&getComputedStyle(e).position!=='fixed')return false;
+    var p=e.parentElement; while(p&&p!==sec){ if(p.matches(sel))return false; p=p.parentElement;} return true;});
+  all.forEach(function(e,k){e.classList.add('ma');e.style.setProperty('--mi',Math.min(k,12));});
+}
 function show(j){
   i=Math.max(0,Math.min(n-1,j));
   S.forEach(function(s,k){s.classList.toggle('on',k===i)});
   document.getElementById('num').textContent=(i+1)+' / '+n;
   [].forEach.call(document.querySelectorAll('#toc button'),function(b){b.classList.toggle('on',+b.dataset.k===i)});
-  if(mode==='m'){prepSection(S[i]);fitM();window.scrollTo(0,0);}
+  if(mode==='m'){prepSection(S[i]);tagAnim(S[i]);fitM();window.scrollTo(0,0);}
 }
 function setMode(){
   var w=innerWidth,h=innerHeight;
