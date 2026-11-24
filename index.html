@@ -276,6 +276,21 @@ body.mob .eqcard .eqlabel { flex-direction: row !important; align-items: center;
 body.mob .eqcard .eqlabel .tag { margin: 0; flex: none; }
 body.mob .appcard > svg { width: 100%; max-width: 520px; height: auto; align-self: center; }
 body.mob #heat .ill p.lbl:nth-of-type(2) { top: 288px !important; }
+#toc { display: none; }
+body.tall #toc { display: block; position: absolute; left: 0; right: 0; bottom: 0; overflow: auto; padding: 14px 18px 64px;
+  background: #F6F0FB; font-family: 'Noto Sans TC', sans-serif; box-sizing: border-box; border-top: 1px solid #E4DAF3; }
+#toc .tg { margin: 0 0 12px; }
+#toc .tc { font: 800 13px 'Noto Sans TC', sans-serif; color: #7B6CD9; margin: 0 0 6px; letter-spacing: 1px; }
+#toc .tl2 { display: flex; flex-wrap: wrap; gap: 6px; }
+#toc button { font: 700 13px 'Noto Sans TC', sans-serif; color: #3B3360; background: #FFFCFA; border: 1px solid #E4DAF3; border-radius: 14px; padding: 5px 11px; cursor: pointer; }
+#toc button b { color: #9A8FC8; font-weight: 800; margin-right: 5px; }
+#toc button.on { background: #7B6CD9; border-color: #7B6CD9; color: #FFFCFA; }
+#toc button.on b { color: #E4DAFA; }
+body.tall #nav { opacity: 1; position: absolute; left: 0; right: 0; bottom: auto; transform: none; justify-content: center;
+  padding: 10px 0; background: #EFE7FA; border-top: 1px solid #E4DAF3; border-bottom: 1px solid #E4DAF3; }
+body.tall #nav button { background: #7B6CD9; color: #FFFCFA; }
+body.tall #nav span { background: #FFFCFA; color: #4A3F86; }
+body.tall #toc { padding-bottom: 18px; }
 #mtop { display: none; }
 body.mob #mtop { display: flex; position: sticky; top: 0; z-index: 20; align-items: center; justify-content: space-between;
   padding: 10px 14px; background: rgba(251,247,253,.95); border-bottom: 1px solid #E4DAF3; font: 700 14px 'Noto Sans TC', sans-serif; color: #4A3F86; }
@@ -505,13 +520,31 @@ body.small #mbtn a { pointer-events: auto; font: 800 12px 'Noto Sans TC', sans-s
 </section>
 </div></div>
 <div id="nav"><button id="prev" aria-label="上一頁">‹ 上一頁</button><span id="num"></span><button id="next" aria-label="下一頁">下一頁 ›</button><button id="fs" aria-label="全螢幕">全螢幕</button></div>
+<div id="toc"></div>
 <div id="mbtn"><a id="mlink" href="#" target="_blank" rel="noopener">手機版全螢幕閱讀 ›</a></div>
 <script>
 (function(){
 var S=[].slice.call(document.querySelectorAll('#stage>section')),n=S.length,i=0,st=document.getElementById('stage'),wrap=document.getElementById('mwrap');
 var inFrame=false; try{inFrame=window.self!==window.top}catch(e){inFrame=true}
 var mode='', VW=760;
-function fitL(){var w=innerWidth,h=innerHeight,k=Math.min(w/1920,h/1080);st.style.transform='translate('+((w-1920*k)/2)+'px,'+((h-1080*k)/2)+'px) scale('+k+')';wrap.style.height='';}
+function fitL(){var w=innerWidth,h=innerHeight,k=Math.min(w/1920,h/1080);
+  var tall = h/w > 0.68 && h-1080*(w/1920) > 140;
+  document.body.classList.toggle('tall',tall);
+  if(tall){k=w/1920;st.style.transform='scale('+k+')';var nv=document.getElementById('nav');nv.style.top=Math.ceil(1080*k)+'px';document.getElementById('toc').style.top=(Math.ceil(1080*k)+nv.offsetHeight)+'px';}
+  else{document.getElementById('nav').style.top='';st.style.transform='translate('+((w-1920*k)/2)+'px,'+((h-1080*k)/2)+'px) scale('+k+')';}
+  wrap.style.height='';}
+function buildToc(){
+  var t=document.getElementById('toc'),groups=[],cur=null;
+  S.forEach(function(sec,k){
+    var chip=sec.querySelector('.chip'),c=chip?chip.textContent.trim():'開場';
+    var h=sec.querySelector('h1,h2'),name=sec.dataset.sid==='bio'?'講者簡介':(h?h.textContent.replace(/\s+/g,''):'');
+    if(sec.dataset.sid==='cover')name='封面';
+    if(!cur||cur.c!==c){cur={c:c,items:[]};groups.push(cur);}
+    cur.items.push([k,name]);
+  });
+  t.innerHTML=groups.map(function(g){return '<div class="tg"><p class="tc">'+g.c+'</p><div class="tl2">'+g.items.map(function(it){return '<button data-k="'+it[0]+'"><b>'+(it[0]+1)+'</b>'+it[1]+'</button>'}).join('')+'</div></div>'}).join('');
+  t.addEventListener('click',function(e){var b=e.target.closest('button');if(b){e.stopPropagation();show(+b.dataset.k);}});
+}
 function fitM(){var k=innerWidth/VW;st.style.transform='scale('+k+')';wrap.style.height=Math.ceil(st.offsetHeight*k)+'px';}
 function scaleBox(el,z){ // shrink a fixed-size box with transform, keep its layout footprint at the shrunk size
   var w=el.offsetWidth,h=el.offsetHeight;
@@ -570,11 +603,12 @@ function show(j){
   i=Math.max(0,Math.min(n-1,j));
   S.forEach(function(s,k){s.classList.toggle('on',k===i)});
   document.getElementById('num').textContent=(i+1)+' / '+n;
+  [].forEach.call(document.querySelectorAll('#toc button'),function(b){b.classList.toggle('on',+b.dataset.k===i)});
   if(mode==='m'){prepSection(S[i]);fitM();window.scrollTo(0,0);}
 }
 function setMode(){
   var w=innerWidth,h=innerHeight;
-  var portrait = h>w*1.05 && w<900;
+  var portrait = (h>w*1.05 && w<900) || (inFrame && w<600 && h>w*0.8);
   var m = portrait ? 'm' : 'l';
   document.body.classList.toggle('small', !portrait && inFrame && w<720);
   if(m!==mode){
@@ -597,6 +631,7 @@ addEventListener('hashchange',function(){var q=parseInt((location.hash||'').slic
 addEventListener('resize',setMode); addEventListener('orientationchange',function(){setTimeout(setMode,250)});
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){if(mode==='m')fitM()});
 addEventListener('load',function(){if(mode==='m')fitM()});
+buildToc();
 var hh=parseInt((location.hash||'').slice(1),10); i=hh>0?Math.min(n-1,hh-1):0;
 setMode();
 document.getElementById('mlink').href=location.href.split('#')[0]+'#'+(i+1);
