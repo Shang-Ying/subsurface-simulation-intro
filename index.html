@@ -553,12 +553,19 @@ function scaleBox(el,z){ // shrink a fixed-size box with transform, keep its lay
   el.style.transformOrigin='0 0';el.style.transform='scale('+z+')';
   el.style.marginRight=(w*z-el.offsetWidth)+'px';el.style.marginBottom=(h*z-el.offsetHeight)+'px';
 }
+function reid(node,suf){ // give a cloned drawing its own gradient/filter ids so it never points at a hidden original
+  var map={};[].forEach.call(node.querySelectorAll('[id]'),function(e){map[e.id]=e.id+suf;e.id=e.id+suf;});
+  [].forEach.call(node.querySelectorAll('*'),function(e){[].forEach.call(e.attributes,function(a){
+    if(a.value.indexOf('url(#')>=0)e.setAttribute(a.name,a.value.replace(/url\(#([^)]+)\)/g,function(m,id){return 'url(#'+(map[id]||id)+')'}));
+    if((a.name==='href'||a.name==='xlink:href')&&a.value.charAt(0)==='#'&&map[a.value.slice(1)])e.setAttribute(a.name,'#'+map[a.value.slice(1)]);});});
+  return node;
+}
 function splitIll(el,ranges,s){ // cut one wide drawing into stacked panels (canvas x-ranges, display scale s)
   var host=el.parentNode, svw=el.querySelector('.svgwrap'), labs=[].slice.call(el.querySelectorAll('.lbl'));
   ranges.forEach(function(r,k){
     var x0=r[0]*s,x1=r[1]*s,p=document.createElement('div');
     p.className='ill ill-part';p.style.width=Math.round(x1-x0)+'px';p.style.height=el.style.height;p.style.overflow='hidden';
-    var c=svw.cloneNode(true);c.style.left=(-x0)+'px';p.appendChild(c);
+    var c=reid(svw.cloneNode(true),'-p'+k);c.style.left=(-x0)+'px';p.appendChild(c);
     labs.forEach(function(l){var L=parseFloat(l.style.left),W=parseFloat(l.style.width)||0,cx=L+W/2;
       if(cx>=x0&&cx<x1){var q=l.cloneNode(true);q.style.left=Math.max(0,Math.min(L-x0,x1-x0-W))+'px';p.appendChild(q);}});
     if(k>0){var a=document.createElement('div');a.className='ill-arrow';a.textContent='▼';host.insertBefore(a,el);}
@@ -568,13 +575,20 @@ function splitIll(el,ranges,s){ // cut one wide drawing into stacked panels (can
 }
 function prepSection(sec){
   if(sec.dataset.mprep)return; sec.dataset.mprep='1';
-  if(sec.dataset.sid==='uncertainty'){var u=sec.querySelector('.ill'); if(u){var s=parseFloat(u.style.width)/1664; splitIll(u,[[0,548],[660,1030],[1140,1664]],s); u.parentNode.style.flexDirection='column'; u.parentNode.style.alignItems='center'; u.parentNode.style.gap='14px';}}
+  if(sec.dataset.sid==='uncertainty'){var u=sec.querySelector('.ill'); if(u){var s=parseFloat(u.style.width)/1664; splitIll(u,[[0,522],[660,1030],[1140,1664]],s); u.parentNode.style.flexDirection='column'; u.parentNode.style.alignItems='center'; u.parentNode.style.gap='14px';}}
+  if(sec.dataset.sid==='swap'){var sw=sec.querySelector('.swapill'),cards=sec.querySelectorAll('.swcard');
+    if(sw&&cards.length===3){var sv=sw.querySelector('svg');
+      [[57,497],[612,1052],[1167,1607]].forEach(function(r,k){
+        var p=document.createElement('div');p.className='ill swpart';p.style.width=(r[1]-r[0])+'px';p.style.height=sv.getAttribute('height')+'px';p.style.overflow='hidden';p.style.position='relative';
+        var c=reid(sv.cloneNode(true),'-w'+k);c.style.position='absolute';c.style.left=(-r[0])+'px';c.style.top='0';p.appendChild(c);
+        cards[k].insertBefore(p,cards[k].firstChild);});
+      sw.style.display='none';sw.classList.remove('swapill');}}
   var avail=VW-80;
   if(sec.dataset.sid==='grid'){var g=sec.querySelector('.ill');if(g){g.style.width='1340px';[].forEach.call(g.children,function(c){c.style.left=(parseFloat(c.style.left||0)-130)+'px';});}}
   [].forEach.call(sec.querySelectorAll('.ill, .swapill'),function(el){
     var sv=el.querySelector('svg');
     var w=parseFloat(el.style.width)||(sv&&parseFloat(sv.getAttribute('width')))||el.offsetWidth; if(!w)return;
-    var up=el.closest('.kcard')?1.35:(el.closest('#structure')?1.2:1); var z=Math.min(up,(el.closest('.card')?620:avail)/w);
+    var up=el.classList.contains('swpart')?1.35:el.closest('.kcard')?1.35:(el.closest('#structure')?1.2:1); var z=Math.min(up,(el.closest('.card')?620:avail)/w);
     [].forEach.call(el.querySelectorAll('.lbl,.lblrow,.node'),function(l){
       var f=parseFloat(getComputedStyle(l).fontSize)||26, want=Math.min(1.9,Math.max(z>1?0.8:1,24/(f*z)));
       if(Math.abs(want-1)<=0.01){var l0=parseFloat(l.style.left);if(l0<0)l.style.left='0px';return;}
