@@ -287,10 +287,14 @@ body.mob #heat .ill p.lbl:nth-of-type(2) { top: 288px !important; }
 #toc { display: none; }
 body.tall #toc { display: block; position: absolute; left: 0; right: 0; bottom: 0; overflow: auto; padding: 14px 18px 64px;
   background: #F6F0FB; font-family: 'Noto Sans TC', sans-serif; box-sizing: border-box; border-top: 0; }
-#toc .tg { margin: 0 0 12px; }
-#toc .tc { font: 800 13px 'Noto Sans TC', sans-serif; color: #7B6CD9; margin: 0 0 6px; letter-spacing: 1px; }
+#toc .th { font: 800 15px 'Noto Sans TC', sans-serif; color: #4A3F86; letter-spacing: 2px; margin: 6px 2px 12px; }
+#toc .tg { display: flex; gap: 18px; align-items: flex-start; background: #FFFCFA; border: 1px solid #E4DAF3; border-radius: 16px; padding: 16px 18px; margin: 0 0 12px; box-shadow: 0 6px 18px rgba(123,108,217,.08); }
+#toc .tn { flex: none; width: 46px; height: 46px; border-radius: 13px; background: #EFE7FA; color: #7B6CD9; font: 900 19px/46px 'Nunito', 'Noto Sans TC', sans-serif; text-align: center; }
+#toc .tb { flex: 1; min-width: 0; }
+#toc .tc { font: 800 16px 'Noto Sans TC', sans-serif; color: #3B3360; margin: 2px 0 4px; letter-spacing: 1px; }
+#toc .td { font: 500 13.5px/1.6 'Noto Sans TC', sans-serif; color: #6B6390; margin: 0 0 10px; }
 #toc .tl2 { display: flex; flex-wrap: wrap; gap: 6px; }
-#toc button { font: 700 13px 'Noto Sans TC', sans-serif; color: #3B3360; background: #FFFCFA; border: 1px solid #E4DAF3; border-radius: 14px; padding: 5px 11px; cursor: pointer; }
+#toc button { font: 700 13px 'Noto Sans TC', sans-serif; color: #3B3360; background: #F7F2FD; border: 1px solid #E4DAF3; border-radius: 14px; padding: 5px 11px; cursor: pointer; }
 #toc button b { color: #9A8FC8; font-weight: 800; margin-right: 5px; }
 #toc button.on { background: #7B6CD9; border-color: #7B6CD9; color: #FFFCFA; }
 #toc button.on b { color: #E4DAFA; }
@@ -301,7 +305,9 @@ body.tall #toc { background: #EFE7FA; padding-top: 4px; }
 body.fs, html:has(body.fs) { background: #2E2748; }
 body.tall #nav button { background: #7B6CD9; color: #FFFCFA; }
 body.tall #nav span { background: #FFFCFA; color: #4A3F86; }
-body.tall #toc { padding-bottom: 18px; }
+body.tall #toc { padding-bottom: 18px; display: flex; flex-direction: column; }
+body.tall #toc .th { flex: none; }
+body.tall #toc .tg { flex: 1 0 auto; align-items: center; max-height: 230px; }
 #mtop { display: none; }
 body.mob #mtop { display: flex; position: sticky; top: 0; z-index: 20; align-items: center; justify-content: space-between;
   padding: 10px 14px; background: rgba(251,247,253,.95); border-bottom: 1px solid #E4DAF3; font: 700 14px 'Noto Sans TC', sans-serif; color: #4A3F86; }
@@ -553,7 +559,8 @@ function buildToc(){
     if(!cur||cur.c!==c){cur={c:c,items:[]};groups.push(cur);}
     cur.items.push([k,name]);
   });
-  t.innerHTML=groups.map(function(g){return '<div class="tg"><p class="tc">'+g.c+'</p><div class="tl2">'+g.items.map(function(it){return '<button data-k="'+it[0]+'"><b>'+(it[0]+1)+'</b>'+it[1]+'</button>'}).join('')+'</div></div>'}).join('');
+  var D={'00':'封面與講者簡介','01':'質量流、熱流、力平衡與破壞：地下工程的三大物理過程與它們的方程式','02':'從解析解到數值解：網格、離散方法與多物理耦合','03':'面對不確定性：量測資料、模型更新與物理資訊神經網路','04':'資源開發與保育的課程地圖，以及數值模擬在各種地下工程的應用'};
+  t.innerHTML='<p class="th">章節目錄 CONTENTS</p>'+groups.map(function(g){var m=g.c.match(/^(\d\d)\s*(.*)$/),no=m?m[1]:'00',ti=m?m[2]:g.c;return '<div class="tg"><div class="tn">'+no+'</div><div class="tb"><p class="tc">'+ti+'</p><p class="td">'+(D[no]||'')+'</p><div class="tl2">'+g.items.map(function(it){return '<button data-k="'+it[0]+'"><b>'+(it[0]+1)+'</b>'+it[1]+'</button>'}).join('')+'</div></div></div>'}).join('');
   t.addEventListener('click',function(e){var b=e.target.closest('button');if(b){e.stopPropagation();show(+b.dataset.k);}});
 }
 function fitM(){var k=innerWidth/VW;st.style.transform='scale('+k+')';wrap.style.height=Math.ceil(st.offsetHeight*k)+'px';}
