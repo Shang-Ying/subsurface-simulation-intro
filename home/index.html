@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
 :root{--ink:#1B2A41;--navy:#1F3A5F;--warm:#746E6A;--faint:#9A948F;--line:#DCE5EC;--line2:#E8EEF3;--tint:#F2F7FA;--sea:#8DB8CF;--bg:#FFFFFF;
- --r-card:12px;--r-ctl:6px;--r-tag:3px;--r-photo:10px;--edge:0 0 0 1px #E3EAF0;--lift:0 0 0 1px #E3EAF0,0 1px 3px rgba(31,58,95,.04),0 6px 16px rgba(31,58,95,.04);
+ --gut:40px;--cpad:48px;--r-card:12px;--r-ctl:6px;--r-tag:3px;--r-photo:10px;--edge:0 0 0 1px #E3EAF0;--lift:0 0 0 1px #E3EAF0,0 1px 3px rgba(31,58,95,.04),0 6px 16px rgba(31,58,95,.04);
  --zh:'Source Sans 3','Noto Sans TC',sans-serif;--lat:'Source Sans 3','Noto Sans TC',sans-serif;--soft:'Source Sans 3','Noto Sans TC',sans-serif}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;overflow:hidden;background:#fff} body{position:fixed;inset:0}
@@ -29,10 +29,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 
 /* ============ desktop canvas 1200 x 1740 — one soft rounded surface; text margins 96 ============ */
 #cv{position:absolute;left:0;top:0;width:1200px;height:1740px;transform-origin:0 0;background:var(--tint);border-radius:0;overflow:hidden;
- padding:64px 64px 64px;display:flex;flex-direction:column}
+ padding:64px;display:flex;flex-direction:column;gap:var(--gut)}
 
-.head{display:grid;grid-template-columns:264px minmax(0,1fr);column-gap:40px;align-items:start;position:relative}
-.side{display:flex;flex-direction:column;gap:40px}
+.head{display:grid;grid-template-columns:264px minmax(0,1fr);column-gap:var(--gut);align-items:stretch;position:relative}
+.side{display:flex;flex-direction:column;gap:var(--gut)}
 #cv .ph{width:264px;height:320px}
 h1{font:600 58px/1.15 var(--soft);letter-spacing:5px;color:var(--navy)}
 .en{font:600 22px/1.3 var(--lat);color:var(--warm);margin-top:10px;letter-spacing:.3px}
@@ -55,39 +55,40 @@ h1{font:600 58px/1.15 var(--soft);letter-spacing:5px;color:var(--navy)}
 .lk a{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px 0 16px;font:700 14.5px/1 var(--lat)}
 .lk a svg{width:16px;height:16px;display:block;flex:none}
 /* white content cards on the soft surface */
-#cv .info{background:#fff;border-radius:var(--r-card);padding:44px 48px 48px;box-shadow:var(--lift)}
-.res{background:#fff;border-radius:var(--r-card);padding:52px 48px 60px;box-shadow:var(--lift)}
+#cv .info{background:#fff;border-radius:var(--r-card);padding:var(--cpad);box-shadow:var(--lift)}
+.res{background:#fff;border-radius:var(--r-card);padding:var(--cpad);box-shadow:var(--lift);flex:1;display:flex;flex-direction:column}
 #cv .lk a,#cv .cp{background:var(--tint);box-shadow:none}
 .mcard{background:#fff;border-radius:10px;padding:14px 16px;box-shadow:var(--lift)}
 #m.t .mcard{border-radius:var(--r-card);padding:28px 32px}
 #m .ml a{box-shadow:0 0 0 1px var(--line)}
 /* latest news: a white rounded card under the photo */
-.nw{background:#fff;border-radius:var(--r-card);padding:24px 28px 12px;box-shadow:var(--lift)}
+.nw{background:#fff;border-radius:var(--r-card);padding:28px 28px 16px;box-shadow:var(--lift);flex:1;display:flex;flex-direction:column}
 .nw h3{display:flex;align-items:baseline;gap:12px;white-space:nowrap;font:600 19px/1.4 var(--soft);color:var(--navy)}
 .nw .all{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font:600 13px var(--zh);color:var(--navy);text-decoration:none}
 .nw .all i{font-style:normal;transition:transform .25s}
-.nw ul{margin-top:8px}
+.nw h3{padding-bottom:14px;border-bottom:1px solid var(--line)}
+.nw ul{margin-top:4px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
 .nw li{--hv-in:2px -14px}
 .nw li a{display:block;padding:14px 0 16px;border-bottom:1px solid var(--line2);text-decoration:none;color:var(--ink)}
 .nw li:last-child a{border-bottom:0}
 .nw time{display:block;font:700 13px/1 var(--lat);color:var(--sea);letter-spacing:.6px;margin-bottom:8px;font-variant-numeric:tabular-nums;filter:saturate(1.3) brightness(.8)}
 .nw li span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:400 14.5px/1.75 var(--zh);transition:color .2s}
 /* research: icons sit directly on the soft surface, no boxes, no dividers */
-.res{margin-top:auto;position:relative}
+.res{position:relative}
 .sec{display:flex;align-items:baseline;gap:16px}
 .sec h2{font:600 32px/1.3 var(--soft);letter-spacing:2px;color:var(--navy)}
 .sec span{font:700 13px var(--lat);color:var(--warm);letter-spacing:2.6px;text-transform:uppercase}
 .ri{margin-top:16px;font:400 17px/1.8 var(--zh);color:var(--warm)}
-.grid{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px 16px}
-.ar{--hv-in:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px 16px 26px}
-.ar img{width:164px;height:164px;display:block;transition:transform .25s ease}
+.grid{margin-top:32px;flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-content:space-evenly}
+.ar{--hv-in:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 16px 22px}
+.ar img{width:152px;height:152px;display:block;transition:transform .25s ease}
 .ar .az{transition:color .18s ease}
 .az{font:600 22px/1.5 var(--soft);letter-spacing:1px;color:var(--navy);margin-top:24px}
 .ae{font:600 14px/1.4 var(--lat);color:var(--warm);margin-top:4px}
 
 /* ============ phone / tablet canvas (same markup, two size sets) ============ */
 #m{display:none;position:absolute;left:0;top:0;width:360px;height:522px;transform-origin:0 0;background:var(--tint);border-radius:0;overflow:hidden;
- padding:30px 22px 26px;flex-direction:column;justify-content:center;gap:var(--g,24px)}
+ padding:24px 22px;flex-direction:column;justify-content:center;gap:var(--g,24px)}
 body.n #cv{display:none} body.n #m{display:flex}
 .mhead{position:relative}
 .mh{display:flex;gap:16px;align-items:center}
@@ -119,7 +120,7 @@ body.n #cv{display:none} body.n #m{display:flex}
 .mg img{width:34px;height:34px;display:block}
 .mg span{font:600 11px/1.4 var(--soft);color:var(--navy);word-break:keep-all}
 /* tablet size set */
-#m.t{width:600px;padding:56px 44px 48px;border-radius:0}
+#m.t{width:600px;padding:44px 44px;border-radius:0}
 #m.t .mh{gap:32px}
 #m.t .ph{width:118px;height:146px;border-radius:var(--r-photo)}
 #m.t h1{font-size:40px;letter-spacing:4px}
@@ -165,7 +166,7 @@ button{cursor:pointer}
 <div class="head">
  <div class="side">
   <div class="ph fade" style="--i:0"><img src="img/photo.jpg" alt="陳尚潁 Shang-Ying Chen"></div>
-  <section class="nw fade" style="--i:5" aria-label="最新消息"><h3>最新消息<a class="all" href="https://sites.google.com/view/synatsu/news" target="_top" rel="noopener">全部消息<i aria-hidden="true">→</i></a></h3><ul><li class="hv"><a href="https://sites.google.com/view/synatsu/news" target="_top" rel="noopener"><time datetime="2026-10">2026.10</time><span>成大<wbr>水利<wbr>及<wbr>海洋工程<wbr>學系<wbr>專題演講：從<wbr>水文地質<wbr>到<wbr>資源工程<wbr>應用 @ 海工<wbr>教學大樓 2F 演講廳</span></a></li><li class="hv"><a href="https://sites.google.com/view/synatsu/news" target="_top" rel="noopener"><time datetime="2026-10">2026.10</time><span>接待<wbr>史丹佛大學 Daniel Tartakovsky 教授於 10 月 4 日至 10 月 10 日<wbr>來台<wbr>訪問</span></a></li></ul></section>
+  <section class="nw fade" style="--i:5" aria-label="最新消息"><h3>最新消息<a class="all" href="https://sites.google.com/view/synatsu/news" target="_blank" rel="noopener" title="最新消息頁（新分頁開啟）">全部消息<i aria-hidden="true">→</i></a></h3><ul><li class="hv"><a href="https://sites.google.com/view/synatsu/news" target="_blank" rel="noopener" title="最新消息頁（新分頁開啟）"><time datetime="2026-10">2026.10</time><span>成大<wbr>水利<wbr>及<wbr>海洋工程<wbr>學系<wbr>專題演講：從<wbr>水文地質<wbr>到<wbr>資源工程<wbr>應用 @ 海工<wbr>教學大樓 2F 演講廳</span></a></li><li class="hv"><a href="https://sites.google.com/view/synatsu/news" target="_blank" rel="noopener" title="最新消息頁（新分頁開啟）"><time datetime="2026-10">2026.10</time><span>接待<wbr>史丹佛大學 Daniel Tartakovsky 教授於 10 月 4 日至 10 月 10 日<wbr>來台<wbr>訪問</span></a></li><li class="hv"><a href="https://sites.google.com/view/synatsu/news" target="_blank" rel="noopener" title="最新消息頁（新分頁開啟）"><time datetime="2026-09">2026.09</time><span>日本資源・素材學會 (MMIJ) 交流演講：A Physics-Informed Neural Network for Geomechanical Problem</span></a></li></ul></section>
  </div>
  <div class="info">
   <h1 class="fade" style="--i:1">陳尚潁</h1>
@@ -201,7 +202,7 @@ button{cursor:pointer}
  <p class="mct"><a href="mailto:shangying@gs.ncku.edu.tw">shangying@gs.ncku.edu.tw</a><span>分機 62835</span></p>
 </div>
 <div class="ml"><a class="il" href="https://scholar.google.com/citations?user=Kh6UKMAAAAAJ&hl=zh-TW" target="_blank" rel="noopener" title="Google Scholar（新分頁）" aria-label="Google Scholar（新分頁）"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1.5 6.3 8 3l6.5 3.3L8 9.6z"/><path d="M4.5 8v3.1c0 .9 1.6 1.7 3.5 1.7s3.5-.8 3.5-1.7V8M14.5 6.3v3.4"/></svg><span>Google Scholar</span></a><a class="il" href="https://orcid.org/0000-0003-3036-0798" target="_blank" rel="noopener" title="ORCID（新分頁）" aria-label="ORCID（新分頁）"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.3"/><path d="M5.9 7.3v4M8.2 7.3v4h1.1a2 2 0 0 0 0-4z"/><path d="M5.9 5.2v.1" stroke-width="1.9"/></svg><span>ORCID</span></a><a class="il" href="https://researchoutput.ncku.edu.tw/en/persons/shang-ying-chen/" target="_blank" rel="noopener" title="NCKU Research Output（新分頁）" aria-label="NCKU Research Output（新分頁）"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="2" width="10" height="12" rx="1.5"/><path d="M5.8 11V8.6M8 11V6M10.2 11V9.4"/></svg><span>NCKU Research Output</span></a><a class="il" href="https://mp.ncku.edu.tw/%e9%99%b3%e5%b0%9a%e6%bd%81%e8%80%81%e5%b8%ab/" target="_blank" rel="noopener" title="Dept. Faculty Profile（新分頁）" aria-label="Dept. Faculty Profile（新分頁）"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.2 5.9 8 2.8l5.8 3.1zM2 13.5h12M3.2 11.8h9.6M4.3 7.6v4.2M6.8 7.6v4.2M9.2 7.6v4.2M11.7 7.6v4.2"/></svg><span>Dept. Faculty Profile</span></a></div>
-<a class="mnw" href="https://sites.google.com/view/synatsu/news" target="_top" rel="noopener"><span class="mt">最新消息</span><time>2026.10</time><span class="mx">成大水利及海洋工程學系專題演講：從水文地質到資源工程應用 @ 海工教學大樓 2F 演講廳</span><i aria-hidden="true">→</i></a>
+<a class="mnw" href="https://sites.google.com/view/synatsu/news" target="_blank" rel="noopener" title="最新消息頁（新分頁開啟）"><span class="mt">最新消息</span><time>2026.10</time><span class="mx">成大水利及海洋工程學系專題演講：從水文地質到資源工程應用 @ 海工教學大樓 2F 演講廳</span><i aria-hidden="true">→</i></a>
 <div class="mr mcard"><div class="ms"><h2>研究領域</h2><span>RESEARCH AREAS</span></div>
 <ul class="mg"><li><img src="img/r1.png" alt=""><span>地熱能源</span></li><li><img src="img/r2.png" alt=""><span>地下儲能</span></li><li><img src="img/r3.png" alt=""><span>放射性<wbr>廢棄物處置</span></li><li><img src="img/r4.png" alt=""><span>二氧化碳<wbr>地質封存</span></li><li><img src="img/r5.png" alt=""><span>永續地下水<wbr>與污染整治</span></li><li><img src="img/r6.png" alt=""><span>地質災害<wbr>與工程安全</span></li></ul></div>
 </div>
@@ -221,7 +222,7 @@ function fit(){var w=de.clientWidth||innerWidth,h=innerHeight;
  document.body.classList.add('n');m.classList.toggle('t',t);
  var H=Math.max(MH,Math.min(h/(w/MW),MH*1.75));m.style.height=H+'px';
  var cs=getComputedStyle(m),pad=parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom),
-     gmin=t?32:20,gmax=t?64:48,mn=m.querySelector('.mnw');
+     gmin=t?32:20,gmax=t?48:40,mn=m.querySelector('.mnw');
  function sum(){var c=0,n=0;[].forEach.call(m.children,function(e){if(e.classList.contains('top')||e.classList.contains('bub')||e.style.display==='none')return;c+=e.offsetHeight;n++;});return [c,n];}
  mn.style.display='';var s=sum();
  if(H-pad-s[0]<(s[1]-1)*gmin){mn.style.display='none';s=sum();}       // latest-news strip only when it fits calmly
