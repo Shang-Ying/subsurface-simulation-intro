@@ -28,9 +28,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 
 /* ============ desktop canvas 1200 x 1740 — one soft rounded surface; text margins 96 ============ */
 #cv{position:absolute;left:0;top:0;width:1200px;height:1740px;transform-origin:0 0;background:var(--tint);border-radius:36px;overflow:hidden;
- padding:96px 96px 96px;display:flex;flex-direction:column}
+ padding:64px 64px 64px;display:flex;flex-direction:column}
 html.sc #cv{border-radius:0 0 36px 36px}
-.head{display:grid;grid-template-columns:264px minmax(0,1fr);column-gap:64px;align-items:start;position:relative}
+.head{display:grid;grid-template-columns:264px minmax(0,1fr);column-gap:40px;align-items:start;position:relative}
 .side{display:flex;flex-direction:column;gap:40px}
 #cv .ph{width:264px;height:320px;border-radius:28px}
 h1{font:600 58px/1.15 var(--soft);letter-spacing:5px;color:var(--navy)}
@@ -39,7 +39,7 @@ h1{font:600 58px/1.15 var(--soft);letter-spacing:5px;color:var(--navy)}
 .aff{display:flex;align-items:center;gap:16px}
 #cv .aff .dl{width:56px;height:56px}
 .pos{font:700 20px/1.6 var(--zh)}
-.pos2{font:500 13.5px/1.6 var(--lat);color:var(--warm);margin-top:2px;white-space:nowrap}
+.pos2{font:500 13px/1.6 var(--lat);color:var(--warm);margin-top:2px;white-space:nowrap}
 .lab{font:600 22px/1.6 var(--soft);letter-spacing:2px;color:var(--navy);margin-top:24px}
 .ct{display:grid;grid-template-columns:max-content 1fr;gap:12px 32px;margin-top:40px;font:400 16px/1.75 var(--zh)}
 .ct dt{color:var(--warm);font-weight:500}
@@ -56,6 +56,13 @@ h1{font:600 58px/1.15 var(--soft);letter-spacing:5px;color:var(--navy)}
 .lk a{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px 0 16px;font:700 14.5px/1 var(--lat)}
 .lk a svg{width:16px;height:16px;display:block;flex:none}
 .lk a:hover,.ml a:hover{background:var(--navy);color:#fff;box-shadow:0 0 0 1px var(--navy);transform:translateY(-1px)}
+/* white content cards on the soft surface */
+#cv .info{background:#fff;border-radius:32px;padding:44px 48px 48px;box-shadow:0 2px 12px rgba(31,58,95,.05)}
+.res{background:#fff;border-radius:32px;padding:52px 48px 60px;box-shadow:0 2px 12px rgba(31,58,95,.05)}
+#cv .lk a,#cv .cp{background:var(--tint);box-shadow:none}
+.mcard{background:#fff;border-radius:18px;padding:14px 16px;box-shadow:0 2px 10px rgba(31,58,95,.05)}
+#m.t .mcard{border-radius:28px;padding:28px 32px}
+#m .ml a{box-shadow:0 0 0 1px var(--line)}
 /* latest news: a white rounded card under the photo */
 .nw{background:#fff;border-radius:24px;padding:24px 28px 12px;box-shadow:0 2px 10px rgba(31,58,95,.04)}
 .nw h3{display:flex;align-items:baseline;gap:12px;white-space:nowrap;font:600 19px/1.4 var(--soft);color:var(--navy)}
@@ -86,8 +93,8 @@ h1{font:600 58px/1.15 var(--soft);letter-spacing:5px;color:var(--navy)}
 body.n #cv{display:none} body.n #m{display:flex}
 .mhead{position:relative}
 .mh{display:flex;gap:16px;align-items:center}
-#m .ph{width:84px;height:104px;border-radius:18px;box-shadow:0 8px 20px rgba(31,58,95,.12)}
-#m h1{font-size:30px;letter-spacing:3px}
+#m .ph{width:76px;height:94px;border-radius:18px;box-shadow:0 8px 20px rgba(31,58,95,.12)}
+#m h1{font-size:27px;letter-spacing:3px}
 #m .en{font-size:12.5px;margin-top:4px;letter-spacing:.2px}
 #m .rule{width:28px;height:4px;margin:12px 0}
 #m .aff{gap:8px} #m .aff .dl{width:28px;height:28px}
@@ -109,28 +116,28 @@ body.n #cv{display:none} body.n #m{display:flex}
 .ms{display:flex;align-items:baseline;gap:8px}
 .ms h2{font:600 17px/1.4 var(--soft);letter-spacing:1.5px;color:var(--navy)}
 .ms span{font:700 9.5px var(--lat);color:var(--warm);letter-spacing:1.8px}
-.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 8px;margin-top:16px;align-items:start}
-.mg li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
-.mg img{width:38px;height:38px;display:block}
-.mg span{font:600 11.5px/1.45 var(--soft);color:var(--navy)}
+.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 6px;margin-top:12px;align-items:start}
+.mg li{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.mg img{width:34px;height:34px;display:block}
+.mg span{font:600 11px/1.4 var(--soft);color:var(--navy);word-break:keep-all}
 /* tablet size set */
 #m.t{width:600px;padding:56px 44px 48px;border-radius:32px}
 #m.t .mh{gap:32px}
-#m.t .ph{width:140px;height:172px;border-radius:24px}
-#m.t h1{font-size:46px;letter-spacing:4px}
+#m.t .ph{width:118px;height:146px;border-radius:22px}
+#m.t h1{font-size:40px;letter-spacing:4px}
 #m.t .en{font-size:17px;margin-top:8px}
-#m.t .rule{width:44px;height:5px;margin:24px 0}
+#m.t .rule{width:44px;height:5px;margin:18px 0}
 #m.t .aff{gap:12px} #m.t .aff .dl{width:44px;height:44px}
 #m.t .pos{font-size:17px;line-height:1.6}
-#m.t .mlab{font-size:21px;margin-top:28px}
+#m.t .mlab{font-size:20px;margin-top:22px}
 #m.t .mct{font-size:15px;gap:0 24px}
 #m.t .ml{grid-template-columns:1fr 1fr;gap:12px}
 #m.t .ml a{height:44px;font-size:14.5px;justify-content:flex-start;padding:0 20px}
 #m.t .ml a span{display:inline}
 #m.t .mnw{font-size:14px;gap:12px;padding:14px 22px} #m.t .mnw .mt{font-size:15px} #m.t .mnw time{font-size:14px}
 #m.t .ms h2{font-size:25px} #m.t .ms span{font-size:11.5px;letter-spacing:2.2px}
-#m.t .mg{gap:28px 16px;margin-top:28px}
-#m.t .mg img{width:68px;height:68px}
+#m.t .mg{gap:22px 16px;margin-top:22px}
+#m.t .mg img{width:60px;height:60px}
 #m.t .mg li{gap:12px}
 #m.t .mg span{font-size:16px;line-height:1.5}
 </style></head><body>
@@ -162,12 +169,12 @@ body.n #cv{display:none} body.n #m{display:flex}
 <section class="res">
  <div class="sec fade" style="--i:6"><h2>研究領域</h2><span>Research Areas</span></div>
  <p class="ri fade" style="--i:6">以不確定性量化、資料同化與物理資訊神經網路，發展地下系統的數值模擬與預測方法。</p>
- <div class="grid"><div class="ar fade" style="--i:6"><img src="img/r1.png" alt=""><p class="az">地熱能源</p><p class="ae">Geothermal Energy</p></div><div class="ar fade" style="--i:7"><img src="img/r2.png" alt=""><p class="az">地下儲能</p><p class="ae">Underground Energy Storage</p></div><div class="ar fade" style="--i:8"><img src="img/r3.png" alt=""><p class="az">放射性廢棄物處置</p><p class="ae">Radioactive Waste Disposal</p></div><div class="ar fade" style="--i:9"><img src="img/r4.png" alt=""><p class="az">二氧化碳地質封存</p><p class="ae">CO₂ Geological Storage</p></div><div class="ar fade" style="--i:10"><img src="img/r5.png" alt=""><p class="az">永續地下水<wbr>與污染整治</p><p class="ae">Sustainable Groundwater & Remediation</p></div><div class="ar fade" style="--i:11"><img src="img/r6.png" alt=""><p class="az">地質災害<wbr>與工程安全</p><p class="ae">Geohazards & Engineering Safety</p></div></div>
+ <div class="grid"><div class="ar fade" style="--i:6"><img src="img/r1.png" alt=""><p class="az">地熱能源</p><p class="ae">Geothermal Energy</p></div><div class="ar fade" style="--i:7"><img src="img/r2.png" alt=""><p class="az">地下儲能</p><p class="ae">Underground Energy Storage</p></div><div class="ar fade" style="--i:8"><img src="img/r3.png" alt=""><p class="az">放射性<wbr>廢棄物處置</p><p class="ae">Radioactive Waste Disposal</p></div><div class="ar fade" style="--i:9"><img src="img/r4.png" alt=""><p class="az">二氧化碳<wbr>地質封存</p><p class="ae">CO₂ Geological Storage</p></div><div class="ar fade" style="--i:10"><img src="img/r5.png" alt=""><p class="az">永續地下水<wbr>與污染整治</p><p class="ae">Sustainable Groundwater & Remediation</p></div><div class="ar fade" style="--i:11"><img src="img/r6.png" alt=""><p class="az">地質災害<wbr>與工程安全</p><p class="ae">Geohazards & Engineering Safety</p></div></div>
 </section>
 </div>
 <div id="m">
 <div class="top"></div>
-<div class="mhead">
+<div class="mhead mcard">
  <div class="mh"><div class="ph"><img src="img/photo.jpg" alt="陳尚潁 Shang-Ying Chen"></div>
   <div class="info"><h1>陳尚潁</h1><p class="en">Shang-Ying Chen, Ph.D.</p><div class="rule"></div>
   <div class="aff"><img class="dl" src="img/dept_logo.png" width="28" height="28" alt="國立成功大學資源工程學系 系徽"><p class="pos">國立成功大學<br>資源工程學系　助理教授</p></div></div></div>
@@ -176,8 +183,8 @@ body.n #cv{display:none} body.n #m{display:flex}
 </div>
 <div class="ml"><a class="il" href="https://scholar.google.com/citations?user=Kh6UKMAAAAAJ&hl=zh-TW" target="_blank" rel="noopener" title="Google Scholar（新分頁）" aria-label="Google Scholar（新分頁）"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1.5 6.3 8 3l6.5 3.3L8 9.6z"/><path d="M4.5 8v3.1c0 .9 1.6 1.7 3.5 1.7s3.5-.8 3.5-1.7V8M14.5 6.3v3.4"/></svg><span>Google Scholar</span></a><a class="il" href="https://orcid.org/0000-0003-3036-0798" target="_blank" rel="noopener" title="ORCID（新分頁）" aria-label="ORCID（新分頁）"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.3"/><path d="M5.9 7.3v4M8.2 7.3v4h1.1a2 2 0 0 0 0-4z"/><path d="M5.9 5.2v.1" stroke-width="1.9"/></svg><span>ORCID</span></a><a class="il" href="https://researchoutput.ncku.edu.tw/en/persons/shang-ying-chen/" target="_blank" rel="noopener" title="NCKU Research Output（新分頁）" aria-label="NCKU Research Output（新分頁）"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="2" width="10" height="12" rx="1.5"/><path d="M5.8 11V8.6M8 11V6M10.2 11V9.4"/></svg><span>NCKU Research Output</span></a><a class="il" href="https://mp.ncku.edu.tw/%e9%99%b3%e5%b0%9a%e6%bd%81%e8%80%81%e5%b8%ab/" target="_blank" rel="noopener" title="Dept. Faculty Profile（新分頁）" aria-label="Dept. Faculty Profile（新分頁）"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.2 5.9 8 2.8l5.8 3.1zM2 13.5h12M3.2 11.8h9.6M4.3 7.6v4.2M6.8 7.6v4.2M9.2 7.6v4.2M11.7 7.6v4.2"/></svg><span>Dept. Faculty Profile</span></a></div>
 <a class="mnw" href="https://sites.google.com/view/synatsu/news" target="_top" rel="noopener"><span class="mt">最新消息</span><time>2026.10</time><span class="mx">成大水利及海洋工程學系專題演講：從水文地質到資源工程應用 @ 海工教學大樓 2F 演講廳</span><i aria-hidden="true">→</i></a>
-<div class="mr"><div class="ms"><h2>研究領域</h2><span>RESEARCH AREAS</span></div>
-<ul class="mg"><li><img src="img/r1.png" alt=""><span>地熱能源</span></li><li><img src="img/r2.png" alt=""><span>地下儲能</span></li><li><img src="img/r3.png" alt=""><span>放射性廢棄物處置</span></li><li><img src="img/r4.png" alt=""><span>二氧化碳地質封存</span></li><li><img src="img/r5.png" alt=""><span>永續地下水<wbr>與污染整治</span></li><li><img src="img/r6.png" alt=""><span>地質災害<wbr>與工程安全</span></li></ul></div>
+<div class="mr mcard"><div class="ms"><h2>研究領域</h2><span>RESEARCH AREAS</span></div>
+<ul class="mg"><li><img src="img/r1.png" alt=""><span>地熱能源</span></li><li><img src="img/r2.png" alt=""><span>地下儲能</span></li><li><img src="img/r3.png" alt=""><span>放射性<wbr>廢棄物處置</span></li><li><img src="img/r4.png" alt=""><span>二氧化碳<wbr>地質封存</span></li><li><img src="img/r5.png" alt=""><span>永續地下水<wbr>與污染整治</span></li><li><img src="img/r6.png" alt=""><span>地質災害<wbr>與工程安全</span></li></ul></div>
 </div>
 <script>
 (function(){var cv=document.getElementById('cv'),m=document.getElementById('m'),de=document.documentElement,framed=true;
