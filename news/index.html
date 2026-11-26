@@ -40,6 +40,7 @@ button{font:inherit;color:inherit}
 .ttl h1{font:600 clamp(28px,3.8vw,44px)/1.2 var(--sans);letter-spacing:.08em;margin:0;color:var(--navy)}
 .ttl .en{font:600 clamp(13px,1.5vw,18px)/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--warm)}
 .rule{width:44px;height:3px;border-radius:0;background:var(--navy);margin:clamp(16px,2.2vw,24px) 0 clamp(12px,1.8vw,18px);border:0}
+.phead.nolede .rule{margin-bottom:0}
 .lede .nw{white-space:nowrap}
 .lede{margin:0;color:var(--warm);font-size:clamp(14px,1.45vw,16.5px);line-height:1.8;max-width:46em}
 .acts{position:absolute;right:var(--pad);top:clamp(20px,4.2vw,52px);display:flex;gap:8px}
@@ -257,11 +258,9 @@ a.pill{display:inline-flex;align-items:center;gap:3px;vertical-align:2px;margin-
 </style></head>
 <body>
 <div class="topbar"></div>
-<header class="wrap phead">
-<p class="eyebrow"><img class="dl" src="img/dept_logo.png" width="26" height="26" alt="國立成功大學資源工程學系 系徽"><span class="e0">國立成功大學 資源工程學系</span><i class="e2"></i><span class="e2">地下資源與智慧計算研究室</span></p>
+<header class="wrap phead nolede">
 <div class="ttl"><h1>最新消息</h1><span class="en">News</span></div>
 <hr class="rule">
-<p class="lede">研究成果、演講、研討會與教學動態</p>
 <div class="acts"></div>
 </header>
 <nav class="bar" aria-label="消息分類篩選"><div class="wrap"><div class="edge"><div class="scroller" role="toolbar" aria-label="分類"><button class="chip" type="button" data-f="all" aria-pressed="true">全部</button><button class="chip" type="button" data-f="paper" aria-pressed="false" title="Publication"><i class="dot" style="--c:#1F3A5F"></i>論文</button><button class="chip" type="button" data-f="talk" aria-pressed="false" title="Talk"><i class="dot" style="--c:#8A5A2B"></i>演講</button><button class="chip" type="button" data-f="conf" aria-pressed="false" title="Conference"><i class="dot" style="--c:#2F6F6A"></i>研討會</button><button class="chip" type="button" data-f="teach" aria-pressed="false" title="Teaching"><i class="dot" style="--c:#5B4B8A"></i>教學</button><button class="chip" type="button" data-f="service" aria-pressed="false" title="Service"><i class="dot" style="--c:#4F6475"></i>服務</button><button class="chip" type="button" data-f="award" aria-pressed="false" title="Award"><i class="dot" style="--c:#A3781A"></i>獲獎</button><button class="chip" type="button" data-f="visit" aria-pressed="false" title="Visit"><i class="dot" style="--c:#3F74A3"></i>交流</button><button class="chip" type="button" data-f="project" aria-pressed="false" title="Project"><i class="dot" style="--c:#7A4E5C"></i>計畫</button></div></div><div class="yj" aria-label="年份"><a href="#y2026" data-y="2026" class="num">2026</a><a href="#y2025" data-y="2025" class="num">2025</a><a href="#y2024" data-y="2024" class="num">2024</a><a href="#y2023" data-y="2023" class="num">2023</a></div></div><i class="prog"></i></nav>

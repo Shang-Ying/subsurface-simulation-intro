@@ -40,6 +40,7 @@ button{font:inherit;color:inherit}
 .ttl h1{font:600 clamp(28px,3.8vw,44px)/1.2 var(--sans);letter-spacing:.08em;margin:0;color:var(--navy)}
 .ttl .en{font:600 clamp(13px,1.5vw,18px)/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--warm)}
 .rule{width:44px;height:3px;border-radius:0;background:var(--navy);margin:clamp(16px,2.2vw,24px) 0 clamp(12px,1.8vw,18px);border:0}
+.phead.nolede .rule{margin-bottom:0}
 .lede .nw{white-space:nowrap}
 .lede{margin:0;color:var(--warm);font-size:clamp(14px,1.45vw,16.5px);line-height:1.8;max-width:46em}
 .acts{position:absolute;right:var(--pad);top:clamp(20px,4.2vw,52px);display:flex;gap:8px}
@@ -271,11 +272,10 @@ button{cursor:pointer}
 </style></head>
 <body>
 <div class="topbar"></div>
-<header class="wrap phead">
-<p class="eyebrow"><img class="dl" src="img/dept_logo.png" width="26" height="26" alt="國立成功大學資源工程學系 系徽"><span class="e0">國立成功大學 資源工程學系</span><i class="e2"></i><span class="e2">地下資源與智慧計算研究室</span></p>
+<header class="wrap phead nolede">
+<p class="eyebrow"><span class="e0">地下資源與智慧計算研究室</span></p>
 <div class="ttl"><h1>研究室成員</h1><span class="en">Members</span></div>
 <hr class="rule">
-<p class="lede"><span class="ld">在學成員<span class="sep">　·　</span></span><span class="nw">指導教授 陳尚潁 助理教授</span></p>
 <div class="acts"></div>
 </header>
 <nav class="bar memnav" aria-label="章節"><div class="wrap"><div class="edge"><div class="scroller"><a class="chip" href="#phd" data-s="phd">博士生</a><a class="chip" href="#ms" data-s="ms">碩士生</a><a class="chip" href="#ug" data-s="ug">專題生</a></div></div></div><i class="prog"></i></nav>
@@ -318,7 +318,7 @@ button{cursor:pointer}
   var g=ay-y+1;e.textContent=(g>=1&&g<=9)?' · '+e.getAttribute('data-p')+N[g-1]:'';});
  function spy(){var st=parseFloat(getComputedStyle(de).getPropertyValue('--stick'))||56,cur=secs[0].id;
   secs.forEach(function(s){if(s.getBoundingClientRect().top-st-60<=0)cur=s.id;});
-  if(innerHeight+scrollY>=de.scrollHeight-4)cur=secs[secs.length-1].id;
+  if(scrollY>4&&innerHeight+scrollY>=de.scrollHeight-4)cur=secs[secs.length-1].id;
   if(cur!==last){last=cur;links.forEach(function(a){var on=a.getAttribute('data-s')===cur;
    if(on){a.setAttribute('aria-current','true');window.__center(sc,a);}else a.removeAttribute('aria-current');});}}
  var t=false;addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(function(){t=false;spy();});}},{passive:true});
