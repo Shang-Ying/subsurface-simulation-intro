@@ -4,12 +4,13 @@
 <title>研究室成員 Members｜地下資源與智慧計算研究室｜國立成功大學資源工程學系</title>
 <meta name="description" content="Members of the lab led by Shang-Ying Chen, Department of Resources Engineering, National Cheng Kung University.">
 <meta name="theme-color" content="#1F3A5F">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
 <style>
 :root{--ink:#1B2A41;--navy:#1F3A5F;--navy2:#2C4F7C;--warm:#746E6A;--muted:#746E6A;--faint:#9A948F;--line:#DCE5EC;--line2:#E8EEF3;
  --tint:#F2F7FA;--sea:#8DB8CF;--soft:#F2F7FA;--panel:#fff;--accent:#8DB8CF;--pad:clamp(20px,5.6vw,64px);--maxw:1056px;--stick:60px;
- --r:32px;--cardpad:clamp(18px,4.2vw,48px);--shadow:0 2px 12px rgba(31,58,95,.05);
- --sans:'Quicksand','Noto Sans TC',-apple-system,'PingFang TC','Microsoft JhengHei',Arial,sans-serif;
+ --r-card:10px;--r-ctl:6px;--r-tag:3px;--r-photo:10px;--r:var(--r-card);--cardpad:clamp(18px,4.2vw,48px);
+ --edge:0 0 0 1px #E3EAF0;--shadow:0 0 0 1px #E1E8EE,0 1px 2px rgba(31,58,95,.04);
+ --sans:'Source Sans 3','Noto Sans TC',-apple-system,'PingFang TC','Microsoft JhengHei',Arial,sans-serif;
  --serif:var(--sans);--ease:cubic-bezier(.2,.7,.2,1)}
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--stick) + 12px)}
@@ -19,12 +20,11 @@ body{margin:0;background:var(--tint);font-synthesis:none;color:var(--ink);font:4
 img{max-width:100%}
 a{color:var(--navy);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;
  text-underline-offset:.22em;transition:text-decoration-color .2s,color .2s,background-color .2s,border-color .2s}
-a:hover{text-decoration-color:var(--navy)}
-:focus-visible{outline:2px solid var(--navy);outline-offset:2px;border-radius:2px}
+:focus-visible{outline:2px solid var(--navy);outline-offset:2px;border-radius:var(--r-tag)}
 button{font:inherit;color:inherit}
 .num{font-family:var(--sans);font-variant-numeric:tabular-nums lining-nums}
 .topbar{display:none}
-.card{background:#fff;border-radius:var(--r);box-shadow:var(--shadow)}
+.card,.sheet{background:#fff;border-radius:var(--r-card);box-shadow:var(--shadow)}
 .wrap{max-width:calc(var(--maxw) + 2 * var(--pad));margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
 .sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
@@ -33,41 +33,37 @@ button{font:inherit;color:inherit}
 .eyebrow{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:0 0 clamp(8px,1.4vw,14px);
  font:600 13px/1.4 var(--sans);letter-spacing:.12em;color:var(--warm);text-transform:uppercase}
 .eyebrow a{color:inherit;text-decoration:none}
-.eyebrow a:hover{color:var(--navy)}
 .eyebrow i{width:18px;height:2px;border-radius:1px;background:var(--sea);display:inline-block}
 .eyebrow .dl{width:26px;height:26px;flex:none;margin-right:2px;display:block}
 .endpad{height:clamp(40px,7vw,80px)}
 .ttl{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;margin:0}
 .ttl h1{font:600 clamp(28px,3.8vw,44px)/1.2 var(--sans);letter-spacing:.08em;margin:0;color:var(--navy)}
 .ttl .en{font:600 clamp(13px,1.5vw,18px)/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--warm)}
-.rule{width:48px;height:5px;border-radius:3px;background:var(--sea);margin:clamp(16px,2.2vw,24px) 0 clamp(12px,1.8vw,18px);border:0}
+.rule{width:44px;height:3px;border-radius:0;background:var(--navy);margin:clamp(16px,2.2vw,24px) 0 clamp(12px,1.8vw,18px);border:0}
 .lede .nw{white-space:nowrap}
 .lede{margin:0;color:var(--warm);font-size:clamp(14px,1.45vw,16.5px);line-height:1.8;max-width:46em}
 .acts{position:absolute;right:var(--pad);top:clamp(20px,4.2vw,52px);display:flex;gap:8px}
-.btn{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 16px 0 14px;border:0;border-radius:999px;
- background:var(--tint);color:var(--navy);font:700 13.5px/1 var(--sans);text-decoration:none;white-space:nowrap;cursor:pointer;transition:background .2s,color .2s}
-.btn:hover{background:var(--navy);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 13px 0 11px;border:1px solid #C3CFDC;border-radius:var(--r-ctl);
+ background:#fff;color:var(--navy);font:600 13.5px/1 var(--sans);text-decoration:none;white-space:nowrap;cursor:pointer;transition:background .18s,color .18s,border-color .18s}
 .btn svg{width:15px;height:15px;flex:none}
 .ic{display:block;flex:none}
-.ilk{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 18px 0 16px;border-radius:999px;background:var(--tint);color:var(--navy);
+.ilk{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px 0 12px;border-radius:var(--r-ctl);background:var(--tint);color:var(--navy);
  font:700 14px/1 var(--sans);text-decoration:none;white-space:nowrap;transition:background-color .2s,color .2s}
 .ilk svg{width:16px;height:16px}
-.ilk:hover{background:var(--navy);color:#fff}
 .btn[hidden]{display:none}
 
 /* sticky bar */
-.bar{position:sticky;top:0;z-index:20;background:rgba(242,247,250,.92);-webkit-backdrop-filter:saturate(1.4) blur(10px);
- backdrop-filter:saturate(1.4) blur(10px);margin-bottom:clamp(8px,1.6vw,16px)}
+.bar{position:sticky;top:0;z-index:20;background:rgba(242,247,250,.94);-webkit-backdrop-filter:saturate(1.4) blur(10px);
+ backdrop-filter:saturate(1.4) blur(10px);margin-bottom:clamp(16px,2.4vw,28px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .bar .wrap{display:flex;align-items:center;gap:14px;min-height:var(--stick)}
 .prog{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--sea);transform-origin:0 50%;
  transform:scaleX(var(--p,0));pointer-events:none}
 .scroller{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;
- padding:12px 4px;margin:0 -4px;flex:1;min-width:0}
+ padding:10px 4px;margin:0 -4px;flex:1;min-width:0}
 .scroller::-webkit-scrollbar{display:none}
-.chip{flex:none;display:inline-flex;align-items:center;gap:7px;height:36px;padding:0 16px;border:0;
- border-radius:999px;background:#fff;color:var(--ink);font:600 13.5px/1 var(--sans);box-shadow:0 0 0 1px var(--line2);cursor:pointer;white-space:nowrap;
+.chip{flex:none;display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 13px;border:0;
+ border-radius:var(--r-ctl);background:transparent;color:var(--warm);font:600 13.5px/1 var(--sans);box-shadow:none;cursor:pointer;white-space:nowrap;
  text-decoration:none;transition:border-color .2s,background-color .2s,color .2s}
-.chip:hover{color:var(--navy);box-shadow:0 0 0 1px var(--sea)}
 .chip[aria-pressed=true],.chip[aria-current=true]{background:var(--navy);color:#fff;box-shadow:none}
 .chip .c{font:600 11.5px/1 var(--sans);color:var(--faint);font-variant-numeric:tabular-nums}
 .chip[aria-pressed=true] .c,.chip[aria-current=true] .c{color:#C9D4E3}
@@ -83,8 +79,6 @@ button{font:inherit;color:inherit}
 .sh h2{font:600 clamp(20px,2.3vw,26px)/1.35 var(--sans);margin:0;letter-spacing:.06em;color:var(--navy)}
 .sh .en{font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--warm)}
 .sh .anc{opacity:0;color:var(--faint);text-decoration:none;font:600 15px/1 var(--sans);padding:2px 4px;transition:opacity .2s,color .2s}
-.sh:hover .anc,.sh .anc:focus-visible{opacity:1}
-.sh .anc:hover{color:var(--navy)}
 
 /* footer + floating helpers */
 .totop{position:fixed;right:clamp(10px,2.2vw,24px);bottom:clamp(10px,2.2vw,24px);z-index:30;width:40px;height:40px;
@@ -92,7 +86,6 @@ button{font:inherit;color:inherit}
  cursor:pointer;box-shadow:0 4px 14px rgba(27,42,65,.10);opacity:0;transform:translateY(8px);pointer-events:none;
  transition:opacity .25s,transform .25s var(--ease),background-color .2s,color .2s}
 .totop.on{opacity:1;transform:none;pointer-events:auto}
-.totop:hover{background:var(--navy);color:#fff}
 .totop svg{width:16px;height:16px}
 .fadebot{position:fixed;left:0;right:0;bottom:0;height:36px;z-index:10;pointer-events:none;
  background:linear-gradient(rgba(242,247,250,0),rgba(242,247,250,.95));transition:opacity .3s}
@@ -102,12 +95,12 @@ button{font:inherit;color:inherit}
 
 @media (max-width:640px){
  body{font-size:14.5px;line-height:1.68}
- :root{--stick:52px;--r:20px}
+ :root{--stick:52px;--r-card:8px;--r-ctl:6px}
  .eyebrow{font-size:10.5px;letter-spacing:.12em}
  .acts{top:16px}
- .btn{height:34px;width:34px;padding:0;justify-content:center;font-size:12px}
+ .btn{height:36px;width:36px;padding:0;justify-content:center;font-size:12px}
  .btn .t{display:none}
- .chip{height:32px;padding:0 13px;font-size:12.5px;gap:5px}
+ .chip{height:36px;padding:0 12px;font-size:12.5px;gap:5px}
  .scroller{padding:8px 2px}
  .sh{margin-bottom:12px;gap:9px}
  .sh .en{font-size:10.5px;letter-spacing:.12em}
@@ -115,28 +108,45 @@ button{font:inherit;color:inherit}
  .eyebrow .dl{width:22px;height:22px}
  .phead{padding-top:26px;padding-bottom:18px}
  .ttl h1{font-size:26px}
- .rule{width:32px;height:4px;margin:12px 0}
+ .rule{width:32px;height:2px;margin:12px 0}
  .lede{font-size:13px;line-height:1.75}
  .lede .ld{display:none}
  .totop{width:34px;height:34px}
 }
-@media print{body{background:#fff}.card{box-shadow:none;border-radius:0}}
+@media print{body{background:#fff}.card,.sheet{box-shadow:none;border-radius:0}}
 @media (prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
  *,*::before,*::after{animation:none!important;transition:none!important}
  .scroller{scroll-behavior:auto}
 }
 
+:root{--hov:#EEF3F7;--hov-line:#D3DEE7;--t:180ms ease}
+a,button{-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--navy);outline-offset:2px;border-radius:var(--r-ctl)}
+button{cursor:pointer}
+/* row / tile hover surface: drawn by a pseudo element so layout never moves */
+.hv{position:relative;isolation:isolate}
+.hv::before{content:"";position:absolute;z-index:-1;inset:var(--hv-in,-6px -14px);border-radius:var(--r-ctl);background:var(--hov);opacity:0;transition:opacity var(--t)}
+@media (hover:hover){
+ .hv:hover::before{opacity:1}
+ a:hover{text-decoration-thickness:2px}
+}
+@media (hover:none){
+ .hv:active::before{opacity:1}
+ .chip:active,.btn:active,.ilk:active,a.pill:active{opacity:.75}
+ .sh .anc{display:none}
+ a.pill{height:30px;padding:0 10px}
+}
+@media (prefers-reduced-motion:reduce){.hv:hover *,.hv:hover{transform:none!important}}
+
 .mem{padding-top:6px}
 .ms{padding:16px 0 40px}
-.ms>.sh{margin-bottom:24px;flex-wrap:wrap}
+.ms>.sh{margin-bottom:24px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--line)}
 .ms>.sh .cnt{margin-left:auto;font:400 13px/1 var(--sans);color:var(--muted)}
 .ms>.sh .cnt b{font-weight:600;color:var(--ink);margin-right:2px}
 /* empty groups: one quiet line instead of a full block */
-.ms.none{padding:20px 0 18px;display:grid;grid-template-columns:470px minmax(0,1fr);align-items:baseline;gap:4px 24px}
-.ms.none>.sh{flex-wrap:nowrap}
+.ms.none{padding:16px 0 20px}
 .ms.none>.sh{margin:0}
-.ms.none>.sh h2{font-size:clamp(17px,1.8vw,20px)}
 .empty{margin:0;font-size:14px;color:var(--muted);line-height:1.6}
 .empty .pip{display:inline-block;vertical-align:.12em;margin:0 10px 0 2px;width:7px;height:7px;border-radius:50%;background:#3C8D6B;box-shadow:0 0 0 3px rgba(60,141,107,.14)}
 .empty .pip.dim{background:var(--line);box-shadow:none}
@@ -144,38 +154,36 @@ button{font:inherit;color:inherit}
 /* member cards */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
 .grid.n1,.grid.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.mc{position:relative;border-radius:var(--r);background:#fff;box-shadow:var(--shadow);padding:36px 40px 32px;display:flex;flex-direction:column;gap:24px;
+.mc{position:relative;border-radius:var(--r-card);background:#fff;box-shadow:var(--shadow);padding:28px 32px 26px;display:flex;flex-direction:column;gap:18px;
  transition:box-shadow .25s var(--ease),transform .25s var(--ease)}
-.mc:hover{box-shadow:0 10px 28px rgba(31,58,95,.09);transform:translateY(-2px)}
 .mh{display:flex;gap:18px;align-items:center}
-.av{flex:none;width:64px;height:64px;border-radius:50%;overflow:hidden;display:grid;place-items:center;box-shadow:0 0 0 1px var(--line)}
+.av{flex:none;width:60px;height:60px;border-radius:50%;overflow:hidden;display:grid;place-items:center;box-shadow:0 0 0 1px var(--line)}
 .av img{width:100%;height:100%;object-fit:cover}
 .av.ini{background:var(--bg);color:var(--fg);box-shadow:none}
 .av.ini b{font:600 26px/1 var(--sans)}
 .av.sm{width:34px;height:34px}.av.sm.ini b{font-size:15px}
 .mn{min-width:0}
-.mn h3{font:600 23px/1.3 var(--sans);color:var(--navy);margin:0;letter-spacing:.1em;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px}
+.mn h3{font:600 21px/1.3 var(--sans);color:var(--navy);margin:0;letter-spacing:.1em;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px}
 .mn h3 .me{font:400 13.5px/1.3 var(--sans);letter-spacing:0;color:var(--muted)}
 .mn .yr{margin:6px 0 0;font:600 13.5px/1.3 var(--sans);color:var(--warm);letter-spacing:.02em}
 .fd{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:0 16px;margin:0;border-top:1px solid var(--line2)}
-.fd dt,.fd dd{padding:14px 0;border-bottom:1px solid var(--line2)}
+.fd dt,.fd dd{padding:11px 0;border-bottom:1px solid var(--line2)}
 .fd dt:last-of-type,.fd dd:last-of-type{border-bottom:0;padding-bottom:2px}
 .fd dt{font:600 12.5px/1.9 var(--sans);letter-spacing:.06em;color:var(--warm)}
 .fd dt .sem{letter-spacing:0;font-weight:500}
-.fd dd{margin:0;font-size:15px;line-height:1.75;min-width:0}
+.fd dd{margin:0;font-size:14.5px;line-height:1.7;min-width:0}
 .fd dd.tpc{font-weight:500;color:var(--ink)}
 .kw,.crs,.ta{list-style:none;margin:0;padding:0}
-.kw,.crs{display:flex;flex-wrap:wrap;gap:8px;padding-top:1px}
-.kw li{font:600 12.5px/1 var(--sans);color:var(--navy);background:var(--tint);border-radius:999px;padding:7px 12px}
+.kw,.crs{display:flex;flex-wrap:wrap;gap:6px;padding-top:1px}
+.kw li{font:600 12px/1 var(--sans);color:var(--navy);background:#EEF2F7;border-radius:var(--r-tag);padding:5px 8px}
 .crs{gap:2px 18px;padding-top:0}
 .crs li{position:relative;padding-left:10px;font-size:14px;line-height:1.6;color:#2E3B50;white-space:nowrap}
 .crs li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;border-radius:50%;background:var(--sea)}
 .ta li{position:relative;padding-left:12px}
 .ta li::before{content:"";position:absolute;left:1px;top:.78em;width:5px;height:1px;background:var(--faint)}
 .ml{margin:auto 0 0;display:flex;flex-wrap:wrap;gap:6px 16px}
-.ml a{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px 0 14px;border-radius:999px;background:var(--tint);font:600 13px/1 var(--sans);text-decoration:none;color:var(--navy);letter-spacing:.01em;transition:background .2s,color .2s}
-.ml a:hover{background:var(--navy);color:#fff}
-.ml a:hover span{text-decoration:none}
+.ml a{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0;border-radius:0;background:none;font:500 13px/1 var(--sans);text-decoration:none;color:var(--muted);letter-spacing:.01em;transition:background .2s,color .2s}
+.ml a span{border-bottom:1px solid transparent;transition:border-color var(--t)}
 .ml svg{width:14px;height:14px;flex:none}
 /* alumni (used once there are alumni) */
 .alh,.al{display:grid;grid-template-columns:64px 170px 56px minmax(0,1.4fr) minmax(0,1fr);gap:0 18px;align-items:center}
@@ -213,7 +221,6 @@ button{font:inherit;color:inherit}
  background:var(--navy);color:#fff;text-decoration:none;max-width:360px}
 .mailbtn svg{grid-row:1/3;width:22px;height:22px}
 .mailbtn span{font:700 15px/1.3 var(--sans)}.mailbtn small{font:400 13px/1.3 var(--sans);color:#C9D4E3}
-.mailbtn:hover{background:var(--navy2)}
 .jdl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:14px 0 8px;font-size:14.5px}
 .jdl dt{color:var(--muted)}.jdl dd{margin:0}
 .cvl{margin-left:10px;font-size:13px;white-space:nowrap}
@@ -228,19 +235,15 @@ button{font:inherit;color:inherit}
 }
 @media (max-width:760px){
  .grid,.grid.n1,.grid.n2{grid-template-columns:1fr;gap:12px}
- .ms.none{display:block}
 }
 @media (max-width:1000px) and (min-width:761px){
- .ms.none{grid-template-columns:1fr}
- .ms.none>.sh{margin-bottom:8px}
 }
 @media (max-width:640px){
  .ms{padding:24px 0 22px}
  .ms>.sh{margin-bottom:14px}
- .ms.none{padding:16px 0 14px}
+ .ms.none{padding:12px 0 12px}
  .empty{font-size:12.5px}
  .empty a{margin-left:6px}
- .ms.none>.sh .en{display:none}
  .mc{padding:22px 20px 20px;gap:16px}
  .av{width:48px;height:48px}.av.ini b{font-size:20px}
  .mn h3{font-size:17px}
@@ -263,6 +266,8 @@ button{font:inherit;color:inherit}
  .jdl{font-size:13px}
 }
 @media print{.bar,.acts,.totop,.fadebot{display:none!important}.mc,.al,.ja li{break-inside:avoid}}
+
+@media (hover:hover){a:hover{text-decoration-color:var(--navy)}.eyebrow a:hover{color:var(--navy)}.btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}.ilk:hover{background:var(--navy);color:#fff}.chip:hover{color:var(--navy);background:rgba(31,58,95,.06)}.sh:hover .anc,.sh .anc:focus-visible{opacity:1}.sh .anc:hover{color:var(--navy)}.totop:hover{background:var(--navy);color:#fff}.mc:hover{box-shadow:0 0 0 1px #BFCCD9,0 4px 14px rgba(31,58,95,.06)}.ml a:hover{color:var(--navy)}.ml a:hover span{border-bottom-color:var(--navy)}.mailbtn:hover{background:var(--navy2)}}
 </style></head>
 <body>
 <div class="topbar"></div>
@@ -273,7 +278,8 @@ button{font:inherit;color:inherit}
 <p class="lede"><span class="ld">在學成員<span class="sep">　·　</span></span><span class="nw">指導教授 陳尚潁 助理教授</span></p>
 <div class="acts"></div>
 </header>
-<main class="wrap mem" id="main"><section class="ms" id="ms" aria-labelledby="h-ms"><div class="sh"><h2 id="h-ms">碩士生</h2><span class="en">M.S. Students</span><a class="anc" href="#ms" aria-label="此節連結：碩士生">#</a><span class="cnt"><b class="num">2</b> 位</span></div><div class="grid n2"><article class="mc"><div class="mh"><span class="av ini" style="--bg:#E9EEF5;--fg:#1F3A5F" aria-hidden="true"><b>王</b></span><div class="mn"><h3>王永凱</h3><p class="yr"><span class="num">2026</span> 入學<span class="gr" data-enroll="2026" data-p="碩"> · 碩一</span></p></div></div><dl class="fd"><dt>研究題目</dt><dd class="tpc">地熱<wbr>數值<wbr>模式</dd><dt>關鍵字</dt><dd><ul class="kw"><li>地熱</li><li>數值模式</li><li>MRST</li></ul></dd><dt>擔任助教</dt><dd><ul class="ta"><li>115-1 資源工程<wbr>概論 助教</li></ul></dd><dt>本學期修課<span class="sem num">（115-1）</span></dt><dd><ul class="crs"><li>地質統計學</li><li>水文地質學</li><li>地熱能源資源</li><li>高等岩石力學</li><li>專題討論</li></ul></dd></dl><p class="ml"><a href="mailto:N46151045@gs.ncku.edu.tw" aria-label="寄信給 王永凱：N46151045@gs.ncku.edu.tw"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.8 4.8 5.2 4 5.2-4"/></svg><span>N46151045@gs.ncku.edu.tw</span></a></p></article><article class="mc"><div class="mh"><span class="av ini" style="--bg:#F1ECE4;--fg:#6B4F2A" aria-hidden="true"><b>蘇</b></span><div class="mn"><h3>蘇千綸</h3><p class="yr"><span class="num">2026</span> 入學<span class="gr" data-enroll="2026" data-p="碩"> · 碩一</span></p></div></div><dl class="fd"><dt>研究題目</dt><dd class="tpc">放射性廢棄物<wbr>處置<wbr>數值<wbr>模式</dd><dt>關鍵字</dt><dd><ul class="kw"><li>放射性廢棄物處置</li><li>數值模式</li><li>OpenGeoSys</li></ul></dd><dt>擔任助教</dt><dd><ul class="ta"><li>115-1 資源工程<wbr>概論 助教</li><li>115-1 教師<wbr>交辦<wbr>事項<wbr>助教</li></ul></dd><dt>本學期修課<span class="sem num">（115-1）</span></dt><dd><ul class="crs"><li>地質統計學</li><li>大地工程實務</li><li>水文地質學</li><li>高等岩石力學</li><li>專題討論</li></ul></dd></dl><p class="ml"><a href="mailto:N46151053@gs.ncku.edu.tw" aria-label="寄信給 蘇千綸：N46151053@gs.ncku.edu.tw"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.8 4.8 5.2 4 5.2-4"/></svg><span>N46151053@gs.ncku.edu.tw</span></a></p></article></div></section></main>
+<nav class="bar memnav" aria-label="章節"><div class="wrap"><div class="edge"><div class="scroller"><a class="chip" href="#phd" data-s="phd">博士生</a><a class="chip" href="#ms" data-s="ms">碩士生</a><a class="chip" href="#ug" data-s="ug">專題生</a></div></div></div><i class="prog"></i></nav>
+<main class="wrap mem" id="main"><section class="ms none" id="phd" aria-labelledby="h-phd"><div class="sh"><h2 id="h-phd">博士生</h2><span class="en">Ph.D. Students</span><a class="anc" href="#phd" aria-label="此節連結：博士生">#</a></div></section><section class="ms" id="ms" aria-labelledby="h-ms"><div class="sh"><h2 id="h-ms">碩士生</h2><span class="en">M.S. Students</span><a class="anc" href="#ms" aria-label="此節連結：碩士生">#</a></div><div class="grid n2"><article class="mc"><div class="mh"><span class="av ini" style="--bg:#E9EEF5;--fg:#1F3A5F" aria-hidden="true"><b>王</b></span><div class="mn"><h3>王永凱</h3><p class="yr"><span class="num">2026</span> 入學<span class="gr" data-enroll="2026" data-p="碩"> · 碩一</span></p></div></div><dl class="fd"><dt>研究題目</dt><dd class="tpc">地熱<wbr>數值<wbr>模式</dd><dt>關鍵字</dt><dd><ul class="kw"><li>地熱</li><li>數值模式</li><li>MRST</li></ul></dd><dt>擔任助教</dt><dd><ul class="ta"><li>115-1 資源工程<wbr>概論 助教</li></ul></dd><dt>本學期修課<span class="sem num">（115-1）</span></dt><dd><ul class="crs"><li>地質統計學</li><li>水文地質學</li><li>地熱能源資源</li><li>高等岩石力學</li><li>專題討論</li></ul></dd></dl><p class="ml"><a href="mailto:N46151045@gs.ncku.edu.tw" aria-label="寄信給 王永凱：N46151045@gs.ncku.edu.tw"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.8 4.8 5.2 4 5.2-4"/></svg><span>N46151045@gs.ncku.edu.tw</span></a></p></article><article class="mc"><div class="mh"><span class="av ini" style="--bg:#F1ECE4;--fg:#6B4F2A" aria-hidden="true"><b>蘇</b></span><div class="mn"><h3>蘇千綸</h3><p class="yr"><span class="num">2026</span> 入學<span class="gr" data-enroll="2026" data-p="碩"> · 碩一</span></p></div></div><dl class="fd"><dt>研究題目</dt><dd class="tpc">放射性廢棄物<wbr>處置<wbr>數值<wbr>模式</dd><dt>關鍵字</dt><dd><ul class="kw"><li>放射性廢棄物處置</li><li>數值模式</li><li>OpenGeoSys</li></ul></dd><dt>擔任助教</dt><dd><ul class="ta"><li>115-1 資源工程<wbr>概論 助教</li><li>115-1 教師<wbr>交辦<wbr>事項<wbr>助教</li></ul></dd><dt>本學期修課<span class="sem num">（115-1）</span></dt><dd><ul class="crs"><li>地質統計學</li><li>大地工程實務</li><li>水文地質學</li><li>高等岩石力學</li><li>專題討論</li></ul></dd></dl><p class="ml"><a href="mailto:N46151053@gs.ncku.edu.tw" aria-label="寄信給 蘇千綸：N46151053@gs.ncku.edu.tw"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.8 4.8 5.2 4 5.2-4"/></svg><span>N46151053@gs.ncku.edu.tw</span></a></p></article></div></section><section class="ms none" id="ug" aria-labelledby="h-ug"><div class="sh"><h2 id="h-ug">大學部專題生</h2><span class="en">Undergraduate Researchers</span><a class="anc" href="#ug" aria-label="此節連結：大學部專題生">#</a></div></section></main>
 <div class="endpad" aria-hidden="true"></div>
 <button class="totop" id="totop" type="button" aria-label="回到頂端" tabindex="-1"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
 <div class="fadebot" id="fadebot" aria-hidden="true"></div>
