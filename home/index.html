@@ -34,31 +34,32 @@ h1{font:900 46px/1.1 'Noto Serif TC',serif;margin:0;letter-spacing:2px}
 .ri{position:absolute;left:72px;top:622px;width:1056px;font:400 17px/1.6 'Noto Sans TC',sans-serif;color:var(--muted);margin:0}
 .grid{position:absolute;left:72px;top:690px;width:1056px;display:grid;grid-template-columns:repeat(3,1fr);gap:34px 30px}
 .ar{display:flex;flex-direction:column;align-items:center;text-align:center;padding:26px 18px 24px;border:1px solid var(--line);border-radius:6px;background:#FBFCFD}
-.ar img{width:150px;height:150px;border-radius:16px;display:block;box-shadow:0 0 0 1px var(--line)}
+.ar img{width:150px;height:150px;display:block}
 .az{font:700 20px 'Noto Sans TC',sans-serif;margin:16px 0 0}
 .ae{font:400 14.5px/1.3 'Source Sans 3',sans-serif;color:var(--muted);margin:4px 0 0}
 .ad{font:400 15px/1.5 'Noto Sans TC',sans-serif;color:var(--ink);margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line);width:100%}
 .foot{position:absolute;left:72px;right:72px;bottom:34px;display:flex;justify-content:space-between;font:400 14px 'Noto Sans TC','Source Sans 3',sans-serif;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
 .fade{animation:fade .8s ease-out both;animation-delay:calc(var(--i,0)*90ms)}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-#m{display:none;position:absolute;left:0;top:0;width:360px;height:440px;transform-origin:0 0;background:var(--bg)}
-body.n #cv{display:none} body.n #m{display:block}
-#m .top{height:4px}
-.mh{position:absolute;left:18px;top:20px;right:18px;display:flex;gap:14px}
-.mh .ph{width:92px;height:112px;border-radius:3px}
-.mh h1{font-size:27px;letter-spacing:1px} .mh .en{font-size:13px;margin-top:4px}
-.mh .rule{width:32px;height:2px;margin:9px 0 8px}
+#m{display:none;position:absolute;left:0;top:0;width:360px;height:440px;transform-origin:0 0;background:var(--bg);box-sizing:border-box;padding:22px 18px 14px;flex-direction:column;justify-content:center;gap:var(--g,10px)}
+body.n #cv{display:none} body.n #m{display:flex}
+#m .top{position:absolute;left:0;right:0;top:0;height:4px}
+.mh{display:flex;gap:14px;align-items:center}
+.mh .ph{width:84px;height:100px;border-radius:3px;flex:none}
+.mh h1{font-size:27px;letter-spacing:1px} .mh .en{font-size:13px;margin-top:3px}
+.mh .rule{width:30px;height:2px;margin:8px 0 7px}
 .mh .pos{font-size:13.5px;line-height:1.45}
-.mc{position:absolute;left:18px;right:18px;top:142px;font:400 12px/1.6 'Noto Sans TC','Source Sans 3',sans-serif;color:var(--muted)}
+.mc{font:400 12px/1.65 'Noto Sans TC','Source Sans 3',sans-serif;color:var(--muted)}
 .mc a{color:var(--navy);text-decoration:none;border-bottom:1px solid #9FB0C8} .mc b{color:var(--navy);font-weight:700}
-.ml{position:absolute;left:18px;right:18px;top:186px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.ml a{font:600 11.5px/24px 'Source Sans 3','Noto Sans TC',sans-serif;height:24px;text-align:center;color:var(--navy);text-decoration:none;border:1px solid #B9C4D4;border-radius:3px;white-space:nowrap}
-.ms{position:absolute;left:18px;right:18px;top:250px;display:flex;align-items:baseline;gap:8px;border-top:1px solid var(--line);padding-top:10px}
+.ml{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ml a{font:600 11.5px/26px 'Source Sans 3','Noto Sans TC',sans-serif;height:26px;text-align:center;color:var(--navy);text-decoration:none;border:1px solid #B9C4D4;border-radius:3px;white-space:nowrap}
+.mr{border-top:1px solid var(--line);padding-top:10px}
+.ms{display:flex;align-items:baseline;gap:8px;margin:0 0 10px}
 .ms h2{font:700 15px 'Noto Serif TC',serif;margin:0} .ms span{font:600 9.5px 'Source Sans 3',sans-serif;color:var(--muted);letter-spacing:1.5px}
-.mg{position:absolute;left:18px;right:18px;top:280px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px 6px}
+.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 6px;align-items:start}
 .mar{display:flex;flex-direction:column;align-items:center;text-align:center}
-.mar img{width:42px;height:42px;border-radius:8px;box-shadow:0 0 0 1px var(--line);display:block}
-.mar p{font:700 10.5px/1.3 'Noto Sans TC',sans-serif;margin:4px 0 0;min-height:27px}
+.mar img{width:42px;height:42px;display:block}
+.mar p{font:700 10.5px/1.3 'Noto Sans TC',sans-serif;margin:5px 0 0}
 </style></head><body>
 <div id="cv">
 <div class="top"></div>
@@ -93,14 +94,18 @@ body.n #cv{display:none} body.n #m{display:block}
  <p class="pos">國立成功大學<br>資源工程學系　助理教授</p></div></div>
 <div class="mc">主持 <b>地下資源與智慧計算研究室</b><br><a href="mailto:shangying@gs.ncku.edu.tw">shangying@gs.ncku.edu.tw</a>　分機 62835</div>
 <div class="ml"><a href="https://scholar.google.com/citations?user=Kh6UKMAAAAAJ&hl=zh-TW" target="_blank" rel="noopener">Google Scholar</a><a href="https://orcid.org/0000-0003-3036-0798" target="_blank" rel="noopener">ORCID</a><a href="https://researchoutput.ncku.edu.tw/en/persons/shang-ying-chen/" target="_blank" rel="noopener">NCKU Research Output</a><a href="https://mp.ncku.edu.tw/%e9%99%b3%e5%b0%9a%e6%bd%81%e8%80%81%e5%b8%ab/" target="_blank" rel="noopener">成大教師個人網頁</a></div>
-<div class="ms"><h2>研究領域</h2><span>RESEARCH AREAS</span></div>
-<div class="mg"><div class="mar"><img src="img/r1.png" alt=""><p>地熱能源</p></div><div class="mar"><img src="img/r2.png" alt=""><p>地下儲能</p></div><div class="mar"><img src="img/r3.png" alt=""><p>放射性廢棄物處置</p></div><div class="mar"><img src="img/r4.png" alt=""><p>二氧化碳地質封存</p></div><div class="mar"><img src="img/r5.png" alt=""><p>永續地下水<wbr>與污染整治</p></div><div class="mar"><img src="img/r6.png" alt=""><p>地質災害<wbr>與工程安全</p></div></div>
+<div class="mr"><div class="ms"><h2>研究領域</h2><span>RESEARCH AREAS</span></div>
+<div class="mg"><div class="mar"><img src="img/r1.png" alt=""><p>地熱能源</p></div><div class="mar"><img src="img/r2.png" alt=""><p>地下儲能</p></div><div class="mar"><img src="img/r3.png" alt=""><p>放射性廢棄物處置</p></div><div class="mar"><img src="img/r4.png" alt=""><p>二氧化碳地質封存</p></div><div class="mar"><img src="img/r5.png" alt=""><p>永續地下水<wbr>與污染整治</p></div><div class="mar"><img src="img/r6.png" alt=""><p>地質災害<wbr>與工程安全</p></div></div></div>
 </div>
 <script>
 (function(){var cv=document.getElementById('cv');
 function fit(){var w=innerWidth,h=innerHeight,n=w<640;
  document.body.classList.toggle('n',n);
- var el=n?document.getElementById('m'):cv, W=n?360:1200, H=n?440:1464;
- var k=Math.min(w/W,h/H);el.style.transform='translate('+((w-W*k)/2)+'px,'+((h-H*k)/2)+'px) scale('+k+')';}
+ if(n){var m=document.getElementById('m'),k0=w/360,H=Math.max(440,Math.min(h/k0,440*1.9));
+  m.style.height=H+'px';m.style.setProperty('--g','0px');
+  var c=0;[].forEach.call(m.children,function(e){if(!e.classList.contains('top'))c+=e.offsetHeight;});
+  var g=Math.max(6,Math.min(28,(H-36-c)/3));m.style.setProperty('--g',g+'px');
+  var k=Math.min(w/360,h/H);m.style.transform='translate('+((w-360*k)/2)+'px,'+((h-H*k)/2)+'px) scale('+k+')';return;}
+ var k=Math.min(w/1200,h/1464);cv.style.transform='translate('+((w-1200*k)/2)+'px,'+((h-1464*k)/2)+'px) scale('+k+')';}
 addEventListener('resize',fit);fit();})();
 </script></body></html>
