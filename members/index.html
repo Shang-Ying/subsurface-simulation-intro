@@ -30,7 +30,9 @@ button{font:inherit;color:inherit}
 .sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* page header */
-.phead{padding-top:clamp(28px,5.6vw,64px);padding-bottom:clamp(20px,3.6vw,40px);position:relative}
+.phead{padding-top:clamp(20px,5.6vw,64px);padding-bottom:clamp(8px,1.2vw,14px);position:relative}
+.idc{position:relative;padding:clamp(22px,3.6vw,42px) clamp(20px,4.2vw,48px)}
+.idc .acts{top:clamp(22px,3.6vw,42px);right:clamp(20px,4.2vw,48px)}
 .eyebrow{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:0 0 clamp(8px,1.4vw,14px);
  font:600 13px/1.4 var(--sans);letter-spacing:.12em;color:var(--warm);text-transform:uppercase}
 .eyebrow a{color:inherit;text-decoration:none}
@@ -56,7 +58,10 @@ button{font:inherit;color:inherit}
 
 /* sticky bar */
 .bar{position:sticky;top:0;z-index:20;background:rgba(242,247,250,.94);-webkit-backdrop-filter:saturate(1.4) blur(10px);
- backdrop-filter:saturate(1.4) blur(10px);margin-bottom:clamp(16px,2.4vw,28px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+ backdrop-filter:saturate(1.4) blur(10px);margin-bottom:clamp(8px,1.2vw,14px);background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none;
+ transition:background-color .2s ease,box-shadow .2s ease}
+.bar.stuck{background:rgba(242,247,250,.95);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);box-shadow:0 1px 0 var(--line)}
+.bar .prog{opacity:0;transition:opacity .2s}.bar.stuck .prog{opacity:1}
 .bar .wrap{display:flex;align-items:center;gap:14px;min-height:var(--stick)}
 .prog{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--sea);transform-origin:0 50%;
  transform:scaleX(var(--p,0));pointer-events:none}
@@ -93,10 +98,10 @@ button{font:inherit;color:inherit}
  background:linear-gradient(rgba(242,247,250,0),rgba(242,247,250,.95));transition:opacity .3s}
 .fadebot.off{opacity:0}
 /* entrance animation, identical to HOME */
-.fx :is(.phead .eyebrow,.phead .ttl,.phead .rule,.phead .lede,.phead .acts,.idc,.bar,main.sheet,main .yh,main .it,main .cs,main .ms>.sh,main .mc){opacity:0}
-.fade{animation:fade .9s ease-out both;animation-delay:calc(var(--i,0)*80ms)}
+.fx :is(.phead .eyebrow,.phead .ttl,.phead .rule,.phead .lede,.phead .acts,.phead .wrap0,.phead .stats,.bar,main .yh,main .it,main .cs,main .ms>.sh,main .mc){opacity:0}
+.fade{animation:fade .9s ease-out both}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media print{.fx :is(.phead .eyebrow,.phead .ttl,.phead .rule,.phead .lede,.phead .acts,.idc,.bar,main.sheet,main .yh,main .it,main .cs,main .ms>.sh,main .mc){opacity:1!important;animation:none!important}}
+@media print{.fx :is(.phead .eyebrow,.phead .ttl,.phead .rule,.phead .lede,.phead .acts,.phead .wrap0,.phead .stats,.bar,main .yh,main .it,main .cs,main .ms>.sh,main .mc){opacity:1!important;animation:none!important}}
 .reveal{animation:rv .6s var(--ease) both;animation-delay:calc(var(--i,0) * 60ms)}
 @keyframes rv{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
@@ -113,7 +118,7 @@ button{font:inherit;color:inherit}
  .sh .en{font-size:10.5px;letter-spacing:.12em}
  .eyebrow .e2{display:none}
  .eyebrow .dl{width:22px;height:22px}
- .phead{padding-top:26px;padding-bottom:18px}
+ .phead{padding-top:20px;padding-bottom:6px}
  .ttl h1{font-size:26px}
  .rule{width:32px;height:2px;margin:12px 0}
  .lede{font-size:13px;line-height:1.75}
@@ -146,51 +151,49 @@ button{cursor:pointer}
 }
 @media (prefers-reduced-motion:reduce){.hv:hover *,.hv:hover{transform:none!important}}
 
-.mem{padding-top:6px}
-.ms{padding:16px 0 40px}
-.ms>.sh{margin-bottom:24px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--line)}
-.ms>.sh .cnt{margin-left:auto;font:400 13px/1 var(--sans);color:var(--muted)}
-.ms>.sh .cnt b{font-weight:600;color:var(--ink);margin-right:2px}
-/* empty groups: one quiet line instead of a full block */
-.ms.none{padding:16px 0 20px}
-.ms.none>.sh{margin:0}
-.empty{margin:0;font-size:14px;color:var(--muted);line-height:1.6}
-.empty .pip{display:inline-block;vertical-align:.12em;margin:0 10px 0 2px;width:7px;height:7px;border-radius:50%;background:#3C8D6B;box-shadow:0 0 0 3px rgba(60,141,107,.14)}
-.empty .pip.dim{background:var(--line);box-shadow:none}
-.empty a{white-space:nowrap;font-weight:500;margin-left:12px}
-/* member cards */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,380px));gap:18px}
-.mc{position:relative;border-radius:var(--r-card);background:#fff;box-shadow:var(--shadow);padding:20px 22px 16px;display:flex;flex-direction:column;gap:12px;
- transition:box-shadow .25s var(--ease),transform .25s var(--ease)}
-.mh{display:flex;gap:14px;align-items:center}
-.av{flex:none;width:46px;height:46px;border-radius:50%;overflow:hidden;display:grid;place-items:center;box-shadow:0 0 0 1px var(--line)}
+/* roster: one white sheet; each group is a directory row (heading column | members) separated by hairlines */
+.roster.sheet{padding:0 48px}
+.ms{display:grid;grid-template-columns:188px minmax(0,1fr);gap:0 40px;padding:44px 0;border-bottom:1px solid var(--line)}
+.ms:last-child{border-bottom:0}
+.ms>.sh{margin:0;flex-direction:column;align-items:flex-start;gap:8px;position:sticky;top:calc(var(--stick) + 36px);align-self:start}
+.ms>.sh h2{font-size:22px;letter-spacing:.08em}
+.ms>.sh .en{font-size:11px;letter-spacing:.16em;line-height:1.4}
+.ms>.sh::after{content:"";width:24px;height:2px;background:var(--navy);margin-top:4px}
+.ms.none{padding:32px 0}
+.ms.none>.sh{position:static}
+.ms.none>.sh h2{color:var(--ink)}
+.ms.none>.sh::after{background:var(--line)}
+.ms .anc{position:absolute;right:-22px;top:4px}
+/* member cards: hairline panels inside the sheet */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.mc{position:relative;border-radius:var(--r-card);background:#fff;box-shadow:0 0 0 1px var(--line);padding:24px 24px 18px;display:flex;flex-direction:column;
+ transition:box-shadow var(--t),background-color var(--t)}
+.mh{display:flex;gap:16px;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.av{flex:none;width:52px;height:52px;border-radius:50%;overflow:hidden;display:grid;place-items:center}
 .av img{width:100%;height:100%;object-fit:cover}
-.av.ini{background:var(--bg);color:var(--fg);box-shadow:none}
-.av.ini b{font:600 20px/1 var(--sans)}
+.av.ini{background:var(--bg);color:var(--fg);box-shadow:inset 0 0 0 1px rgba(27,42,65,.06)}
+.av.ini b{font:600 21px/1 var(--sans)}
 .av.sm{width:34px;height:34px}.av.sm.ini b{font-size:15px}
 .mn{min-width:0}
-.mn h3{font:600 18px/1.3 var(--sans);color:var(--navy);margin:0;letter-spacing:.1em;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px}
-.mn h3 .me{font:400 13.5px/1.3 var(--sans);letter-spacing:0;color:var(--muted)}
-.mn .yr{margin:4px 0 0;font:600 12.5px/1.3 var(--sans);color:var(--warm);letter-spacing:.02em}
-.fd{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:0 14px;margin:0;border-top:1px solid var(--line2)}
-.fd dt,.fd dd{padding:7px 0;border-bottom:1px solid var(--line2)}
-.fd dt:last-of-type,.fd dd:last-of-type{border-bottom:0;padding-bottom:2px}
-.fd dt{font:600 12px/1.75 var(--sans);letter-spacing:.06em;color:var(--warm)}
-.fd dt .sem{letter-spacing:0;font-weight:500}
-.fd dd{margin:0;font-size:13.5px;line-height:1.6;min-width:0}
-.fd dd.tpc{font-weight:500;color:var(--ink)}
+.mn h3{font:600 20px/1.3 var(--sans);color:var(--navy);margin:0;letter-spacing:.14em;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px}
+.mn h3 .me{font:400 13.5px/1.3 var(--sans);letter-spacing:.02em;color:var(--muted)}
+.mn .yr{margin:6px 0 0;font:500 12.5px/1.3 var(--sans);color:var(--warm);letter-spacing:.04em}
+.mn .yr .num{font-variant-numeric:tabular-nums}
+.fd{display:grid;grid-template-columns:4.6em minmax(0,1fr);gap:0 16px;margin:0 0 18px;padding:6px 0 0}
+.fd dt,.fd dd{padding:10px 0 0}
+.fd dt{font:600 12px/1.75 var(--sans);letter-spacing:.08em;color:var(--faint);white-space:nowrap}
+.fd dd{margin:0;font-size:14px;line-height:1.7;min-width:0;color:#2E3B50}
+.fd dd.tpc{font-weight:600;color:var(--ink)}
 .kw,.crs,.ta{list-style:none;margin:0;padding:0}
-.kw,.crs{display:flex;flex-wrap:wrap;gap:5px;padding-top:1px}
-.kw li{font:600 11.5px/1 var(--sans);color:var(--navy);background:#EEF2F7;border-radius:var(--r-tag);padding:4px 7px}
-.crs{gap:0 14px;padding-top:0}
-.crs li{position:relative;padding-left:10px;font-size:13px;line-height:1.6;color:#2E3B50;white-space:nowrap}
-.crs li::before{content:"";position:absolute;left:0;top:.75em;width:5px;height:5px;border-radius:50%;background:var(--sea)}
+.kw{display:flex;flex-wrap:wrap;gap:6px;padding-top:2px}
+.kw li{font:600 11.5px/1 var(--sans);color:var(--navy);background:#EEF2F7;border-radius:var(--r-tag);padding:5px 7px;letter-spacing:.02em}
+.crs span{white-space:nowrap}
 .ta li{position:relative;padding-left:12px}
-.ta li::before{content:"";position:absolute;left:1px;top:.78em;width:5px;height:1px;background:var(--faint)}
-.ml{margin:auto 0 0;display:flex;flex-wrap:wrap;gap:6px 16px}
-.ml a{display:inline-flex;align-items:center;gap:7px;min-height:28px;padding:0;border-radius:0;background:none;font:500 12.5px/1 var(--sans);text-decoration:none;color:var(--muted);letter-spacing:.01em;transition:background .2s,color .2s}
-.ml a span{border-bottom:1px solid transparent;transition:border-color var(--t)}
-.ml svg{width:14px;height:14px;flex:none}
+.ta li::before{content:"";position:absolute;left:1px;top:.85em;width:5px;height:1px;background:var(--faint)}
+.ml{margin:auto 0 0;padding-top:12px;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:6px 18px}
+.ml a{display:inline-flex;align-items:center;gap:8px;min-height:30px;font:500 13px/1 var(--sans);text-decoration:none;color:var(--muted);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.ml a span{border-bottom:1px solid transparent;padding-bottom:1px;transition:border-color var(--t),color var(--t)}
+.ml svg{width:15px;height:15px;flex:none;color:var(--faint)}
 /* alumni (used once there are alumni) */
 .alh,.al{display:grid;grid-template-columns:64px 170px 56px minmax(0,1.4fr) minmax(0,1fr);gap:0 18px;align-items:center}
 .alh{font:600 11px/1 var(--sans);letter-spacing:.12em;color:var(--faint);padding:0 0 10px;border-bottom:1px solid var(--line)}
@@ -198,40 +201,11 @@ button{cursor:pointer}
 .al{position:relative;padding:12px 0;border-bottom:1px solid var(--line2);font-size:14.5px}
 .ay{font-weight:600;color:var(--navy)}
 .an{display:flex;align-items:center;gap:10px}
-.an b{display:block;font:700 15px/1.3 var(--sans)}.an small{display:block;font-size:12px;color:var(--muted);line-height:1.3}
-.dg{font:500 12px/1 var(--sans);border:1px solid var(--line);border-radius:2px;padding:4px 6px;color:var(--muted)}
+.an b{display:block;font:600 15px/1.3 var(--sans)}.an small{display:block;font-size:12px;color:var(--muted);line-height:1.3}
+.dg{font:500 12px/1 var(--sans);border:1px solid var(--line);border-radius:var(--r-tag);padding:4px 6px;color:var(--muted)}
 .al .lb{display:none}
-/* join */
-.jl{display:flex;gap:16px;align-items:center;margin:0 0 6px}
-.jlogo{width:52px;height:52px;flex:none;display:block}
-.jn{margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 12px}
-.jn b{font:700 19px/1.4 var(--sans);color:var(--navy);letter-spacing:.06em}
-.jd{font-size:13.5px;color:var(--muted)}
-.jw{margin:4px 0 0;font-size:15px}
-.jw .mu{display:block}
-.mu{color:var(--muted)}.sm{font-size:13.5px}
-.jh{font:700 15px/1.4 var(--sans);margin:24px 0 12px;display:flex;align-items:baseline;gap:10px}
-.jh span{font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.ja{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px}
-.ja li{display:flex;gap:14px;align-items:center;border-top:1px solid var(--line2);padding:12px 0}
-.ja img{width:56px;height:56px;flex:none}
-.ja b{display:block;font:700 14.5px/1.35 var(--sans)}
-.ja small{display:block;font-size:11.5px;color:var(--muted);line-height:1.3;margin-top:1px}
-.ja em{display:block;font-style:normal;font-size:12.5px;line-height:1.45;margin-top:4px;color:#2E3B50}
-.jc{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;margin-top:6px}
-.chk{list-style:none;margin:0;padding:0}
-.chk li{position:relative;padding:6px 0 6px 24px;border-top:1px solid var(--line2);font-size:14.5px;line-height:1.6}
-.chk li:first-child{border-top:0}
-.chk li::before{content:"";position:absolute;left:3px;top:.95em;width:9px;height:5px;border-left:1.6px solid var(--navy);border-bottom:1.6px solid var(--navy);transform:rotate(-45deg)}
-.mailbtn{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:12px 16px;border-radius:4px;
- background:var(--navy);color:#fff;text-decoration:none;max-width:360px}
-.mailbtn svg{grid-row:1/3;width:22px;height:22px}
-.mailbtn span{font:700 15px/1.3 var(--sans)}.mailbtn small{font:400 13px/1.3 var(--sans);color:#C9D4E3}
-.jdl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:14px 0 8px;font-size:14.5px}
-.jdl dt{color:var(--muted)}.jdl dd{margin:0}
-.cvl{margin-left:10px;font-size:13px;white-space:nowrap}
 @media (max-width:900px){
- .ja{grid-template-columns:repeat(2,1fr)}
+ .ms{grid-template-columns:150px minmax(0,1fr);gap:0 28px}
  .alh{display:none}
  .al{grid-template-columns:auto 1fr;gap:4px 12px;padding:14px 0}
  .al .ay{grid-column:1;grid-row:1}.al .an{grid-column:2;grid-row:1}
@@ -240,62 +214,65 @@ button{cursor:pointer}
  .al .lb{display:inline;margin:0 8px 0 0;font-size:10.5px}
 }
 @media (max-width:760px){
- .grid,.grid.n1,.grid.n2{grid-template-columns:1fr;gap:10px}
-}
-@media (max-width:1000px) and (min-width:761px){
+ .roster.sheet{padding:0 var(--cardpad)}
+ .ms{display:block;padding:24px 0 26px}
+ .ms>.sh{position:static;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin-bottom:16px}
+ .ms>.sh h2{white-space:nowrap}
+ .ms>.sh::after{display:none}
+ .ms>.sh h2{font-size:19px}
+ .ms.none{padding:18px 0}
+ .ms.none>.sh{margin:0}
+ .ms .anc{display:none}
+ .grid{grid-template-columns:1fr;gap:12px}
 }
 @media (max-width:640px){
- .ms{padding:24px 0 22px}
- .ms>.sh{margin-bottom:14px}
- .ms.none{padding:12px 0 12px}
- .empty{font-size:12.5px}
- .empty a{margin-left:6px}
- .mc{padding:16px 16px 12px;gap:10px}
- .av{width:40px;height:40px}.av.ini b{font-size:17px}
- .mn h3{font-size:16px}
+ .mc{padding:18px 16px 12px}
+ .mh{gap:12px;padding-bottom:14px}
+ .av{width:44px;height:44px}.av.ini b{font-size:18px}
+ .mn h3{font-size:17px}
  .mn .yr{font-size:12px;margin-top:4px}
- .fd{grid-template-columns:1fr;gap:0}
- .fd dt{padding:8px 0 1px;border-bottom:0;line-height:1.5;font-size:11.5px}
- .fd dd{padding:0 0 8px;font-size:13px;line-height:1.6}
- .fd dd:last-of-type{padding-bottom:0}
- .crs{gap:0 12px}.crs li{font-size:13px}
- .kw li{font-size:11.5px}
- .ml a{font-size:12px}
+ .fd{grid-template-columns:1fr;padding-top:2px}
+ .fd dt{padding:12px 0 2px;line-height:1.4;font-size:11px}
+ .fd dd{padding:0;font-size:13.5px;line-height:1.65}
+ .ml{margin-top:14px;padding-top:8px}
+ .ml a{font-size:12.5px;min-height:36px}
  .al{font-size:13px}
- .jl{gap:12px;align-items:flex-start}.jlogo{width:40px;height:40px}
- .jn b{font-size:16px}.jd{font-size:12px}
- .jw{font-size:13.5px}
- .ja{grid-template-columns:1fr;gap:8px}
- .ja li{padding:9px 0}.ja img{width:44px;height:44px}
- .jc{grid-template-columns:1fr;gap:4px}
- .chk li{font-size:13.5px}
- .jdl{font-size:13px}
 }
-@media print{.bar,.acts,.totop,.fadebot{display:none!important}.mc,.al,.ja li{break-inside:avoid}}
+@media print{.bar,.acts,.totop,.fadebot{display:none!important}.roster.sheet{box-shadow:none;padding:0}.ms>.sh{position:static}.mc,.al{break-inside:avoid}}
 
-@media (hover:hover){a:hover{text-decoration-color:var(--navy)}.eyebrow a:hover{color:var(--navy)}.btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}.ilk:hover{background:var(--navy);color:#fff}.chip:hover{color:var(--navy);background:rgba(31,58,95,.06)}.sh:hover .anc,.sh .anc:focus-visible{opacity:1}.sh .anc:hover{color:var(--navy)}.totop:hover{background:var(--navy);color:#fff}.mc:hover{box-shadow:0 0 0 1px #BFCCD9,0 4px 14px rgba(31,58,95,.06)}.ml a:hover{color:var(--navy)}.ml a:hover span{border-bottom-color:var(--navy)}.mailbtn:hover{background:var(--navy2)}}
+@media (hover:hover){a:hover{text-decoration-color:var(--navy)}.eyebrow a:hover{color:var(--navy)}.btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}.ilk:hover{background:var(--navy);color:#fff}.chip:hover{color:var(--navy);background:rgba(31,58,95,.06)}.sh:hover .anc,.sh .anc:focus-visible{opacity:1}.sh .anc:hover{color:var(--navy)}.totop:hover{background:var(--navy);color:#fff}.mc:hover{box-shadow:0 0 0 1px #B9C7D6,0 6px 18px rgba(31,58,95,.06)}.ml a:hover{color:var(--navy)}.ml a:hover span{border-bottom-color:currentColor}}
 </style></head>
 <body>
 <div class="topbar"></div>
-<header class="wrap phead nolede">
+<header class="wrap phead nolede"><div class="idc card">
 <p class="eyebrow"><span class="e0">地下資源與智慧計算研究室</span></p>
 <div class="ttl"><h1>研究室成員</h1><span class="en">Members</span></div>
 <hr class="rule">
 <div class="acts"></div>
-</header>
+</div></header>
 <nav class="bar memnav" aria-label="章節"><div class="wrap"><div class="edge"><div class="scroller"><a class="chip" href="#phd" data-s="phd">博士生</a><a class="chip" href="#ms" data-s="ms">碩士生</a><a class="chip" href="#ug" data-s="ug">專題生</a></div></div></div><i class="prog"></i></nav>
-<main class="wrap mem" id="main"><section class="ms none" id="phd" aria-labelledby="h-phd"><div class="sh"><h2 id="h-phd">博士生</h2><span class="en">Ph.D. Students</span><a class="anc" href="#phd" aria-label="此節連結：博士生">#</a></div></section><section class="ms" id="ms" aria-labelledby="h-ms"><div class="sh"><h2 id="h-ms">碩士生</h2><span class="en">M.S. Students</span><a class="anc" href="#ms" aria-label="此節連結：碩士生">#</a></div><div class="grid n2"><article class="mc"><div class="mh"><span class="av ini" style="--bg:#E9EEF5;--fg:#1F3A5F" aria-hidden="true"><b>王</b></span><div class="mn"><h3>王永凱</h3><p class="yr"><span class="num">2026</span> 入學<span class="gr" data-enroll="2026" data-p="碩"> · 碩一</span></p></div></div><dl class="fd"><dt>研究題目</dt><dd class="tpc">地熱<wbr>數值<wbr>模式</dd><dt>關鍵字</dt><dd><ul class="kw"><li>地熱</li><li>數值模式</li><li>MRST</li></ul></dd><dt>擔任助教</dt><dd><ul class="ta"><li>115-1 資源工程<wbr>概論</li></ul></dd><dt>修課紀錄</dt><dd><ul class="crs"><li>地質統計學</li><li>水文地質學</li><li>地熱能源資源</li><li>高等岩石力學</li><li>專題討論</li></ul></dd></dl><p class="ml"><a href="mailto:N46151045@gs.ncku.edu.tw" aria-label="寄信給 王永凱：N46151045@gs.ncku.edu.tw"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.8 4.8 5.2 4 5.2-4"/></svg><span>N46151045@gs.ncku.edu.tw</span></a></p></article><article class="mc"><div class="mh"><span class="av ini" style="--bg:#F1ECE4;--fg:#6B4F2A" aria-hidden="true"><b>蘇</b></span><div class="mn"><h3>蘇千綸</h3><p class="yr"><span class="num">2026</span> 入學<span class="gr" data-enroll="2026" data-p="碩"> · 碩一</span></p></div></div><dl class="fd"><dt>研究題目</dt><dd class="tpc">放射性廢棄物<wbr>處置<wbr>數值<wbr>模式</dd><dt>關鍵字</dt><dd><ul class="kw"><li>放射性廢棄物處置</li><li>數值模式</li><li>OpenGeoSys</li></ul></dd><dt>擔任助教</dt><dd><ul class="ta"><li>115-1 資源工程<wbr>概論</li><li>115-1 教師<wbr>交辦<wbr>事項</li></ul></dd><dt>修課紀錄</dt><dd><ul class="crs"><li>地質統計學</li><li>大地工程實務</li><li>水文地質學</li><li>高等岩石力學</li><li>專題討論</li></ul></dd></dl><p class="ml"><a href="mailto:N46151053@gs.ncku.edu.tw" aria-label="寄信給 蘇千綸：N46151053@gs.ncku.edu.tw"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.8 4.8 5.2 4 5.2-4"/></svg><span>N46151053@gs.ncku.edu.tw</span></a></p></article></div></section><section class="ms none" id="ug" aria-labelledby="h-ug"><div class="sh"><h2 id="h-ug">大學部專題生</h2><span class="en">Undergraduate Researchers</span><a class="anc" href="#ug" aria-label="此節連結：大學部專題生">#</a></div></section></main>
+<div class="wrap"><main class="roster sheet" id="main"><section class="ms none" id="phd" aria-labelledby="h-phd"><div class="sh"><h2 id="h-phd">博士生</h2><span class="en">Ph.D. Students</span><a class="anc" href="#phd" aria-label="此節連結：博士生">#</a></div></section><section class="ms" id="ms" aria-labelledby="h-ms"><div class="sh"><h2 id="h-ms">碩士生</h2><span class="en">M.S. Students</span><a class="anc" href="#ms" aria-label="此節連結：碩士生">#</a></div><div class="grid n2"><article class="mc"><div class="mh"><span class="av ini" style="--bg:#E9EEF5;--fg:#1F3A5F" aria-hidden="true"><b>王</b></span><div class="mn"><h3>王永凱</h3><p class="yr"><span class="num">2026</span> 入學<span class="gr" data-enroll="2026" data-p="碩"> · 碩一</span></p></div></div><dl class="fd"><dt>研究題目</dt><dd class="tpc">地熱<wbr>數值<wbr>模式</dd><dt>關鍵字</dt><dd><ul class="kw"><li>地熱</li><li>數值模式</li><li>MRST</li></ul></dd><dt>擔任助教</dt><dd><ul class="ta"><li>115-1 資源工程<wbr>概論</li></ul></dd><dt>修課紀錄</dt><dd class="crs"><span>地質統計學</span>、<wbr><span>水文地質學</span>、<wbr><span>地熱能源資源</span>、<wbr><span>高等岩石力學</span>、<wbr><span>專題討論</span></dd></dl><p class="ml"><a href="mailto:N46151045@gs.ncku.edu.tw" aria-label="寄信給 王永凱：N46151045@gs.ncku.edu.tw"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.8 4.8 5.2 4 5.2-4"/></svg><span>N46151045@gs.ncku.edu.tw</span></a></p></article><article class="mc"><div class="mh"><span class="av ini" style="--bg:#F1ECE4;--fg:#6B4F2A" aria-hidden="true"><b>蘇</b></span><div class="mn"><h3>蘇千綸</h3><p class="yr"><span class="num">2026</span> 入學<span class="gr" data-enroll="2026" data-p="碩"> · 碩一</span></p></div></div><dl class="fd"><dt>研究題目</dt><dd class="tpc">放射性廢棄物<wbr>處置<wbr>數值<wbr>模式</dd><dt>關鍵字</dt><dd><ul class="kw"><li>放射性廢棄物處置</li><li>數值模式</li><li>OpenGeoSys</li></ul></dd><dt>擔任助教</dt><dd><ul class="ta"><li>115-1 資源工程<wbr>概論</li><li>115-1 教師<wbr>交辦<wbr>事項</li></ul></dd><dt>修課紀錄</dt><dd class="crs"><span>地質統計學</span>、<wbr><span>大地工程實務</span>、<wbr><span>水文地質學</span>、<wbr><span>高等岩石力學</span>、<wbr><span>專題討論</span></dd></dl><p class="ml"><a href="mailto:N46151053@gs.ncku.edu.tw" aria-label="寄信給 蘇千綸：N46151053@gs.ncku.edu.tw"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="3.5" width="12" height="9" rx="1.5"/><path d="m2.8 4.8 5.2 4 5.2-4"/></svg><span>N46151053@gs.ncku.edu.tw</span></a></p></article></div></section><section class="ms none" id="ug" aria-labelledby="h-ug"><div class="sh"><h2 id="h-ug">大學部專題生</h2><span class="en">Undergraduate Researchers</span><a class="anc" href="#ug" aria-label="此節連結：大學部專題生">#</a></div></section></main></div>
 <div class="endpad" aria-hidden="true"></div>
 <button class="totop" id="totop" type="button" aria-label="回到頂端" tabindex="-1"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
 <div class="fadebot" id="fadebot" aria-hidden="true"></div>
 <script>
+/* entrance sequencer: strict visual order (top, then left within a row), one level only, 80 ms steps,
+   initial screen capped at ~0.8 s; items below the fold fade in as they enter, staggered by position */
+window.__seq=function(els,step,cap){step=step||80;cap=cap||800;var vh=innerHeight,vis=[],rest=[];
+ els.forEach(function(e){var r=e.getBoundingClientRect();if(!r.width&&!r.height)return;(r.top<vh&&r.bottom>0?vis:rest).push(e);});
+ function ord(a){return a.map(function(e){return [e,e.getBoundingClientRect()];}).sort(function(x,y){
+   return Math.abs(x[1].top-y[1].top)>24?x[1].top-y[1].top:x[1].left-y[1].left;}).map(function(x){return x[0];});}
+ var v=ord(vis),st=v.length>1?Math.min(step,cap/(v.length-1)):0;
+ v.forEach(function(e,i){e.style.animationDelay=Math.round(i*st)+'ms';e.classList.add('fade');});
+ if(!rest.length)return;
+ if(!('IntersectionObserver' in window)){rest.forEach(function(e){e.classList.add('fade');});return;}
+ var io=new IntersectionObserver(function(es){ord(es.filter(function(e){return e.isIntersecting;}).map(function(e){return e.target;}))
+   .forEach(function(e,i){e.style.animationDelay=(i*step)+'ms';e.classList.add('fade');io.unobserve(e);});},{rootMargin:'0px 0px -6% 0px'});
+ rest.forEach(function(e){io.observe(e);});};
+
 (function(){
  var de=document.documentElement;if(!de.classList.contains('fx'))return;
- var els=[].slice.call(document.querySelectorAll('.phead .eyebrow,.phead .ttl,.phead .rule,.phead .lede,.phead .acts,.idc,.bar,main.sheet,main .yh,main .it,main .cs,main .ms>.sh,main .mc')),k=0,vh=innerHeight;
- var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
-   e.target.style.setProperty('--i',0);e.target.classList.add('fade');io.unobserve(e.target);}});},{rootMargin:'0px 0px -6% 0px'}):null;
- els.forEach(function(el){var r=el.getBoundingClientRect();
-  if(r.top<vh&&r.bottom>0||!io){el.style.setProperty('--i',Math.min(k++,10));el.classList.add('fade');}else io.observe(el);});
+ window.__seq([].slice.call(document.querySelectorAll('.phead .eyebrow,.phead .ttl,.phead .rule,.phead .lede,.phead .acts,.phead .wrap0,.phead .stats,.bar,main .yh,main .it,main .cs,main .ms>.sh,main .mc')));
 })();
 
 (function(){
@@ -306,7 +283,7 @@ button{cursor:pointer}
  if(ext&&framed){ext.href=location.href.split('#')[0];ext.hidden=false;}
  window.__reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
  var tick=false;
- function upd(){tick=false;var y=window.scrollY||de.scrollTop,max=Math.max(1,de.scrollHeight-innerHeight);
+ function upd(){tick=false;if(bar)bar.classList.toggle('stuck',bar.getBoundingClientRect().top<=0.5&&(window.scrollY||de.scrollTop)>0);var y=window.scrollY||de.scrollTop,max=Math.max(1,de.scrollHeight-innerHeight);
   if(prog)prog.style.setProperty('--p',Math.min(1,y/max).toFixed(4));
   if(top){var on=y>innerHeight*.6;top.classList.toggle('on',on);top.tabIndex=on?0:-1;}
   if(fb)fb.classList.toggle('off',max-y<8||de.scrollHeight<=innerHeight+4);}
