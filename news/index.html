@@ -5,6 +5,7 @@
 <meta name="description" content="News of Shang-Ying Chen (NCKU Resources Engineering): publications, talks, conferences, teaching and service.">
 <meta name="theme-color" content="#1F3A5F">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<script>if(!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("fx")</script>
 <style>
 :root{--ink:#1B2A41;--navy:#1F3A5F;--navy2:#2C4F7C;--warm:#746E6A;--muted:#746E6A;--faint:#9A948F;--line:#DCE5EC;--line2:#E8EEF3;
  --tint:#F2F7FA;--sea:#8DB8CF;--soft:#F2F7FA;--panel:#fff;--accent:#8DB8CF;--pad:clamp(20px,5.6vw,64px);--maxw:1056px;--stick:60px;
@@ -91,6 +92,11 @@ button{font:inherit;color:inherit}
 .fadebot{position:fixed;left:0;right:0;bottom:0;height:36px;z-index:10;pointer-events:none;
  background:linear-gradient(rgba(242,247,250,0),rgba(242,247,250,.95));transition:opacity .3s}
 .fadebot.off{opacity:0}
+/* entrance animation, identical to HOME */
+.fx :is(.phead .eyebrow,.phead .ttl,.phead .rule,.phead .lede,.phead .acts,.idc,.bar,main.sheet,main .yh,main .it,main .cs,main .ms>.sh,main .mc){opacity:0}
+.fade{animation:fade .9s ease-out both;animation-delay:calc(var(--i,0)*80ms)}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media print{.fx :is(.phead .eyebrow,.phead .ttl,.phead .rule,.phead .lede,.phead .acts,.idc,.bar,main.sheet,main .yh,main .it,main .cs,main .ms>.sh,main .mc){opacity:1!important;animation:none!important}}
 .reveal{animation:rv .6s var(--ease) both;animation-delay:calc(var(--i,0) * 60ms)}
 @keyframes rv{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
@@ -270,6 +276,15 @@ a.pill{display:inline-flex;align-items:center;gap:3px;vertical-align:2px;margin-
 <button class="totop" id="totop" type="button" aria-label="回到頂端" tabindex="-1"><svg class="ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
 <div class="fadebot" id="fadebot" aria-hidden="true"></div>
 <script>
+(function(){
+ var de=document.documentElement;if(!de.classList.contains('fx'))return;
+ var els=[].slice.call(document.querySelectorAll('.phead .eyebrow,.phead .ttl,.phead .rule,.phead .lede,.phead .acts,.idc,.bar,main.sheet,main .yh,main .it,main .cs,main .ms>.sh,main .mc')),k=0,vh=innerHeight;
+ var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){
+   e.target.style.setProperty('--i',0);e.target.classList.add('fade');io.unobserve(e.target);}});},{rootMargin:'0px 0px -6% 0px'}):null;
+ els.forEach(function(el){var r=el.getBoundingClientRect();
+  if(r.top<vh&&r.bottom>0||!io){el.style.setProperty('--i',Math.min(k++,10));el.classList.add('fade');}else io.observe(el);});
+})();
+
 (function(){
  var d=document,de=d.documentElement,bar=d.querySelector('.bar'),prog=d.querySelector('.prog'),
      top=d.getElementById('totop'),fb=d.getElementById('fadebot'),ext=d.getElementById('ext');
