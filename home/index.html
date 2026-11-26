@@ -9,7 +9,7 @@
 :root{--ink:#1B2A41;--navy:#1F3A5F;--muted:#5B6575;--line:#D9DEE6;--bg:#FFFFFF}
 html,body{margin:0;height:100%;overflow:hidden;background:var(--bg)}
 body{font-family:'Source Sans 3','Noto Sans TC',Arial,sans-serif;color:var(--ink);word-break:keep-all;overflow-wrap:anywhere}
-#cv{position:absolute;left:0;top:0;width:1200px;height:770px;transform-origin:0 0;background:var(--bg)}
+#cv{position:absolute;left:0;top:0;width:1200px;height:840px;transform-origin:0 0;background:var(--bg)}
 .top{position:absolute;left:0;right:0;top:0;height:6px;background:var(--navy)}
 .head{position:absolute;left:72px;top:58px;width:1056px;display:flex;gap:52px}
 .ph{width:240px;height:290px;flex:none;border-radius:4px;overflow:hidden;box-shadow:0 0 0 1px var(--line),0 10px 24px rgba(27,42,65,.10)}
@@ -28,11 +28,11 @@ h1{font:900 46px/1.1 'Noto Serif TC',serif;margin:0;letter-spacing:2px}
 .lk{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
 .lk a{font:600 14.5px 'Source Sans 3','Noto Sans TC',sans-serif;color:var(--navy);text-decoration:none;border:1px solid #B9C4D4;border-radius:3px;padding:5px 12px;white-space:nowrap;transition:background .2s,color .2s}
 .lk a:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
-.sec{position:absolute;left:72px;top:478px;width:1056px;display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--line);padding-top:22px}
+.sec{position:absolute;left:72px;top:548px;width:1056px;display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--line);padding-top:22px}
 .sec h2{font:700 22px 'Noto Serif TC',serif;margin:0}
 .sec span{font:600 14px 'Source Sans 3',sans-serif;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
-.ri{position:absolute;left:72px;top:530px;width:1056px;font:400 16px/1.6 'Noto Sans TC',sans-serif;color:var(--muted);margin:0}
-.grid{position:absolute;left:72px;top:578px;width:1056px;display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.ri{position:absolute;left:72px;top:600px;width:1056px;font:400 16px/1.6 'Noto Sans TC',sans-serif;color:var(--muted);margin:0}
+.grid{position:absolute;left:72px;top:648px;width:1056px;display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
 .ar{display:flex;flex-direction:column;align-items:center;text-align:center}
 .ar img{width:104px;height:104px;border-radius:14px;display:block;box-shadow:0 0 0 1px var(--line)}
 .az{font:700 15.5px 'Noto Sans TC',sans-serif;margin:10px 0 0}
@@ -63,6 +63,8 @@ body.n .ar img{width:84px;height:84px} body.n .az{font-size:12.5px} body.n .ae{d
   <p class="pos2 fade" style="--i:2">Assistant Professor, Department of Resources Engineering, National Cheng Kung University</p>
   <p class="lab fade" style="--i:3">主持 <b>地下資源與智慧計算研究室</b>，歡迎碩、博士生與大學部專題生加入</p>
   <dl class="ct fade" style="--i:4">
+   <dt>學歷</dt><dd>國立成功大學 資源工程學系 博士（2022）</dd>
+   <dt>經歷</dt><dd>史丹佛大學 能源科學與工程學系 訪問博士後（2024–2025）<br>國立臺南大學 綠色能源科技學系 助理教授（2026）</dd>
    <dt>辦公室</dt><dd>資源新館四樓 43408</dd>
    <dt>電話</dt><dd>06-2757575 分機 62835</dd>
    <dt>Email</dt><dd><a href="mailto:shangying@gs.ncku.edu.tw">shangying@gs.ncku.edu.tw</a></dd>
@@ -79,6 +81,6 @@ body.n .ar img{width:84px;height:84px} body.n .az{font-size:12.5px} body.n .ae{d
 function fit(){var w=innerWidth,h=innerHeight,n=w<640;
  document.body.classList.toggle('n',n);document.documentElement.classList.toggle('n',n);
  if(n){cv.style.transform='';return;}
- var k=Math.min(w/1200,h/770);cv.style.transform='translate('+((w-1200*k)/2)+'px,'+((h-770*k)/2)+'px) scale('+k+')';}
+ var k=Math.min(w/1200,h/840);cv.style.transform='translate('+((w-1200*k)/2)+'px,'+((h-840*k)/2)+'px) scale('+k+')';}
 addEventListener('resize',fit);fit();})();
 </script></body></html>
