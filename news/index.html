@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>最新消息 News｜陳尚潁 Shang-Ying Chen｜國立成功大學資源工程學系</title>
+<meta name="description" content="News of Shang-Ying Chen (NCKU Resources Engineering): publications, talks, conferences, teaching and service.">
+<meta name="theme-color" content="#1F3A5F">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root{--ink:#1B2A41;--navy:#1F3A5F;--navy2:#2C4F7C;--muted:#5B6575;--faint:#8A93A3;--line:#D9DEE6;--line2:#E8ECF1;
+ --soft:#F4F6F9;--panel:#FBFCFD;--accent:#9FB0C8;--pad:clamp(16px,5.6vw,72px);--maxw:1056px;--stick:56px;
+ --sans:'Source Sans 3','Noto Sans TC',-apple-system,'PingFang TC','Microsoft JhengHei',Arial,sans-serif;
+ --serif:'Noto Serif TC','Songti TC','PMingLiU',serif;--ease:cubic-bezier(.2,.7,.2,1)}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--stick) + 12px)}
+body{margin:0;background:#fff;color:var(--ink);font:400 16px/1.7 var(--sans);word-break:keep-all;overflow-wrap:anywhere;
+ line-break:strict;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-kerning:normal}
+::selection{background:#DCE4EF;color:var(--ink)}
+img{max-width:100%}
+a{color:var(--navy);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:1px;
+ text-underline-offset:.22em;transition:text-decoration-color .2s,color .2s,background-color .2s,border-color .2s}
+a:hover{text-decoration-color:var(--navy)}
+:focus-visible{outline:2px solid var(--navy);outline-offset:2px;border-radius:2px}
+button{font:inherit;color:inherit}
+.num{font-family:'Source Sans 3',var(--sans);font-variant-numeric:tabular-nums lining-nums}
+.topbar{height:6px;background:var(--navy)}
+.wrap{max-width:calc(var(--maxw) + 2 * var(--pad));margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* page header */
+.phead{padding-top:clamp(20px,4.2vw,52px);padding-bottom:clamp(14px,2.4vw,26px);position:relative}
+.eyebrow{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:0 0 clamp(8px,1.4vw,14px);
+ font:600 12.5px/1.4 var(--sans);letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.eyebrow a{color:inherit;text-decoration:none}
+.eyebrow a:hover{color:var(--navy)}
+.eyebrow i{width:18px;height:1px;background:var(--accent);display:inline-block}
+.ttl{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;margin:0}
+.ttl h1{font:900 clamp(26px,3.6vw,42px)/1.15 var(--serif);letter-spacing:.06em;margin:0}
+.ttl .en{font:600 clamp(13px,1.5vw,18px)/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.rule{width:44px;height:3px;background:var(--navy);margin:clamp(12px,1.8vw,18px) 0 clamp(10px,1.4vw,14px);border:0}
+.lede .nw{white-space:nowrap}
+.lede{margin:0;color:var(--muted);font-size:clamp(14px,1.45vw,16.5px);max-width:46em}
+.acts{position:absolute;right:var(--pad);top:clamp(20px,4.2vw,52px);display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border:1px solid #B9C4D4;border-radius:3px;
+ background:#fff;color:var(--navy);font:600 13.5px/1 var(--sans);text-decoration:none;white-space:nowrap;cursor:pointer}
+.btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn svg{width:14px;height:14px;flex:none}
+.btn[hidden]{display:none}
+
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);-webkit-backdrop-filter:saturate(1.4) blur(8px);
+ backdrop-filter:saturate(1.4) blur(8px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:14px;min-height:var(--stick)}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--navy);transform-origin:0 50%;
+ transform:scaleX(var(--p,0));pointer-events:none}
+.scroller{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;
+ padding:10px 2px;margin:0 -2px;flex:1;min-width:0}
+.scroller::-webkit-scrollbar{display:none}
+.chip{flex:none;display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 12px;border:1px solid var(--line);
+ border-radius:16px;background:#fff;color:var(--ink);font:500 13.5px/1 var(--sans);cursor:pointer;white-space:nowrap;
+ text-decoration:none;transition:border-color .2s,background-color .2s,color .2s}
+.chip:hover{border-color:var(--accent);background:var(--panel)}
+.chip[aria-pressed=true],.chip[aria-current=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.chip .c{font:600 11.5px/1 'Source Sans 3';color:var(--faint);font-variant-numeric:tabular-nums}
+.chip[aria-pressed=true] .c,.chip[aria-current=true] .c{color:#C9D4E3}
+.edge{position:relative;flex:1;min-width:0;display:flex}
+.edge::before,.edge::after{content:"";position:absolute;top:0;bottom:0;width:22px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:1}
+.edge::before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+.edge::after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
+.edge.l::before,.edge.r::after{opacity:1}
+
+/* section heads */
+.sh{display:flex;align-items:baseline;gap:12px;margin:0 0 18px;position:relative}
+.sh .no{font:600 13px/1 'Source Sans 3';color:var(--faint);letter-spacing:.08em;font-variant-numeric:tabular-nums;min-width:1.6em}
+.sh h2{font:700 clamp(20px,2.2vw,25px)/1.3 var(--serif);margin:0;letter-spacing:.04em}
+.sh .en{font:600 12.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.sh .anc{opacity:0;color:var(--faint);text-decoration:none;font:600 15px/1 var(--sans);padding:2px 4px;transition:opacity .2s,color .2s}
+.sh:hover .anc,.sh .anc:focus-visible{opacity:1}
+.sh .anc:hover{color:var(--navy)}
+
+/* footer + floating helpers */
+.foot{margin-top:clamp(36px,6vw,72px);border-top:1px solid var(--line);padding:16px 0 28px;display:flex;flex-wrap:wrap;
+ justify-content:space-between;gap:6px 24px;font:400 13px/1.6 var(--sans);color:var(--muted)}
+.totop{position:fixed;right:clamp(10px,2.2vw,24px);bottom:clamp(10px,2.2vw,24px);z-index:30;width:40px;height:40px;
+ border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.96);color:var(--navy);display:grid;place-items:center;
+ cursor:pointer;box-shadow:0 4px 14px rgba(27,42,65,.10);opacity:0;transform:translateY(8px);pointer-events:none;
+ transition:opacity .25s,transform .25s var(--ease),background-color .2s,color .2s}
+.totop.on{opacity:1;transform:none;pointer-events:auto}
+.totop:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.totop svg{width:16px;height:16px}
+.fadebot{position:fixed;left:0;right:0;bottom:0;height:36px;z-index:10;pointer-events:none;
+ background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.92));transition:opacity .3s}
+.fadebot.off{opacity:0}
+.reveal{animation:rv .6s var(--ease) both;animation-delay:calc(var(--i,0) * 60ms)}
+@keyframes rv{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+@media (max-width:640px){
+ body{font-size:14.5px;line-height:1.68}
+ .topbar{height:4px}
+ :root{--stick:48px}
+ .eyebrow{font-size:10.5px;letter-spacing:.12em}
+ .acts{top:16px}
+ .btn{height:28px;padding:0 9px;font-size:12px}
+ .btn .t{display:none}
+ .chip{height:28px;padding:0 10px;font-size:12.5px;gap:5px}
+ .scroller{padding:8px 2px}
+ .sh{margin-bottom:12px;gap:9px}
+ .sh .en{font-size:10.5px;letter-spacing:.12em}
+ .foot{font-size:11.5px;flex-direction:column}
+ .eyebrow .e1,.eyebrow .e1+i{display:none}
+ .phead{padding-top:18px;padding-bottom:14px}
+ .ttl h1{font-size:25px}
+ .rule{width:32px;height:2px;margin:10px 0 9px}
+ .lede{font-size:13px;line-height:1.6}
+ .lede .ld{display:none}
+ .totop{width:34px;height:34px}
+}
+@media (prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .scroller{scroll-behavior:auto}
+}
+
+.bar .yj{display:flex;gap:2px;flex:none;border-left:1px solid var(--line);padding-left:12px}
+.bar .yj a{font:600 13.5px/1 'Source Sans 3';color:var(--muted);text-decoration:none;padding:7px 8px;border-radius:3px;letter-spacing:.02em}
+.bar .yj a:hover{color:var(--navy);background:var(--soft)}
+.bar .yj a.on{color:var(--navy);box-shadow:inset 0 -2px 0 var(--navy);border-radius:0}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--c);flex:none}
+.chip[aria-pressed=true] .dot{background:#fff}
+.news{padding-top:4px}
+.yr{display:grid;grid-template-columns:150px minmax(0,1fr);gap:0 36px;padding:30px 0 10px;border-bottom:1px solid var(--line)}
+.yr:last-child{border-bottom:0}
+.yr[hidden]{display:none}
+.yh{position:sticky;top:calc(var(--stick) + 22px);align-self:start;margin:0;display:flex;flex-direction:column;gap:6px}
+.yh>span{font:700 40px/1 var(--serif);letter-spacing:.02em;color:var(--navy)}
+.yh small{font:400 13px/1 var(--sans);color:var(--muted);display:flex;align-items:center;gap:6px}
+.yh small::before{content:"";width:18px;height:1px;background:var(--accent)}
+.yh small b{font-weight:600;color:var(--ink)}
+.it{display:grid;grid-template-columns:62px minmax(0,1fr);gap:0 22px;padding:20px 0 22px;border-top:1px solid var(--line2)}
+.its .it.f1{border-top:0;padding-top:4px}
+.it[hidden]{display:none}
+.dt{display:grid;grid-template-columns:auto 1fr;align-items:baseline;align-content:start;column-gap:3px;padding-top:2px;color:var(--ink)}
+.dt b{font:600 34px/1 'Source Sans 3';letter-spacing:-.01em;color:var(--ink);display:inline-flex;align-items:baseline}
+.dt b.rg{font-size:26px}
+.dt .dash{margin:0 1px;color:var(--faint)}
+.dt .mz{font:500 12px/1 var(--sans);color:var(--muted)}
+.dt em{grid-column:1/-1;font:600 10.5px/1 'Source Sans 3';font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:7px;white-space:nowrap}
+.bd{min-width:0}
+.meta{display:flex;align-items:center;gap:8px;margin:0 0 6px;line-height:1}
+.tag{display:inline-flex;align-items:center;gap:6px;font:600 12px/1 var(--sans);color:var(--muted);letter-spacing:.04em}
+.tag i{width:7px;height:7px;border-radius:50%;background:var(--c)}
+.tag .te{font-weight:400;letter-spacing:.06em;color:var(--faint);text-transform:uppercase;font-size:10.5px}
+.new{font:700 10px/1 'Source Sans 3';letter-spacing:.14em;color:#fff;background:#B03A2E;padding:3px 5px 2px;border-radius:2px}
+.tt{font:500 17.5px/1.6 var(--sans);margin:0;color:var(--ink);letter-spacing:.01em}
+.at{color:var(--muted);font-weight:400;white-space:normal}
+.bd p.ln,.bd p.kv,.bd p.li{margin:4px 0 0;font-size:15px;line-height:1.65;color:#2E3B50}
+.kv .k{color:var(--muted);font-weight:500}
+.kv-t .v{color:var(--ink);font-weight:500}
+.li{display:flex;gap:6px}.li .n{color:var(--faint);min-width:1.1em}
+.rk{color:var(--faint);font-size:.92em}
+a.pill{display:inline-flex;align-items:center;gap:2px;vertical-align:2px;margin-left:6px;height:20px;padding:0 7px;
+ border:1px solid #B9C4D4;border-radius:10px;font:600 11.5px/1 'Source Sans 3';text-decoration:none;color:var(--navy)}
+a.pill:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+.bd a:not(.pill){font-weight:inherit}
+@media (max-width:820px){
+ .yr{display:block;padding:0;border:0}
+ .yh{position:sticky;top:var(--stick);z-index:5;flex-direction:row;align-items:center;justify-content:space-between;gap:10px;
+  margin:0 calc(-1 * var(--pad));padding:7px var(--pad);background:rgba(250,251,253,.95);-webkit-backdrop-filter:blur(6px);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+ .yh>span{font-size:19px}
+ .yh small{font-size:11.5px}
+ .its{padding:4px 0 8px}
+ .its .it.f1{padding-top:14px}
+ .bar .yj{display:none}
+}
+@media (max-width:640px){
+ .it{grid-template-columns:44px minmax(0,1fr);gap:0 12px;padding:14px 0 16px}
+ .dt b{font-size:24px}.dt b.rg{font-size:16px}
+ .dt .mz{font-size:10px}.dt em{font-size:8.5px;letter-spacing:.08em;margin-top:5px}
+ .tt{font-size:15px;line-height:1.6}
+ .bd p.ln,.bd p.kv,.bd p.li{font-size:13.5px;line-height:1.62}
+ .tag{font-size:11px}.tag .te{display:none}
+ .meta{margin-bottom:5px}
+}
+@media print{.bar,.acts,.totop,.fadebot{display:none!important}.yh{position:static}.it{break-inside:avoid}}
+</style></head>
+<body>
+<div class="topbar"></div>
+<header class="wrap phead">
+<p class="eyebrow"><span class="e1">陳尚潁 Shang-Ying Chen</span><i></i><span>地下資源與智慧計算研究室</span></p>
+<div class="ttl"><h1>最新消息</h1><span class="en">News</span></div>
+<hr class="rule">
+<p class="lede"><span class="ld">研究成果、演講、研討會與教學動態<span class="sep">　·　</span></span><span class="nw">共 <span class="num">22</span> 則（<span class="num">2023–2026</span>）</span></p>
+<div class="acts"><a class="btn" id="ext" href="./" target="_blank" rel="noopener" hidden title="在新分頁開啟完整頁面"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 2.5h4.5V7M13.5 2.5 7 9M12 9.5v3a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3"/></svg><span class="t">新分頁開啟</span><span class="sr">在新分頁開啟完整頁面</span></a></div>
+</header>
+<nav class="bar" aria-label="消息分類篩選"><div class="wrap"><div class="edge"><div class="scroller" role="toolbar" aria-label="分類"><button class="chip" type="button" data-f="all" aria-pressed="true">全部<span class="c">22</span></button><button class="chip" type="button" data-f="paper" aria-pressed="false" title="Publication"><i class="dot" style="--c:#1F3A5F"></i>論文<span class="c">4</span></button><button class="chip" type="button" data-f="talk" aria-pressed="false" title="Talk"><i class="dot" style="--c:#8A5A2B"></i>演講<span class="c">7</span></button><button class="chip" type="button" data-f="conf" aria-pressed="false" title="Conference"><i class="dot" style="--c:#2F6F6A"></i>研討會<span class="c">2</span></button><button class="chip" type="button" data-f="teach" aria-pressed="false" title="Teaching"><i class="dot" style="--c:#5B4B8A"></i>教學<span class="c">2</span></button><button class="chip" type="button" data-f="service" aria-pressed="false" title="Service"><i class="dot" style="--c:#4F6475"></i>服務<span class="c">2</span></button><button class="chip" type="button" data-f="award" aria-pressed="false" title="Award"><i class="dot" style="--c:#A3781A"></i>獲獎<span class="c">1</span></button><button class="chip" type="button" data-f="visit" aria-pressed="false" title="Visit"><i class="dot" style="--c:#3F74A3"></i>交流<span class="c">3</span></button><button class="chip" type="button" data-f="project" aria-pressed="false" title="Project"><i class="dot" style="--c:#7A4E5C"></i>計畫<span class="c">1</span></button></div></div><div class="yj" aria-label="年份"><a href="#y2026" data-y="2026" class="num">2026</a><a href="#y2025" data-y="2025" class="num">2025</a><a href="#y2024" data-y="2024" class="num">2024</a><a href="#y2023" data-y="2023" class="num">2023</a></div></div><i class="prog"></i></nav>
+<p class="sr" id="live" aria-live="polite"></p>
+<main class="wrap news" id="main"><section class="yr" id="y2026" data-y="2026" aria-labelledby="yh2026"><h2 class="yh" id="yh2026"><span class="num">2026</span><small class="num"><b>8</b> 則</small></h2><div class="its"><article class="it f1" data-cat="talk" data-ym="2026-10" style="--i:0"><time class="dt" datetime="2026-10" title="2026 年 10 月"><b class="num">10</b><span class="mz">月</span><em>Oct</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#8A5A2B"><i></i>演講<span class="te"> Talk</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">成大<wbr>水利<wbr>及<wbr>海洋工程<wbr>學系<wbr>專題演講：從<wbr>水文地質<wbr>到<wbr>資源工程<wbr>應用 <span class="at">@ 海工<wbr>教學大樓 2F 演講廳</span></h3></div></article><article class="it" data-cat="visit" data-ym="2026-10" style="--i:1"><time class="dt" datetime="2026-10" title="2026 年 10 月"><b class="num">10</b><span class="mz">月</span><em>Oct</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#3F74A3"><i></i>交流<span class="te"> Visit</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">接待<wbr>史丹佛大學 Daniel Tartakovsky 教授於 10 月 4 日至 10 月 10 日<wbr>來台<wbr>訪問</h3></div></article><article class="it" data-cat="talk" data-ym="2026-09" style="--i:2"><time class="dt" datetime="2026-09" title="2026 年 9 月"><b class="num">9</b><span class="mz">月</span><em>Sep</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#8A5A2B"><i></i>演講<span class="te"> Talk</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">日本資源・素材學會 (MMIJ) 交流演講：A Physics-Informed Neural Network for Geomechanical Problem</h3></div></article><article class="it" data-cat="teach" data-ym="2026-09" style="--i:3"><time class="dt" datetime="2026-09" title="2026 年 9 月"><b class="num">9</b><span class="mz">月</span><em>Sep</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#5B4B8A"><i></i>教學<span class="te"> Teaching</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">115 學年度<wbr>上學期<wbr>開授<wbr>課程：</h3><p class="li"><span class="n num">1.</span><span>應用熱力學 Applied Thermodynamics</span></p><p class="li"><span class="n num">2.</span><span>資源工程<wbr>概論 Introduction to Resources Engineering</span></p></div></article><article class="it" data-cat="paper" data-ym="2026-06" style="--i:4"><time class="dt" datetime="2026-06" title="2026 年 6 月"><b class="num">6</b><span class="mz">月</span><em>Jun</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#1F3A5F"><i></i>論文<span class="te"> Publication</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">新文章<wbr>發表 <a class="pill" href="https://doi.org/10.1016/j.advwatres.2026.105387" target="_blank" rel="noopener" aria-label="開啟連結（新分頁）">Link<span aria-hidden="true">↗</span></a></h3><p class="kv kv-t"><span class="k">題目：</span><span class="v">Efficient approach to uncertainty quantification for emergency well planning under data scarcity</span></p><p class="kv"><span class="k">期刊：</span><span class="v">Advances in Water Resources <span class="rk">(#30/132, Q1, Water Resources)</span></span></p></div></article><article class="it" data-cat="paper" data-ym="2026-05" style="--i:5"><time class="dt" datetime="2026-05" title="2026 年 5 月"><b class="num">5</b><span class="mz">月</span><em>May</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#1F3A5F"><i></i>論文<span class="te"> Publication</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">新文章<wbr>發表！<a class="pill" href="https://doi.org/10.1016/j.cageo.2026.106203" target="_blank" rel="noopener" aria-label="開啟連結（新分頁）">Link<span aria-hidden="true">↗</span></a></h3><p class="kv kv-t"><span class="k">題目：</span><span class="v">Meshfree 3DME: Efficient Uncertainty Quantification for Subsurface Flow</span></p><p class="kv"><span class="k">期刊：</span><span class="v">Computers &amp; Geosciences <span class="rk">(#39/258, Q1, Geosciences)</span></span></p></div></article><article class="it" data-cat="service" data-ym="2026-03" style="--i:6"><time class="dt" datetime="2026-03" title="2026 年 3 月"><b class="num">3</b><span class="mz">月</span><em>Mar</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#4F6475"><i></i>服務<span class="te"> Service</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">擔任<wbr>特刊<wbr>客座主編 CMES-Computer Modeling in Engineering &amp; Sciences (ISSN: 1526-1492, JCR Q1)</h3></div></article><article class="it" data-cat="teach" data-ym="2026-02" style="--i:7"><time class="dt" datetime="2026-02" title="2026 年 2 月"><b class="num">2</b><span class="mz">月</span><em>Feb</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#5B4B8A"><i></i>教學<span class="te"> Teaching</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">114 學年度<wbr>下學期<wbr>開授<wbr>課程：</h3><p class="li"><span class="n num">1.</span><span>熱力學 Thermodynamics</span></p><p class="li"><span class="n num">2.</span><span>應用力學 Applied Mechanics</span></p><p class="li"><span class="n num">3.</span><span>科學計算 Scientific Computing</span></p><p class="li"><span class="n num">4.</span><span>基礎<wbr>能源<wbr>實驗 Fundamentals of Energy Experiments</span></p></div></article></div></section><section class="yr" id="y2025" data-y="2025" aria-labelledby="yh2025"><h2 class="yh" id="yh2025"><span class="num">2025</span><small class="num"><b>5</b> 則</small></h2><div class="its"><article class="it f1" data-cat="conf" data-ym="2025-10" style="--i:8"><time class="dt" datetime="2025-10" title="2025 年 10 月"><b class="num">10</b><span class="mz">月</span><em>Oct</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#2F6F6A"><i></i>研討會<span class="te"> Conference</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">研討會<wbr>發表</h3><p class="ln">Uncertainty Quantification for Groundwater Level in Taichung Basin by Method of Distribution</p><p class="ln">Oral Presentation, GSK2025 <span class="at">@ South Korea</span></p></div></article><article class="it" data-cat="service" data-ym="2025-06" style="--i:8"><time class="dt" datetime="2025-06" title="2025 年 6 月"><b class="num">6</b><span class="mz">月</span><em>Jun</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#4F6475"><i></i>服務<span class="te"> Service</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">擔任<wbr>美國國家科學基金會<wbr>地球科學部<wbr>提案<wbr>評審委員</h3><p class="ln">Proposal Review Panelist for NSF Directorate for Geosciences (GEO)</p></div></article><article class="it" data-cat="conf" data-ym="2025-05" style="--i:8"><time class="dt" datetime="2025-05" title="2025 年 5 月"><b class="num">5</b><span class="mz">月</span><em>May</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#2F6F6A"><i></i>研討會<span class="te"> Conference</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">研討會<wbr>發表</h3><p class="ln">An Efficient Approach to Probabilistic Groundwater Flow Modeling for Emergency Well Design</p><p class="ln">Oral Presentation, InterPore2025 <span class="at">@ Albuquerque, New Mexico</span></p></div></article><article class="it" data-cat="talk" data-ym="2025-04" style="--i:8"><time class="dt" datetime="2025-04" title="2025 年 4 月"><b class="num">4</b><span class="mz">月</span><em>Apr</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#8A5A2B"><i></i>演講<span class="te"> Talk</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">受邀<wbr>產學聯盟<wbr>演講</h3><p class="ln">二氧化碳<wbr>地質封存<wbr>注入井<wbr>完整性<wbr>力學性質<wbr>分析</p><p class="ln"><a href="https://suetrid.stanford.edu/" target="_blank" rel="noopener">SUETRI-D</a> Affiliate Annual Meeting <span class="at">@ Stanford ESE</span></p><p class="ln">機器學習<wbr>小組討論會</p><p class="ln">Machine Learning Journal Club</p></div></article><article class="it" data-cat="talk" data-ym="2025-03" style="--i:8"><time class="dt" datetime="2025-03" title="2025 年 3 月"><b class="num">3</b><span class="mz">月</span><em>Mar</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#8A5A2B"><i></i>演講<span class="te"> Talk</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">台中<wbr>北盆地<wbr>抗旱井<wbr>水位<wbr>不確定性量化<wbr>研究<wbr>報告 <span class="at">@ Stanford Green Earth</span></h3></div></article></div></section><section class="yr" id="y2024" data-y="2024" aria-labelledby="yh2024"><h2 class="yh" id="yh2024"><span class="num">2024</span><small class="num"><b>6</b> 則</small></h2><div class="its"><article class="it f1" data-cat="project" data-ym="2024-12" style="--i:8"><time class="dt" datetime="2024-12" title="2024 年 12 月"><b class="num">12</b><span class="mz">月</span><em>Dec</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#7A4E5C"><i></i>計畫<span class="te"> Project</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">提交<wbr>中興工程顧問社 113 年度<wbr>研究計畫<wbr>報告</h3><p class="kv"><span class="k">計畫名稱：</span><span class="v">發展<wbr>累積分佈函數<wbr>方程式<wbr>方法<wbr>量化<wbr>水文地質<wbr>模式<wbr>不確定性</span></p></div></article><article class="it" data-cat="talk" data-ym="2024-11" style="--i:8"><time class="dt" datetime="2024-11" title="2024 年 11 月"><b class="num">11</b><span class="mz">月</span><em>Nov</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#8A5A2B"><i></i>演講<span class="te"> Talk</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">廣義有限差分法<wbr>及<wbr>資料同化<wbr>模式<wbr>學術演講 <span class="at">@ Stanford Mitchell</span></h3><p class="ln">內容<wbr>包含<wbr>博士班<wbr>期間<wbr>的<wbr>研究，以及<wbr>最新<wbr>期刊論文<wbr>發表<wbr>中<wbr>的<wbr>成果</p></div></article><article class="it" data-cat="paper" data-ym="2024-10" style="--i:8"><time class="dt" datetime="2024-10" title="2024 年 10 月"><b class="num">10</b><span class="mz">月</span><em>Oct</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#1F3A5F"><i></i>論文<span class="te"> Publication</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">新文章<wbr>發表！<a class="pill" href="https://doi.org/10.1016/j.enganabound.2024.105997" target="_blank" rel="noopener" aria-label="開啟連結（新分頁）">Link<span aria-hidden="true">↗</span></a></h3><p class="kv kv-t"><span class="k">題目：</span><span class="v">An efficient approach of meshless node placement in three-dimensional subsurface flow modeling</span></p><p class="kv"><span class="k">期刊：</span><span class="v">Engineering Analysis with Boundary Elements <span class="rk">(#11/135 = 8.1%, Q1, Mathematics)</span></span></p><p class="ln">提出<wbr>創新<wbr>三維度<wbr>不規則<wbr>佈點<wbr>技術，有效<wbr>控制<wbr>無網格<wbr>計算節點<wbr>空間變化<wbr>密度</p></div></article><article class="it" data-cat="visit" data-ym="2024-07" style="--i:8"><time class="dt" datetime="2024-07" title="2024 年 7 月"><b class="num">7</b><span class="mz">月</span><em>Jul</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#3F74A3"><i></i>交流<span class="te"> Visit</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">加入<wbr>史丹佛大學<wbr>能源<wbr>科學<wbr>與<wbr>工程系 <a href="https://tartakovsky.stanford.edu/research" target="_blank" rel="noopener">數據驅動<wbr>建模<wbr>與<wbr>模擬<wbr>組</a></h3><p class="kv"><span class="k">Host：</span><span class="v"><a href="https://profiles.stanford.edu/daniel-tartakovsky" target="_blank" rel="noopener">Daniel Tartakovsky</a></span></p></div></article><article class="it" data-cat="award" data-ym="2024-02" style="--i:8"><time class="dt" datetime="2024-02" title="2024 年 2 月"><b class="num">2</b><span class="mz">月</span><em>Feb</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#A3781A"><i></i>獲獎<span class="te"> Award</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">獲頒<wbr>國科會 112 年度<wbr>博士後學術研究獎</h3></div></article><article class="it" data-cat="talk" data-ym="2024-02" style="--i:8"><time class="dt" datetime="2024-02" title="2024 年 2 月"><b class="num">2</b><span class="mz">月</span><em>Feb</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#8A5A2B"><i></i>演講<span class="te"> Talk</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">演講：放射性廢棄物<wbr>最終處置<wbr>技術<wbr>發展－加熱器<wbr>試驗<wbr>資料同化<wbr>模式 <span class="at">@ 國家<wbr>原子能<wbr>科技<wbr>研究院<wbr>化學所</span></h3></div></article></div></section><section class="yr" id="y2023" data-y="2023" aria-labelledby="yh2023"><h2 class="yh" id="yh2023"><span class="num">2023</span><small class="num"><b>3</b> 則</small></h2><div class="its"><article class="it f1" data-cat="talk" data-ym="2023-11" style="--i:8"><time class="dt" datetime="2023-11" title="2023 年 11 月"><b class="num">11</b><span class="mz">月</span><em>Nov</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#8A5A2B"><i></i>演講<span class="te"> Talk</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">演講：動態<wbr>自適應<wbr>地下<wbr>建模 <span class="at">@ BGS 英國地質調查所<wbr>雙邊<wbr>國合<wbr>計畫</span></h3></div></article><article class="it" data-cat="visit" data-ym="2023-07" style="--i:8"><time class="dt" datetime="2023-07" title="2023 年 7-8 月"><b class="num rg">7<span class="dash">–</span>8</b><span class="mz">月</span><em>Jul–Aug</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#3F74A3"><i></i>交流<span class="te"> Visit</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">參加<wbr>北海道大學<wbr>暑期<wbr>研修課程 Advanced Nuclear Waste Management 及實習</h3><p class="kv"><span class="k">研修地點：</span><span class="v">JAEA 幌延<wbr>地下研究中心、幌延<wbr>地圈<wbr>環境<wbr>研究所</span></p></div></article><article class="it" data-cat="paper" data-ym="2023-07" style="--i:8"><time class="dt" datetime="2023-07" title="2023 年 7 月"><b class="num">7</b><span class="mz">月</span><em>Jul</em></time><div class="bd"><p class="meta"><span class="tag" style="--c:#1F3A5F"><i></i>論文<span class="te"> Publication</span></span><span class="new" hidden>NEW</span></p><h3 class="tt">博士後<wbr>期刊論文<wbr>發表 <a class="pill" href="https://link.springer.com/article/10.1007/s00366-023-01897-6" target="_blank" rel="noopener" aria-label="開啟連結（新分頁）">Link<span aria-hidden="true">↗</span></a></h3><p class="kv kv-t"><span class="k">題目：</span><span class="v">Data assimilation for real-time subsurface flow modeling with dynamically adaptive meshless node adjustments</span></p><p class="kv"><span class="k">期刊：</span><span class="v">Engineering with Computers <span class="rk">(#4/136 = 2.9%, Q1, Engineering, Mechanical)</span></span></p><p class="ln">以<wbr>廣義有限差分法<wbr>搭配<wbr>系集卡門濾波器，建構<wbr>即時<wbr>資料同化<wbr>模式</p></div></article></div></section></main>
+<footer class="wrap"><div class="foot"><span>地下資源與智慧計算研究室　國立成功大學 資源工程學系</span><span>最後更新 <time class="num" datetime="2026-11-26">2026 年 11 月</time></span></div></footer>
+<button class="totop" id="totop" type="button" aria-label="回到頂端" tabindex="-1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></button>
+<div class="fadebot" id="fadebot" aria-hidden="true"></div>
+<script>
+(function(){
+ var d=document,de=d.documentElement,bar=d.querySelector('.bar'),prog=d.querySelector('.prog'),
+     top=d.getElementById('totop'),fb=d.getElementById('fadebot'),ext=d.getElementById('ext');
+ var framed=false;try{framed=window.self!==window.top}catch(e){framed=true}
+ de.classList.toggle('framed',framed);
+ if(ext&&framed){ext.href=location.href.split('#')[0];ext.hidden=false;}
+ window.__reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var tick=false;
+ function upd(){tick=false;var y=window.scrollY||de.scrollTop,max=Math.max(1,de.scrollHeight-innerHeight);
+  if(prog)prog.style.setProperty('--p',Math.min(1,y/max).toFixed(4));
+  if(top){var on=y>innerHeight*.6;top.classList.toggle('on',on);top.tabIndex=on?0:-1;}
+  if(fb)fb.classList.toggle('off',max-y<8||de.scrollHeight<=innerHeight+4);}
+ function req(){if(!tick){tick=true;requestAnimationFrame(upd);}}
+ addEventListener('scroll',req,{passive:true});addEventListener('resize',req);addEventListener('load',req);upd();
+ if(top)top.addEventListener('click',function(){window.scrollTo({top:0,behavior:window.__reduce?'auto':'smooth'});
+   var f=d.querySelector('h1');if(f){f.tabIndex=-1;f.focus({preventScroll:true});}});
+ if(bar){var setS=function(){de.style.setProperty('--stick',bar.offsetHeight+'px');};setS();addEventListener('resize',setS);}
+ [].forEach.call(d.querySelectorAll('.edge'),function(e){var s=e.querySelector('.scroller');if(!s)return;
+  function ed(){e.classList.toggle('l',s.scrollLeft>2);e.classList.toggle('r',s.scrollLeft+s.clientWidth<s.scrollWidth-2);}
+  s.addEventListener('scroll',ed,{passive:true});addEventListener('resize',ed);ed();setTimeout(ed,600);});
+ window.__center=function(s,el){if(!s||!el)return;var x=el.offsetLeft-(s.clientWidth-el.offsetWidth)/2;
+  s.scrollTo({left:Math.max(0,x),behavior:window.__reduce?'auto':'smooth'});};
+})();
+</script>
+<script>
+(function(){
+ var d=document,chips=[].slice.call(d.querySelectorAll('.chip')),its=[].slice.call(d.querySelectorAll('.it')),
+     yrs=[].slice.call(d.querySelectorAll('.yr')),live=d.getElementById('live'),sc=d.querySelector('.scroller');
+ // NEW marker: items whose month began within the last 60 days (evaluated in the visitor's browser)
+ var now=new Date();its.forEach(function(a){var p=a.getAttribute('data-ym').split('-'),t=new Date(+p[0],+p[1]-1,1);
+  if((now-t)/864e5<=60&&now>=t){a.querySelector('.new').hidden=false;}});
+ function apply(f,scroll){chips.forEach(function(c){c.setAttribute('aria-pressed',c.getAttribute('data-f')===f?'true':'false');});
+  var n=0,k=0;its.forEach(function(a){var on=f==='all'||a.getAttribute('data-cat')===f;a.hidden=!on;
+   if(on){n++;a.classList.remove('reveal');void a.offsetWidth;a.style.setProperty('--i',Math.min(k++,8));a.classList.add('reveal');}});
+  yrs.forEach(function(s){var vis=s.querySelectorAll('.it:not([hidden])'),v=vis.length;s.hidden=!v;
+   [].forEach.call(s.querySelectorAll('.it'),function(a){a.classList.toggle('f1',a===vis[0]);});
+   var b=s.querySelector('.yh b');if(b)b.textContent=v;});
+  if(live)live.textContent='顯示 '+n+' 則消息';
+  var on=d.querySelector('.chip[aria-pressed=true]');window.__center(sc,on);
+  if(scroll){var m=d.querySelector('.news'),y=m.getBoundingClientRect().top+scrollY-parseFloat(getComputedStyle(d.documentElement).getPropertyValue('--stick'));
+   if(scrollY>y)window.scrollTo({top:y,behavior:'auto'});}
+  spy();}
+ chips.forEach(function(c){c.addEventListener('click',function(){apply(c.getAttribute('data-f'),true);
+   try{history.replaceState(null,'',c.getAttribute('data-f')==='all'?location.pathname:'?cat='+c.getAttribute('data-f'));}catch(e){}});});
+ var q=(location.search.match(/[?&]cat=(\w+)/)||[])[1];if(q&&d.querySelector('.chip[data-f="'+q+'"]'))apply(q,false);
+ // year jump highlight
+ var yj=[].slice.call(d.querySelectorAll('.yj a'));
+ function spy(){var st=parseFloat(getComputedStyle(d.documentElement).getPropertyValue('--stick'))||56,cur=null;
+  yrs.forEach(function(s){if(!s.hidden&&s.getBoundingClientRect().top-st-40<=0)cur=s.getAttribute('data-y');});
+  if(!cur){var f=yrs.filter(function(s){return !s.hidden})[0];cur=f&&f.getAttribute('data-y');}
+  yj.forEach(function(a){var y=a.getAttribute('data-y'),s=d.getElementById('y'+y);a.classList.toggle('on',y===cur);
+   a.style.display=s&&s.hidden?'none':'';});}
+ var t=false;addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(function(){t=false;spy();});}},{passive:true});spy();
+})();
+</script>
+</body></html>

@@ -24,41 +24,64 @@ h1{font:900 46px/1.1 'Noto Serif TC',serif;margin:0;letter-spacing:2px}
 .lab b{font-weight:700;color:var(--navy)}
 .ct{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:16px 0 0;font:400 16px/1.5 'Noto Sans TC','Source Sans 3',sans-serif}
 .ct dt{color:var(--muted);font-weight:500} .ct dd{margin:0}
-.ct a{color:var(--navy);text-decoration:none;border-bottom:1px solid #9FB0C8}
+.ct a{color:var(--navy);text-decoration:none;border-bottom:1px solid #9FB0C8;transition:border-color .2s}
+.ct a:hover{border-bottom-color:var(--navy)}
+.cp{margin-left:10px;vertical-align:1px;font:600 12px/1 'Noto Sans TC',sans-serif;color:var(--muted);background:none;border:1px solid var(--line);border-radius:3px;padding:3px 7px;cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+.cp:hover{color:var(--navy);border-color:#B9C4D4;background:#F4F6F9} .cp.ok{color:#2F6F4F;border-color:#BFD9CB;background:#F1F8F4}
+a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+.nw{position:absolute;left:72px;top:374px;width:240px}
+.nw h3{display:flex;align-items:baseline;gap:8px;margin:0 0 2px;padding-top:12px;border-top:1px solid var(--line);font:700 16px 'Noto Serif TC',serif}
+.nw h3 span{font:600 11px 'Source Sans 3',sans-serif;letter-spacing:1.8px;color:var(--muted)}
+.nw ul{list-style:none;margin:0;padding:0}
+.nw li a{display:block;padding:8px 0 9px;border-bottom:1px solid #EEF1F5;text-decoration:none;color:var(--ink)}
+.nw time{display:block;font:600 12.5px/1 'Source Sans 3',sans-serif;color:var(--navy);letter-spacing:.5px;margin-bottom:5px;font-variant-numeric:tabular-nums}
+.nw li span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font:400 14px/1.55 'Source Sans 3','Noto Sans TC',sans-serif;transition:color .2s}
+.nw li a:hover span{color:var(--navy);text-decoration:underline;text-decoration-color:#9FB0C8;text-underline-offset:3px}
+.nw .all{margin-left:auto;display:inline-flex;align-items:center;gap:5px;font:600 12.5px 'Noto Sans TC',sans-serif;color:var(--navy);text-decoration:none}
+.nw .all i{font-style:normal;transition:transform .25s} .nw .all:hover i{transform:translateX(3px)}
+.nw .all:hover{text-decoration:underline;text-decoration-color:#9FB0C8;text-underline-offset:3px}
 .lk{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
 .lk a{font:600 14.5px 'Source Sans 3','Noto Sans TC',sans-serif;color:var(--navy);text-decoration:none;border:1px solid #B9C4D4;border-radius:3px;padding:5px 12px;white-space:nowrap;transition:background .2s,color .2s}
 .lk a:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
-.sec{position:absolute;left:72px;top:560px;width:1056px;display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--line);padding-top:26px}
+.lk a::after,.ml a::after{content:" ↗";font-size:.85em;opacity:.55}
+.sec{position:absolute;left:72px;top:590px;width:1056px;display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--line);padding-top:26px}
 .sec h2{font:700 26px 'Noto Serif TC',serif;margin:0}
 .sec span{font:600 15px 'Source Sans 3',sans-serif;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
-.ri{position:absolute;left:72px;top:622px;width:1056px;font:400 17px/1.6 'Noto Sans TC',sans-serif;color:var(--muted);margin:0}
-.grid{position:absolute;left:72px;top:690px;width:1056px;display:grid;grid-template-columns:repeat(3,1fr);gap:34px 30px}
-.ar{display:flex;flex-direction:column;align-items:center;text-align:center;padding:26px 18px 24px;border:1px solid var(--line);border-radius:6px;background:#FBFCFD}
-.ar img{width:150px;height:150px;display:block}
+.ri{position:absolute;left:72px;top:652px;width:1056px;font:400 17px/1.6 'Noto Sans TC',sans-serif;color:var(--muted);margin:0}
+.grid{position:absolute;left:72px;top:714px;width:1056px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px 30px}
+.ar{display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px 18px 22px;border:1px solid var(--line);border-radius:6px;background:#FBFCFD;transition:border-color .25s,box-shadow .3s,transform .3s cubic-bezier(.2,.7,.2,1)}
+.ar:hover{border-color:#C3CDDB;box-shadow:0 10px 26px rgba(27,42,65,.08);transform:translateY(-2px)}
+.ar img{transition:transform .4s cubic-bezier(.2,.7,.2,1)} .ar:hover img{transform:scale(1.035)}
+.ar img{width:140px;height:140px;display:block}
 .az{font:700 20px 'Noto Sans TC',sans-serif;margin:16px 0 0}
 .ae{font:400 14.5px/1.3 'Source Sans 3',sans-serif;color:var(--muted);margin:4px 0 0}
 .ad{font:400 15px/1.5 'Noto Sans TC',sans-serif;color:var(--ink);margin:12px 0 0;padding-top:12px;border-top:1px solid var(--line);width:100%}
-.foot{position:absolute;left:72px;right:72px;bottom:34px;display:flex;justify-content:space-between;font:400 14px 'Noto Sans TC','Source Sans 3',sans-serif;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.foot{position:absolute;left:72px;right:72px;bottom:30px;display:flex;justify-content:space-between;font:400 14px 'Noto Sans TC','Source Sans 3',sans-serif;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
 .fade{animation:fade .8s ease-out both;animation-delay:calc(var(--i,0)*90ms)}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-#m{display:none;position:absolute;left:0;top:0;width:360px;height:440px;transform-origin:0 0;background:var(--bg);box-sizing:border-box;padding:22px 18px 14px;flex-direction:column;justify-content:center;gap:var(--g,10px)}
+#m{display:none;position:absolute;left:0;top:0;width:360px;height:440px;transform-origin:0 0;background:var(--bg);box-sizing:border-box;padding:18px 18px 10px;flex-direction:column;justify-content:center;gap:var(--g,10px)}
 body.n #cv{display:none} body.n #m{display:flex}
 #m .top{position:absolute;left:0;right:0;top:0;height:4px}
 .mh{display:flex;gap:14px;align-items:center}
-.mh .ph{width:84px;height:100px;border-radius:3px;flex:none}
+.mh .ph{width:78px;height:94px;border-radius:3px;flex:none}
 .mh h1{font-size:27px;letter-spacing:1px} .mh .en{font-size:13px;margin-top:3px}
 .mh .rule{width:30px;height:2px;margin:8px 0 7px}
 .mh .pos{font-size:13.5px;line-height:1.45}
 .mc{font:400 12px/1.65 'Noto Sans TC','Source Sans 3',sans-serif;color:var(--muted)}
 .mc a{color:var(--navy);text-decoration:none;border-bottom:1px solid #9FB0C8} .mc b{color:var(--navy);font-weight:700}
 .ml{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.ml a{font:600 11.5px/26px 'Source Sans 3','Noto Sans TC',sans-serif;height:26px;text-align:center;color:var(--navy);text-decoration:none;border:1px solid #B9C4D4;border-radius:3px;white-space:nowrap}
-.mr{border-top:1px solid var(--line);padding-top:10px}
-.ms{display:flex;align-items:baseline;gap:8px;margin:0 0 10px}
+.ml a:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.mnw{display:flex;align-items:center;gap:7px;min-width:0;text-decoration:none;color:var(--ink);font:400 11.5px/1.4 'Source Sans 3','Noto Sans TC',sans-serif;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:5px 0}
+.mnw b{flex:none;font:700 10px/1 'Noto Sans TC',sans-serif;color:#fff;background:var(--navy);border-radius:2px;padding:3px 5px}
+.mnw time{flex:none;font-weight:600;color:var(--navy);font-variant-numeric:tabular-nums}
+.mnw span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .mnw i{flex:none;font-style:normal;color:var(--navy)}
+.ml a{transition:background .2s,color .2s;font:600 11.5px/26px 'Source Sans 3','Noto Sans TC',sans-serif;height:26px;text-align:center;color:var(--navy);text-decoration:none;border:1px solid #B9C4D4;border-radius:3px;white-space:nowrap}
+.mr{border-top:1px solid var(--line);padding-top:9px}
+.ms{display:flex;align-items:baseline;gap:8px;margin:0 0 8px}
 .ms h2{font:700 15px 'Noto Serif TC',serif;margin:0} .ms span{font:600 9.5px 'Source Sans 3',sans-serif;color:var(--muted);letter-spacing:1.5px}
-.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 6px;align-items:start}
+.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:7px 6px;align-items:start}
 .mar{display:flex;flex-direction:column;align-items:center;text-align:center}
-.mar img{width:42px;height:42px;display:block}
+.mar img{width:38px;height:38px;display:block}
 .mar p{font:700 10.5px/1.3 'Noto Sans TC',sans-serif;margin:5px 0 0}
 </style></head><body>
 <div id="cv">
@@ -77,11 +100,12 @@ body.n #cv{display:none} body.n #m{display:flex}
    <dt>經歷</dt><dd>史丹佛大學 能源科學與工程學系 訪問博士後（2024–2025）<br>國立臺南大學 綠色能源科技學系 助理教授（2026）</dd>
    <dt>辦公室</dt><dd>資源新館四樓 43408</dd>
    <dt>電話</dt><dd>06-2757575 分機 62835</dd>
-   <dt>Email</dt><dd><a href="mailto:shangying@gs.ncku.edu.tw">shangying@gs.ncku.edu.tw</a></dd>
+   <dt>Email</dt><dd><a href="mailto:shangying@gs.ncku.edu.tw">shangying@gs.ncku.edu.tw</a><button class="cp" type="button" data-copy="shangying@gs.ncku.edu.tw" aria-label="複製 Email 地址">複製</button></dd>
   </dl>
   <div class="lk fade" style="--i:5"><a href="https://scholar.google.com/citations?user=Kh6UKMAAAAAJ&hl=zh-TW" target="_blank" rel="noopener">Google Scholar</a><a href="https://orcid.org/0000-0003-3036-0798" target="_blank" rel="noopener">ORCID</a><a href="https://researchoutput.ncku.edu.tw/en/persons/shang-ying-chen/" target="_blank" rel="noopener">NCKU Research Output</a><a href="https://mp.ncku.edu.tw/%e9%99%b3%e5%b0%9a%e6%bd%81%e8%80%81%e5%b8%ab/" target="_blank" rel="noopener">成大教師個人網頁</a></div>
  </div>
 </div>
+<section class="nw fade" style="--i:5" aria-label="最新消息"><h3>最新消息<span>LATEST NEWS</span><a class="all" href="https://sites.google.com/view/synatsu/news" target="_top" rel="noopener">全部消息<i aria-hidden="true">→</i></a></h3><ul><li><a href="https://sites.google.com/view/synatsu/news" target="_top" rel="noopener"><time datetime="2026-10">2026.10</time><span>成大<wbr>水利<wbr>及<wbr>海洋工程<wbr>學系<wbr>專題演講：從<wbr>水文地質<wbr>到<wbr>資源工程<wbr>應用 @ 海工<wbr>教學大樓 2F 演講廳</span></a></li><li><a href="https://sites.google.com/view/synatsu/news" target="_top" rel="noopener"><time datetime="2026-10">2026.10</time><span>接待<wbr>史丹佛大學 Daniel Tartakovsky 教授於 10 月 4 日至 10 月 10 日<wbr>來台<wbr>訪問</span></a></li></ul></section>
 <div class="sec fade" style="--i:6"><h2>研究領域</h2><span>Research Areas</span></div>
 <p class="ri fade" style="--i:6">以不確定性量化、資料同化與物理資訊神經網路，發展地下系統的數值模擬與預測方法。</p>
 <div class="grid"><div class="ar fade" style="--i:7"><img src="img/r1.png" alt="地熱能源"><p class="az">地熱能源</p><p class="ae">Geothermal Energy</p><p class="ad">地熱儲集層熱流模擬與井距評估</p></div><div class="ar fade" style="--i:8"><img src="img/r2.png" alt="地下儲能"><p class="az">地下儲能</p><p class="ae">Underground Energy Storage</p><p class="ad">地下儲氫、儲氣之注採模擬</p></div><div class="ar fade" style="--i:9"><img src="img/r3.png" alt="放射性廢棄物處置"><p class="az">放射性廢棄物處置</p><p class="ae">Radioactive Waste Disposal</p><p class="ad">深層處置場加熱器試驗資料同化</p></div><div class="ar fade" style="--i:10"><img src="img/r4.png" alt="二氧化碳地質封存"><p class="az">二氧化碳地質封存</p><p class="ae">CO₂ Geological Storage</p><p class="ad">注入井水泥完整性與封存安全</p></div><div class="ar fade" style="--i:11"><img src="img/r5.png" alt="永續地下水與污染整治"><p class="az">永續地下水與污染整治</p><p class="ae">Sustainable Groundwater & Remediation</p><p class="ad">地下水流不確定性量化與緊急水井規劃</p></div><div class="ar fade" style="--i:12"><img src="img/r6.png" alt="地質災害與工程安全"><p class="az">地質災害與工程安全</p><p class="ae">Geohazards & Engineering Safety</p><p class="ad">隧道與地下工程之力學分析</p></div></div>
@@ -94,6 +118,7 @@ body.n #cv{display:none} body.n #m{display:flex}
  <p class="pos">國立成功大學<br>資源工程學系　助理教授</p></div></div>
 <div class="mc">主持 <b>地下資源與智慧計算研究室</b><br><a href="mailto:shangying@gs.ncku.edu.tw">shangying@gs.ncku.edu.tw</a>　分機 62835</div>
 <div class="ml"><a href="https://scholar.google.com/citations?user=Kh6UKMAAAAAJ&hl=zh-TW" target="_blank" rel="noopener">Google Scholar</a><a href="https://orcid.org/0000-0003-3036-0798" target="_blank" rel="noopener">ORCID</a><a href="https://researchoutput.ncku.edu.tw/en/persons/shang-ying-chen/" target="_blank" rel="noopener">NCKU Research Output</a><a href="https://mp.ncku.edu.tw/%e9%99%b3%e5%b0%9a%e6%bd%81%e8%80%81%e5%b8%ab/" target="_blank" rel="noopener">成大教師個人網頁</a></div>
+<a class="mnw" href="https://sites.google.com/view/synatsu/news" target="_top" rel="noopener"><b>最新</b><time>2026.10</time><span>成大水利及海洋工程學系專題演講：從水文地質到資源工程應用 @ 海工教學大樓 2F 演講廳</span><i aria-hidden="true">→</i></a>
 <div class="mr"><div class="ms"><h2>研究領域</h2><span>RESEARCH AREAS</span></div>
 <div class="mg"><div class="mar"><img src="img/r1.png" alt=""><p>地熱能源</p></div><div class="mar"><img src="img/r2.png" alt=""><p>地下儲能</p></div><div class="mar"><img src="img/r3.png" alt=""><p>放射性廢棄物處置</p></div><div class="mar"><img src="img/r4.png" alt=""><p>二氧化碳地質封存</p></div><div class="mar"><img src="img/r5.png" alt=""><p>永續地下水<wbr>與污染整治</p></div><div class="mar"><img src="img/r6.png" alt=""><p>地質災害<wbr>與工程安全</p></div></div></div>
 </div>
@@ -104,8 +129,15 @@ function fit(){var w=innerWidth,h=innerHeight,n=w<640;
  if(n){var m=document.getElementById('m'),k0=w/360,H=Math.max(440,Math.min(h/k0,440*1.9));
   m.style.height=H+'px';m.style.setProperty('--g','0px');
   var c=0;[].forEach.call(m.children,function(e){if(!e.classList.contains('top'))c+=e.offsetHeight;});
-  var g=Math.max(6,Math.min(28,(H-36-c)/3));m.style.setProperty('--g',g+'px');
+  var mn=m.querySelector('.mnw');if(mn){mn.style.display='';if(H-28-c<3*4){c-=mn.offsetHeight;mn.style.display='none';}}
+  var g=Math.max(4,Math.min(40,(H-28-c)/4));m.style.setProperty('--g',g+'px');
   var k=Math.min(w/360,h/H);m.style.transform='translate('+((w-360*k)/2)+'px,'+((h-H*k)/2)+'px) scale('+k+')';return;}
  var k=Math.min(w/1200,h/1464);cv.style.transform='translate('+((w-1200*k)/2)+'px,'+((h-1464*k)/2)+'px) scale('+k+')';}
-addEventListener('resize',fit);fit();})();
+addEventListener('resize',fit);fit();
+[].forEach.call(document.querySelectorAll('.cp'),function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-copy');
+ function ok(){b.textContent='已複製';b.classList.add('ok');setTimeout(function(){b.textContent='複製';b.classList.remove('ok');},1600);}
+ function fb(){var a=document.createElement('textarea');a.value=t;a.setAttribute('readonly','');a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();
+  var r=false;try{r=document.execCommand('copy');}catch(e){}document.body.removeChild(a);if(r)ok();}
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(ok,fb);else fb();});});
+})();
 </script></body></html>
