@@ -21,7 +21,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--navy);outline-offse
 .ph img{width:100%;height:100%;object-fit:cover;object-position:55% 30%;display:block}
 .dl{flex:none;display:block}
 .fade{animation:fade .9s ease-out both}
-html.fx #cv .sq:not(.fade),html.fx #m :is(.mh .ph,.mh .info,.pos2,.mlab,.ct,.ml a,.nw h3,.nw li,.mres .sec,.mres .ri,.mg li):not(.fade){opacity:0}
+html.fx #cv .sq:not(.fade),html.fx #m :is(.mh .ph,.mh .info,.mhead>.aff,.mlab,.ct,.ml a,.nw h3,.nw li,.mres .sec,.mres .ri,.mg li):not(.fade){opacity:0}
 @media print{html.fx .sq,html.fx #m *{opacity:1!important;animation:none!important}}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 /* the one playful motif: a few soft bubbles (groundwater), drifting very slowly */
@@ -101,10 +101,10 @@ body.n #cv{display:none} body.n #m{display:block}
 #m .ph{width:84px;height:104px;border-radius:10px;box-shadow:0 0 0 1px rgba(27,42,65,.06),0 6px 14px rgba(31,58,95,.10)}
 #m h1{font-size:28px;letter-spacing:2px}
 #m .en{font-size:13px;margin-top:4px;letter-spacing:.2px}
-#m .rule{width:28px;height:3px;margin:10px 0}
-#m .aff{gap:8px} #m .aff .dl{width:28px;height:28px}
+#m .rule{width:28px;height:3px;margin:10px 0 0}
+#m .aff{gap:10px;margin-top:16px} #m .aff .dl{width:32px;height:32px}
 #m .pos{font-size:13px;line-height:1.55}
-#m .pos2{white-space:normal;font-size:11.5px;line-height:1.5;margin-top:10px}
+#m .pos2{white-space:normal;font-size:11.5px;line-height:1.5;margin-top:2px}
 .mlab{font:600 13px/1.5 var(--soft);letter-spacing:.12em;color:#4E5A6B;margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line2)}
 .mlab .lab-en{font-size:11px;letter-spacing:0;margin-top:2px;text-wrap:balance}
 #m .ct{margin-top:14px;padding-top:12px;border-top:1px solid var(--line2);gap:6px 16px;font-size:13.5px;line-height:1.7}
@@ -138,9 +138,8 @@ body:not(.n) .mtop,body:not(.n) .mfade{display:none}
 #m.t .mh{gap:28px}
 #m.t .ph{width:132px;height:160px;border-radius:var(--r-photo)}
 #m.t h1{font-size:40px;letter-spacing:3px} #m.t .en{font-size:16px;margin-top:6px}
-#m.t .rule{width:40px;margin:16px 0} #m.t .aff .dl{width:40px;height:40px} #m.t .pos{font-size:16px}
+#m.t .rule{width:40px;margin:16px 0 0} #m.t .aff{gap:14px;margin-top:22px} #m.t .aff .dl{width:44px;height:44px} #m.t .pos{font-size:16px}
 #m.t .pos2{font-size:13px}
-#m .pos .sp{display:none} #m.t .pos .b2{display:none} #m.t .pos .sp{display:inline}
 #m.t .mlab{font-size:15px;margin-bottom:22px;padding-bottom:16px;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px} #m.t .mlab .lab-en{font-size:13px;margin:0}
 #m.t .ct{font-size:15px;gap:8px 24px}
 #m.t .ml{grid-template-columns:repeat(3,1fr);gap:10px}
@@ -208,9 +207,10 @@ button{cursor:pointer}
 <div class="mhead mcard">
  <p class="mlab">地下資源與智慧計算研究室<span class="lab-en">Subsurface Resources and Intelligent Computing Laboratory</span></p>
  <div class="mh"><div class="ph"><img src="img/photo.jpg" alt="陳尚潁 Shang-Ying Chen"></div>
-  <div class="info"><h1>陳尚潁</h1><p class="en">Shang-Ying Chen, Ph.D.</p><div class="rule"></div>
-  <div class="aff"><img class="dl" src="img/dept_logo.png" width="28" height="28" alt="國立成功大學資源工程學系 系徽"><p class="pos">國立成功大學<br>資源工程學系<br class="b2"><span class="sp">　</span>助理教授</p></div></div></div>
- <p class="pos2">Assistant Professor, Department of Resources Engineering, National Cheng Kung University</p>
+  <div class="info"><h1>陳尚潁</h1><p class="en">Shang-Ying Chen, Ph.D.</p><div class="rule"></div></div></div>
+ <div class="aff"><img class="dl" src="img/dept_logo.png" width="28" height="28" alt="國立成功大學資源工程學系 系徽">
+  <div><p class="pos">國立成功大學 資源工程學系　助理教授</p>
+  <p class="pos2">Assistant Professor, Department of Resources Engineering, National Cheng Kung University</p></div></div>
  <dl class="ct">
    <dt>學歷</dt><dd>國立成功大學 資源工程學系 博士（2022）</dd>
    <dt>經歷</dt><dd>史丹佛大學 能源科學與工程學系 訪問博士後（2024–2025）<br>國立臺南大學 綠色能源科技學系 助理教授（2026）</dd>
@@ -260,7 +260,7 @@ function sc(){tk=false;if(!document.body.classList.contains('n'))return;var y=sc
  var on=y>innerHeight*.6;mt.classList.toggle('on',on);mt.tabIndex=on?0:-1;mf.classList.toggle('off',max-y<8||max<=4);}
 addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(sc);}},{passive:true});
 mt.addEventListener('click',function(){scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
-var MSEL='.mlab,.mh .ph,.mh .info,.pos2,.ct,.ml a,.nw h3,.nw li,.mres .sec,.mres .ri,.mg li',mode=null;
+var MSEL='.mlab,.mh .ph,.mh .info,.mhead>.aff,.ct,.ml a,.nw h3,.nw li,.mres .sec,.mres .ri,.mg li',mode=null;
 function anim(){if(!document.documentElement.classList.contains('fx'))return;var n=document.body.classList.contains('n');if(n===mode)return;mode=n;
  window.__seq([].slice.call(document.querySelectorAll(n?'#m :is('+MSEL+')':'#cv .sq')).filter(function(e){return !e.classList.contains('fade');}));}
 addEventListener('resize',function(){fit();anim();sc();});fit();anim();sc();
