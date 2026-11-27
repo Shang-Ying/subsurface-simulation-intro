@@ -60,7 +60,7 @@ python3 tools/build_news.py --check  # 檢查以上三者是否都和 yaml／頁
 - 適用 HOME、NEWS、MEMBERS、CV 四頁。各頁 `<head>` 裡的 `<style id="webfont">` 是自動產生的，不要手改。
 - **手改這四頁的文字之後，也要執行 `python3 tools/build_news.py`（或 `python3 tools/build_fonts.py`）**，新出現的字才會加進精簡字型。萬一忘了也不會壞：缺的字會在頁面載入完成後，自動改從 Google Fonts 補上，只是會多下載一點。
 - 字型堆疊是 `'Source Sans 3','Noto Sans TC Sub','Noto Sans TC',…`。原始字型第一次會下載到 `tools/.fontsrc/`（已在 .gitignore），授權檔在 `webfont/OFL.txt`。
-- HOME「CO₂」的「₂」Noto Sans TC 原始字型沒有，會從 Google 補，這是預期中的。
+- 化學式等下標請用 `<sub>`（例如 `CO<sub>2</sub>`），不要用「₂」這類下標字元：Noto Sans TC 沒有這些字，會額外向 Google 下載。
 
 ## 預覽
 
