@@ -1,0 +1,161 @@
+# 最新消息 News — 資料檔（新的在最上面）
+# 改完後執行：python3 tools/build_news.py
+# 欄位說明見 tools/build_news.py 開頭；"|" 代表中文斷行點 <wbr>。
+
+- ym: 2026-11
+  cat: teach
+  title: 水文地質學|課程|參訪：霖昌工程 汪柏岑|博士|現場|試驗 <span class="at">@ 雲林縣|口湖鄉</span>
+  photos:
+  - s: 2026-11_hydrogeo_field_1.jpg
+    w: 1130
+    h: 929
+
+- ym: 2026-10
+  cat: talk
+  title: 成大|水利|及|海洋工程|學系|專題演講：從|水文地質|到|資源工程|應用 <span class="at">@ 海工|教學大樓 2F 演講廳</span>
+  photos:
+  - s: 2026-10_ncku_hoe_talk_1.jpg
+    w: 1706
+    h: 960
+
+- ym: 2026-10
+  cat: visit
+  title: 接待|史丹佛大學 Daniel Tartakovsky 教授於 10 月 4 日至 10 月 10 日|來台|訪問
+  photos:
+  - s: 2026-10_tartakovsky_1.jpg
+    w: 1800
+    h: 1350
+    c: 朝天宮|合影
+
+- ym: 2026-09
+  cat: talk
+  title: 日本資源・素材學會 (MMIJ) 交流演講：A Physics-Informed Neural Network for Geomechanical Problem
+  photos:
+  - s: 2026-09_mmij_1.jpg
+    w: 1186
+    h: 496
+    c: 交流|後|晚宴
+
+- ym: 2026-09
+  cat: teach
+  title: 115 學年度|上學期|開授|課程：
+  body:
+  - li: 應用熱力學 Applied Thermodynamics
+  - li: 資源工程|概論 Introduction to Resources Engineering
+
+- ym: 2026-06
+  cat: paper
+  title: '新文章|發表 '
+  link: https://doi.org/10.1016/j.advwatres.2026.105387
+  body:
+  - kv_t: [題目：, Efficient approach to uncertainty quantification for emergency well planning under data scarcity]
+  - kv: [期刊：, 'Advances in Water Resources <span class="rk">(#30/132, Q1, Water Resources)</span>']
+
+- ym: 2026-05
+  cat: paper
+  title: 新文章|發表！
+  link: https://doi.org/10.1016/j.cageo.2026.106203
+  body:
+  - kv_t: [題目：, 'Meshfree 3DME: Efficient Uncertainty Quantification for Subsurface Flow']
+  - kv: [期刊：, 'Computers &amp; Geosciences <span class="rk">(#39/258, Q1, Geosciences)</span>']
+
+- ym: 2026-03
+  cat: service
+  title: '擔任|特刊|客座主編 CMES-Computer Modeling in Engineering &amp; Sciences (ISSN: 1526-1492, JCR Q1)'
+
+- ym: 2026-02
+  cat: teach
+  title: 114 學年度|下學期|開授|課程：
+  body:
+  - li: 熱力學 Thermodynamics
+  - li: 應用力學 Applied Mechanics
+  - li: 科學計算 Scientific Computing
+  - li: 基礎|能源|實驗 Fundamentals of Energy Experiments
+
+- ym: 2025-10
+  cat: conf
+  title: 研討會|發表
+  body:
+  - ln: Uncertainty Quantification for Groundwater Level in Taichung Basin by Method of Distribution
+  - ln: Oral Presentation, GSK2025 <span class="at">@ South Korea</span>
+
+- ym: 2025-06
+  cat: service
+  title: 擔任|美國國家科學基金會|地球科學部|提案|評審委員
+  body:
+  - ln: Proposal Review Panelist for NSF Directorate for Geosciences (GEO)
+
+- ym: 2025-05
+  cat: conf
+  title: 研討會|發表
+  body:
+  - ln: An Efficient Approach to Probabilistic Groundwater Flow Modeling for Emergency Well Design
+  - ln: Oral Presentation, InterPore2025 <span class="at">@ Albuquerque, New Mexico</span>
+
+- ym: 2025-04
+  cat: talk
+  title: 受邀|產學聯盟|演講
+  body:
+  - ln: 二氧化碳|地質封存|注入井|完整性|力學性質|分析
+  - ln: <a href="https://suetrid.stanford.edu/" target="_blank" rel="noopener">SUETRI-D</a> Affiliate Annual Meeting <span class="at">@ Stanford ESE</span>
+  - ln: 機器學習|小組討論會
+  - ln: Machine Learning Journal Club
+
+- ym: 2025-03
+  cat: talk
+  title: 台中|北盆地|抗旱井|水位|不確定性量化|研究|報告 <span class="at">@ Stanford Green Earth</span>
+
+- ym: 2024-12
+  cat: project
+  title: 提交|中興工程顧問社 113 年度|研究計畫|報告
+  body:
+  - kv: [計畫名稱：, 發展|累積分佈函數|方程式|方法|量化|水文地質|模式|不確定性]
+
+- ym: 2024-11
+  cat: talk
+  title: 廣義有限差分法|及|資料同化|模式|學術演講 <span class="at">@ Stanford Mitchell</span>
+  body:
+  - ln: 內容|包含|博士班|期間|的|研究，以及|最新|期刊論文|發表|中|的|成果
+
+- ym: 2024-10
+  cat: paper
+  title: 新文章|發表！
+  link: https://doi.org/10.1016/j.enganabound.2024.105997
+  body:
+  - kv_t: [題目：, An efficient approach of meshless node placement in three-dimensional subsurface flow modeling]
+  - kv: [期刊：, 'Engineering Analysis with Boundary Elements <span class="rk">(#11/135 = 8.1%, Q1, Mathematics)</span>']
+  - ln: 提出|創新|三維度|不規則|佈點|技術，有效|控制|無網格|計算節點|空間變化|密度
+
+- ym: 2024-07
+  cat: visit
+  title: 加入|史丹佛大學|能源|科學|與|工程系 <a href="https://tartakovsky.stanford.edu/research" target="_blank" rel="noopener">數據驅動|建模|與|模擬|組</a>
+  body:
+  - kv: [Host：, '<a href="https://profiles.stanford.edu/daniel-tartakovsky" target="_blank" rel="noopener">Daniel Tartakovsky</a>']
+
+- ym: 2024-02
+  cat: award
+  title: 獲頒|國科會 112 年度|博士後學術研究獎
+
+- ym: 2024-02
+  cat: talk
+  title: 演講：放射性廢棄物|最終處置|技術|發展－加熱器|試驗|資料同化|模式 <span class="at">@ 國家|原子能|科技|研究院|化學所</span>
+
+- ym: 2023-11
+  cat: talk
+  title: 演講：動態|自適應|地下|建模 <span class="at">@ BGS 英國地質調查所|雙邊|國合|計畫</span>
+
+- ym: 2023-07
+  cat: visit
+  to: 8
+  title: 參加|北海道大學|暑期|研修課程 Advanced Nuclear Waste Management 及實習
+  body:
+  - kv: [研修地點：, JAEA 幌延|地下研究中心、幌延|地圈|環境|研究所]
+
+- ym: 2023-07
+  cat: paper
+  title: '博士後|期刊論文|發表 '
+  link: https://link.springer.com/article/10.1007/s00366-023-01897-6
+  body:
+  - kv_t: [題目：, Data assimilation for real-time subsurface flow modeling with dynamically adaptive meshless node adjustments]
+  - kv: [期刊：, 'Engineering with Computers <span class="rk">(#4/136 = 2.9%, Q1, Engineering, Mechanical)</span>']
+  - ln: 以|廣義有限差分法|搭配|系集卡門濾波器，建構|即時|資料同化|模式
