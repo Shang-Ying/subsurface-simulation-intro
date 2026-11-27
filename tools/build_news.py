@@ -2,12 +2,18 @@
 """Rebuild the News timeline in news/index.html from news/news.yaml.
 
 Usage (from the repo root):
-    python3 tools/build_news.py            # rewrite news/index.html
-    python3 tools/build_news.py --check    # exit 1 if index.html is out of date
+    python3 tools/build_news.py            # rewrite news/index.html, home/index.html, web fonts
+    python3 tools/build_news.py --check    # exit 1 if any of them is out of date
 
 Only two regions of news/index.html are regenerated: the year-jump links
 (<div class="yj">…</div>) and the timeline (<main …>…</main>). The <head>,
 CSS, header card, filter chips and scripts are left exactly as they are.
+
+home/index.html: the list inside both "最新消息" cards (desktop and phone) is
+replaced with the newest HOME_N items (title without tags, "|" -> <wbr>).
+
+Afterwards tools/build_fonts.py rebuilds the Chinese font subsets, so any new
+character in the news is covered (see that file).
 
 Data format (news/news.yaml): a list of items, newest first.
 
@@ -42,6 +48,9 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 PAGE = ROOT / "news" / "index.html"
 DATA = ROOT / "news" / "news.yaml"
+HOME = ROOT / "home" / "index.html"
+HOME_N = 3  # how many of the newest items the home page shows
+HOME_NEWS_URL = "https://sites.google.com/view/synatsu/news"
 
 CATS = {
     "paper":   ("論文", "Publication", "#1F3A5F"),
@@ -193,21 +202,54 @@ def build(page_html, items):
     return page_html
 
 
+def render_home_item(it):
+    ym = str(it["ym"])
+    y, m = ym.split("-")
+    label = f"{y}.{m}"
+    if it.get("to"):
+        label += f"–{int(it['to']):02d}"
+    text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", str(it["title"]))).strip()
+    return (f'<li class="hv"><a href="{HOME_NEWS_URL}" target="_blank" rel="noopener" '
+            f'title="最新消息頁（新分頁開啟）"><time datetime="{ym}">{label}</time>'
+            f'<span>{wbr(text)}</span></a></li>')
+
+
+def build_home(page_html, items):
+    """Put the newest HOME_N items into both "最新消息" cards on the home page (desktop + phone)."""
+    ul = "<ul>" + "".join(render_home_item(it) for it in items[:HOME_N]) + "</ul>"
+    page_html, n = re.subn(r'(<section class="nw[^"]*" aria-label="最新消息">.*?</h3>)<ul>.*?</ul>',
+                           lambda mo: mo.group(1) + ul, page_html, flags=re.S)
+    if n != 2:
+        raise SystemExit(f"expected 2 最新消息 cards in home/index.html, found {n}")
+    return page_html
+
+
 def main():
     items = yaml.safe_load(DATA.read_text(encoding="utf-8"))
-    old = PAGE.read_text(encoding="utf-8")
-    new = build(old, items)
-    if "--check" in sys.argv:
-        if new != old:
-            print("news/index.html is out of date: run python3 tools/build_news.py")
+    pages = [(PAGE, build(PAGE.read_text(encoding="utf-8"), items)),
+             (HOME, build_home(HOME.read_text(encoding="utf-8"), items))]
+    check = "--check" in sys.argv
+    stale = []
+    for path, new in pages:
+        old = path.read_text(encoding="utf-8")
+        rel = path.relative_to(ROOT).as_posix()
+        if new == old:
+            print(f"{rel}: up to date" if check else f"{rel}: no change")
+        elif check:
+            print(f"{rel}: out of date")
+            stale.append(rel)
+        else:
+            path.write_text(new, encoding="utf-8")
+            print(f"wrote {rel}")
+    # the Chinese web-font subsets must cover every character on the pages
+    import build_fonts
+    if check:
+        stale += build_fonts.check()
+        if stale:
+            print("run: python3 tools/build_news.py")
             sys.exit(1)
-        print("news/index.html is up to date")
-        return
-    if new == old:
-        print("no change")
-        return
-    PAGE.write_text(new, encoding="utf-8")
-    print(f"wrote {PAGE.relative_to(ROOT)} ({len(items)} items)")
+    else:
+        build_fonts.build()
 
 
 if __name__ == "__main__":

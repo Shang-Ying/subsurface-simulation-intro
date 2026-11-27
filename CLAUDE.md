@@ -31,12 +31,15 @@ RESEARCH、LIFE、OFFICE HOURS 三頁是 Google Sites 原生頁面，不在這�
 
 ## 最新消息（News）的維護方式
 
-**不要手改 `news/index.html` 的時間軸。** 請改 `news/news.yaml`，再執行：
+**不要手改 `news/index.html` 的時間軸，也不要手改 HOME 的「最新消息」。** 請改 `news/news.yaml`，再執行：
 
 ```bash
-python3 tools/build_news.py          # 重新產生 news/index.html
-python3 tools/build_news.py --check  # 檢查 index.html 是否和 yaml 一致
+python3 tools/build_news.py          # 重新產生 NEWS 時間軸、HOME 最新消息、各頁精簡字型
+python3 tools/build_news.py --check  # 檢查以上三者是否都和 yaml／頁面內容一致
 ```
+
+- 這個指令會一次更新三件事：NEWS 時間軸、HOME 的「最新消息」（取 yaml 最新三則，桌機版和手機版兩處都會更新），以及各頁的精簡字型（見下方〈字型〉）。
+- 需要的 Python 套件：`pip install pyyaml fonttools brotli pillow`。
 
 - 新的消息放在 yaml 最上面。各欄位的說明寫在 `tools/build_news.py` 開頭。
 - 分類 `cat` 只能是下列其中一個：`paper` 論文、`talk` 演講、`conf` 研討會、`teach` 教學、`service` 服務、`award` 獲獎、`visit` 交流、`project` 計畫。
@@ -50,6 +53,14 @@ python3 tools/build_news.py --check  # 檢查 index.html 是否和 yaml 一致
   - 這個指令會轉正方向、去除 EXIF 和 GPS 等資料、縮成 1800 px 大圖加 900 px 小圖，並印出可以直接貼進 yaml 的內容。
   - 檔名格式：`YYYY-MM_主題_序號`。
 - 頁面上方的 CSS、篩選按鈕、JS 都直接寫在 `news/index.html` 裡，要改就直接改那個檔；產生腳本只會覆寫 `<main>` 時間軸和年份跳轉列。
+
+## 字型
+
+- 中文字型用自己產生的 Noto Sans TC 精簡字型（只含該頁用到的字），放在 `webfont/`，由 `tools/build_fonts.py` 產生，`build_news.py` 會自動呼叫。這是為了讓 Google Sites 嵌入頁載入更快（原本每頁要向 Google Fonts 下載 40 多個字型分片）。
+- 適用 HOME、NEWS、MEMBERS、CV 四頁。各頁 `<head>` 裡的 `<style id="webfont">` 是自動產生的，不要手改。
+- **手改這四頁的文字之後，也要執行 `python3 tools/build_news.py`（或 `python3 tools/build_fonts.py`）**，新出現的字才會加進精簡字型。萬一忘了也不會壞：缺的字會在頁面載入完成後，自動改從 Google Fonts 補上，只是會多下載一點。
+- 字型堆疊是 `'Source Sans 3','Noto Sans TC Sub','Noto Sans TC',…`。原始字型第一次會下載到 `tools/.fontsrc/`（已在 .gitignore），授權檔在 `webfont/OFL.txt`。
+- HOME「CO₂」的「₂」Noto Sans TC 原始字型沒有，會從 Google 補，這是預期中的。
 
 ## 預覽
 
